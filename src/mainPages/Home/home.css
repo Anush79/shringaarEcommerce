@@ -1,0 +1,55 @@
+h4{
+  font-size: small;
+  font-family: abel;
+  color:#575757;
+}
+section{
+height: fit-content;
+}
+
+.home{
+  padding: 0 0.3em;  
+  text-align: right;
+  background: url(/public/assets/bg.jpg);
+  text-align: right;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+.headerLeft{
+  display: flex;
+  gap:4px;
+  align-items: center;
+}
+.home p{
+  font-family: abel;
+  width: 70%;
+  margin-left: 30%;
+}
+.home button{
+ border: 1px solid;
+ color: var(--primary-text-color);
+ padding: 0.5em;
+ background: linear-gradient(white, var(--primary-theme-color));
+}
+.bestSeller p{
+font-size: 0.8em;
+font-family: abel, sans-serif;
+margin-bottom:0;
+}
+.bestSeller>h3{
+  margin-top:0;
+  display: inline-block;
+  border-bottom: 1px solid 
+}
+.mainbutton{
+  display: flex;
+  justify-content: center;
+}
+
+
+@media (min-width: 400px){
+.home{
+  height: 80vh;
+}
+}
