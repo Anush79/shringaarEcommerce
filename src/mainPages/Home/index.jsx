@@ -26,6 +26,8 @@ const popularData = [
   }
 
 ];
+
+const category = ['Rings', 'Bracelets', 'Earrings', 'Necklaces']
 export default function Home() {
   return (
     <>
@@ -42,18 +44,30 @@ export default function Home() {
           finest materials to ensure both quality and beauty.
         </p>
         <div className="mainbutton">
-        <button>Shop Now</button>
+          <button>Shop Now</button>
 
         </div>
       </section>
+
       <section className="bestSeller">
         <p>Popular Products</p>
-          <h3>TRENDING NOW</h3>
-          <div className = "productsContainer">
+        <h3>TRENDING NOW</h3>
+        <div className="productsContainer">
           {popularData.map((item) => <ProductCard item={item} />)}
-          </div>
+        </div>
 
       </section>
+      <section className="ShopByCategory">
+
+        <h3>SHOP BY CATEGORY</h3>
+        <p>Browse through your favorite categories. we have got them all!</p> <div className="productsContainer">
+          <div className="categoryBox">
+            {category.map((item) => <div key={item}className="homeCategory">{item}</div>)}
+          </div>
+        </div>
+
+      </section>
+
     </>
   );
 }

@@ -1,28 +1,45 @@
 @import url("https://fonts.googleapis.com/css2?family=Abel&display=swap");
+
 .App {
   text-align: center;
   color: var(--primary-text-color);
+  overflow: hidden;
+  position: relative;
 }
 
 .headerContainer {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 5px;
+  box-shadow: 0 0 2px #345;
+  background: white;
+  position: fixed;
+  top: 0;
+  width: 100%;
+
 }
 
 .logoContatiner {
   text-align: left;
   font-size: 1em;
   line-height: 10px;
+  padding: 8px;
 }
+
 .logoContatiner h2 {
-  font-size: 1.2em;
+  font-size: 1.1em;
   margin-bottom: 10px;
+
+}
+
+.categories {
+  display: none;
 }
 
 .headerLeft {
   display: flex;
+  padding-right: 5px;
   gap: 4px;
   align-items: center;
 }
@@ -35,10 +52,14 @@
   font-size: 0.7em;
   margin-top: 0;
 }
-.menuBar {
+
+.menuBar,
+.expandMenu {
   cursor: pointer;
-  padding: 5px;
+  padding: 0px;
+  width: 25px;
 }
+
 .bar1,
 .bar2,
 .bar3 {
@@ -49,12 +70,15 @@
   transition: 0.4s;
   border-radius: 1px;
 }
+
 .expandMenu .bar1 {
   transform: translate(0, 2px) rotate(-45deg);
 }
+
 .expandMenu .bar3 {
   transform: translate(0, -10px) rotate(45deg);
 }
+
 .expandMenu .bar2 {
   opacity: 0;
 }
@@ -63,45 +87,139 @@
   width: 100%;
   font-family: abel, sans-serif;
   text-align: center;
+  position: sticky;
+
+}
+li{
+  list-style: none;
+  font-family: abel;
 }
 .sideNav ul {
   padding-left: 0;
   text-align: center;
 }
+
 .sideNav li {
-  list-style: none;
-  padding: 0.5em;
-  border-bottom: 1px solid;
+  padding: 0.4em;
+  border-bottom: 1px dashed;
+
 }
+
 .sideNav li:hover {
   color: #a86e3b;
 }
+
 .sideNav li select {
   border: none;
+  background: var(--primary-theme-color);
   font-family: abel;
   font-size: 1em;
   text-align: center;
   cursor: pointer;
 }
+
+.sideNav li select option {
+  text-align: center;
+  margin: auto;
+
+}
+
 .stikeThrough {
   text-decoration: line-through;
   color: grey;
 }
+
 .price {
   font-family: abel;
 }
+
 .productsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 10px;
   padding: 10px;
 }
+
 .ProductCard {
   padding: 5px;
   background: linear-gradient(white, var(--primary-theme-color));
   box-shadow: 0 3px 4px rgba(128, 128, 128, 0.592);
 }
+
 .ProductCard img {
   width: 100%;
   border-radius: 4px;
+}
+
+.navbarIcons {
+  display: flex;
+  flex-direction: row;
+  gap: 13px;
+
+}
+
+a {
+  text-decoration: none;
+  color: var(--primary-text-color)
+}
+
+.socialMedia {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0;
+  height: fit-content;
+  background: linear-gradient(white, pink, var(--primary-text-color));
+}
+
+@media (min-width: 400px) {
+
+  .headerContainer {
+    justify-content: space-between;
+   
+
+  }
+
+  .logoContatiner {
+    text-align: left;
+    font-size: 1.2em;
+    line-height: 16px;
+    text-align: center;
+   
+
+  }
+/* .logoContatiner h2{
+  margin-bottom: 24px;
+} */
+  .categories  {
+    display: flex;
+    flex-direction: row;
+    gap: 30px;
+    padding: 20px;
+    font-weight: 600;
+    font-family: abel;
+    font-size: 1.1em;
+  }
+  .menuBar,
+  .expandMenu {
+    display: none;
+  }
+
+  .navbarIcons {
+    gap: 30px;
+  }
+
+  .navbarIcons svg {
+    font-size: 2em;
+  }
+  .navbarIcons li{
+    font-family: abel;
+    font-size: 1.1em;
+    font-weight:600;
+  }
+  
 }

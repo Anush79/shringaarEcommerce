@@ -1,0 +1,20 @@
+.emptyCart{
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+}
+.emptyCart img{
+  width:100%;
+  height:50%;
+ padding: 10px 0;
+  border: none;
+  clip-path:circle(35%);
+
+}
+.emptyCart p{
+  text-transform: capitalize;
+  font-family: abel;
+}
