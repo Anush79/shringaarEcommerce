@@ -175,14 +175,19 @@ footer {
   height: fit-content;
   background: linear-gradient(white, pink, var(--primary-text-color));
 }
+.navbarIcons li{
+  display:none
+}
 
 @media (min-width: 400px) {
 
   .headerContainer {
     justify-content: space-between;
-   
-
   }
+  .navbarIcons li{
+    display:flex
+  }
+  
 
   .logoContatiner {
     text-align: left;

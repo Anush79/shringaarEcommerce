@@ -73,7 +73,7 @@ export default function Header() {
           <span className="emptyCart">
             <Badge badgeContent={3} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to='/cart'>
-                <AddShoppingCartIcon />
+              <ShoppingCartIcon/>
               </NavLink>
 
             </Badge>
@@ -86,7 +86,7 @@ export default function Header() {
 
           </span>
 
-          {/* <ShoppingCartIcon/> */}
+          {/*  <AddShoppingCartIcon /> */}
 
           {/* <LogoutRoundedIcon/> */}
           {/*  <FavoriteRoundedIcon /> */}
