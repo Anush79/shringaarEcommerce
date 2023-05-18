@@ -2,6 +2,7 @@
 .formBox{
   font-family: abel;
   letter-spacing: 1px;
+  margin: 80px;
 }
 .formBox h2{
   font-family: 'Cinzel Decorative';
@@ -10,11 +11,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 90vh;
+  min-height: 96vh;
   min-width: 100%;
   background: url('../../../public/assets/loginBg.jpg') ;
   background-position: center;
 background-size: cover;
+
 
 }
 .formBox{

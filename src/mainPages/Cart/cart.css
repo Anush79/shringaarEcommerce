@@ -7,14 +7,21 @@
   align-items: center;
 }
 .emptyCart img{
-  width:100%;
+  width:80%;
   height:50%;
- padding: 10px 0;
+ padding: 100px 0 10px 0;
+ z-index:-1;
   border: none;
-  clip-path:circle(35%);
+  clip-path:circle(45%);
 
 }
 .emptyCart p{
   text-transform: capitalize;
   font-family: abel;
+}
+
+@media  (min-width: 400px) {
+  .emptyCart img{
+width: 50%;
+  }
 }

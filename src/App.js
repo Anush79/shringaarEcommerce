@@ -14,9 +14,9 @@ function App() {
   return (
     <div className="App">
       <Header />
-     {/* <Home /> */}
 
-{/* <About/> */}
+
+ <About/> 
      <Routes>
         <Route path= '/' element={<Home />}/>
         <Route path= '/mockman' element={<MockApi />}/>
@@ -26,7 +26,7 @@ function App() {
         <Route path= '/login' element = {<Login/>} />
 
      </Routes>
-     {/* <Footer /> */}
+     <Footer />
     </div>
   );
 }

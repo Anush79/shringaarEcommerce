@@ -41,7 +41,7 @@ export default function Home() {
           {" "}
           your one-stop-shop for exquisite jewelry pieces that are perfect for
           any occasion.Explore our exclusive collection handcrafted with the
-          finest materials to ensure both quality and beauty.
+          finest materials to ensure both quality and beauty. Explore our collection, and find the perfect piece that speaks to you
         </p>
         <div className="mainbutton">
           <button>Shop Now</button>
@@ -62,10 +62,32 @@ export default function Home() {
         <h3>SHOP BY CATEGORY</h3>
         <p>Browse through your favorite categories. we have got them all!</p> <div className="productsContainer">
           <div className="categoryBox">
-            {category.map((item) => <div key={item}className="homeCategory">{item}</div>)}
+            <div className="necklace">
+              <img src="\assets\categoryIcon\necklace.png" alt="necklace image random" srcset="" />
+              <p>Bracelets</p>
+            </div>
+            <div className="ring">
+              <img src="\assets\categoryIcon\ring.png" alt="ring image random" srcset="" />
+              <p>Rings</p>
+            </div>
+            <div className="bracelet">
+              <img src="\assets\categoryIcon\bracelet.png" alt="bracelet image random" srcset="" />
+              <p>Bracelets</p>
+            </div>
+            <div className="earring">
+              <img src="\assets\categoryIcon\earring.png" alt="earring image random" srcset="" />
+              <p>Bracelets</p>
+            </div>
           </div>
         </div>
 
+      </section>
+      <section className="whyUs">
+        <p>BEST IN BUSINESS</p>
+        <h3>Why Choose Us</h3>
+        <p className="desc">
+
+        </p>
       </section>
 
     </>

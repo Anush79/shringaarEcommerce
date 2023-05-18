@@ -83,8 +83,9 @@ button {
 
 .categoryBox {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  width: 90%;
 }
 
 .ShopByCategory p,
@@ -102,22 +103,24 @@ button {
 
   .home button {
     font-size: 1rem;
+    
   }
-
   .home h4 {
     font-size: 1.1rem;
     margin-bottom: 0px;
   }
-
+.home p{
+  max-width: 50%;
+}
   .home h3 {
     margin: 0;
   }
 
   .productsContainer {
-
     display: flex;
-    width: 80%;
-    justify-content: center;
+    width: 100%;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
   }
 
 }

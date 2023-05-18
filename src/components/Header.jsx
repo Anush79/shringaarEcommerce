@@ -3,15 +3,17 @@ import { NavLink } from 'react-router-dom'
 import SearchIcon from "@mui/icons-material/Search";
 
 import Badge from '@mui/material/Badge';
+import StoreTwoToneIcon from '@mui/icons-material/StoreTwoTone';
 import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCartRounded';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCartRounded';
-import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
+import LocalGroceryStoreTwoToneIcon from '@mui/icons-material/LocalGroceryStoreTwoTone';import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 export default function Header() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
+  const [isSearchclicked, setIsSearchedClicked] = useState(false)
   const [category, setCategory] = useState("");
+
   const handleMenu = () => {
     setIsMenuClicked(!isMenuClicked);
   };
@@ -22,12 +24,12 @@ export default function Header() {
     <>
       <div className="headerContainer">
         <div className="categories">
-          
-            <li>Rings</li>
-            <li>Bracelets</li>
-            <li>Necklaces</li>
-            <li>Earrings</li>
-       
+
+          <li>Rings</li>
+          <li>Bracelets</li>
+          <li>Necklaces</li>
+          <li>Earrings</li>
+
         </div>
         <div className="headerLeft">
           <div
@@ -41,24 +43,41 @@ export default function Header() {
             </span>
           </div>
           <div className="logoContatiner">
-          <NavLink to='/'>
-                <h2>ShringaaR</h2>
-                <p>Your Jewelry House</p>
-              </NavLink>
-            
-            
+            <NavLink to='/'>
+              <h2>ShringaaR</h2>
+              <p>Your Jewelry House</p>
+            </NavLink>
+
+
           </div>
         </div>
         <div className="navbarIcons">
-        
-            <NavLink to='/about'>
-              <li onClick={handleMenu}>ABOUT</li>
-            </NavLink>
-            <NavLink to='contact'>
-              <li onClick={handleMenu}>CONTACT</li>
-            </NavLink>
-          <span className="search">
-            <SearchIcon />
+
+          <NavLink to='/about'>
+            <li >About</li>
+          </NavLink>
+          <NavLink to='contact'>
+            <li>Contact</li>
+          </NavLink>
+     {/* <span className="shop">
+     <StoreTwoToneIcon/>
+     </span> */}
+
+          <span className="search" >
+         
+            {
+              isSearchclicked ?
+                <div className="inputElement">
+                  <input type="text" placeholder="search items" />
+                  <SearchIcon onClick={() => {
+                    setIsSearchedClicked(!isSearchclicked)
+                  }} />
+
+                </div> : <SearchIcon onClick={() => {
+                  setIsSearchedClicked(!isSearchclicked)
+                }} />
+            }
+
           </span>
           <span className="wishList">
             <Badge badgeContent={1} color="secondary" sx={{ color: "#5f3926" }}>
@@ -73,14 +92,13 @@ export default function Header() {
           <span className="emptyCart">
             <Badge badgeContent={3} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to='/cart'>
-              <ShoppingCartIcon/>
+                <LocalGroceryStoreTwoToneIcon />
               </NavLink>
 
             </Badge>
           </span>
           <span className="login">
             <NavLink to='/login'>
-
               <LoginRoundedIcon />
             </NavLink>
 
@@ -114,7 +132,7 @@ export default function Header() {
                 name="categoryChoose"
                 onChange={handleCategory}
                 id="chooseCategory"
-              
+
               >
                 <option value="SHOP">SHOP CATEGORY</option>
                 <option value="RINGS">RINGS</option>

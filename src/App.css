@@ -130,6 +130,7 @@ li {
   color: grey;
 }
 .ProductCard {
+  
   padding: 5px;
   background: linear-gradient(white, var(--primary-theme-color));
   box-shadow: 0 3px 4px rgba(128, 128, 128, 0.592);
@@ -159,7 +160,7 @@ a {
 footer {
   position: absolute;
   width: 100%;
-  bottom: 0;
+  
   height: fit-content;
   background: linear-gradient(white, pink, var(--primary-text-color));
 }
@@ -168,6 +169,7 @@ footer {
   display: none
 }
 
+
 @media (min-width: 400px) {
 
   .headerContainer {
@@ -175,7 +177,8 @@ footer {
   }
 
   .navbarIcons li {
-    display: flex
+    display: flex;
+  
   }
 
 
@@ -209,9 +212,7 @@ footer {
   .navbarIcons svg {
     font-size: 1.5rem;
   }
-
   .navbarIcons li {
-    font-family: abel;
     font-size: 1.1em;
     font-weight: 600;
   }
