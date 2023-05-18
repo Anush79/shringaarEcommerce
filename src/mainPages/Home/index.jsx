@@ -49,7 +49,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section className="bestSeller">
+      <section className="trending">
         <p>Popular Products</p>
         <h3>TRENDING NOW</h3>
         <div className="productsContainer">

@@ -87,13 +87,15 @@
   width: 100%;
   font-family: abel, sans-serif;
   text-align: center;
-  position: sticky;
+  margin-top: 75px;
 
 }
-li{
+
+li {
   list-style: none;
   font-family: abel;
 }
+
 .sideNav ul {
   padding-left: 0;
   text-align: center;
@@ -123,23 +125,10 @@ li{
   margin: auto;
 
 }
-
 .stikeThrough {
   text-decoration: line-through;
   color: grey;
 }
-
-.price {
-  font-family: abel;
-}
-
-.productsContainer {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
-}
-
 .ProductCard {
   padding: 5px;
   background: linear-gradient(white, var(--primary-theme-color));
@@ -155,7 +144,6 @@ li{
   display: flex;
   flex-direction: row;
   gap: 13px;
-
 }
 
 a {
@@ -175,8 +163,9 @@ footer {
   height: fit-content;
   background: linear-gradient(white, pink, var(--primary-text-color));
 }
-.navbarIcons li{
-  display:none
+
+.navbarIcons li {
+  display: none
 }
 
 @media (min-width: 400px) {
@@ -184,23 +173,20 @@ footer {
   .headerContainer {
     justify-content: space-between;
   }
-  .navbarIcons li{
-    display:flex
+
+  .navbarIcons li {
+    display: flex
   }
-  
+
 
   .logoContatiner {
     text-align: left;
     font-size: 1.2em;
     line-height: 16px;
     text-align: center;
-   
-
   }
-/* .logoContatiner h2{
-  margin-bottom: 24px;
-} */
-  .categories  {
+
+  .categories {
     display: flex;
     flex-direction: row;
     gap: 30px;
@@ -209,6 +195,7 @@ footer {
     font-family: abel;
     font-size: 1.1em;
   }
+
   .menuBar,
   .expandMenu {
     display: none;
@@ -216,15 +203,22 @@ footer {
 
   .navbarIcons {
     gap: 30px;
+    margin-right: 20px
   }
 
   .navbarIcons svg {
-    font-size: 2em;
+    font-size: 1.5rem;
   }
-  .navbarIcons li{
+
+  .navbarIcons li {
     font-family: abel;
     font-size: 1.1em;
-    font-weight:600;
+    font-weight: 600;
   }
-  
+
+  .productsContainer {
+    display: flex;
+    min-width: 80%;
+  }
+
 }
