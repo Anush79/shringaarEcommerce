@@ -29,15 +29,7 @@ section {
   font-size: 1rem;
 }
 
-button {
-  border: 1px solid;
-  color: var(--primary-text-color);
-  padding: 0.7em 1em;
-  border-radius: 5px;
-  font-family: 'Cinzel decorative';
-  font-weight: bold;
-  background: linear-gradient(var(--primary-theme-color), white, var(--primary-theme-color));
-}
+
 
 .home button:hover {
   background: linear-gradient(white, var(--primary-theme-color));
@@ -83,9 +75,20 @@ button {
 
 .categoryBox {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
   width: 90%;
+
+}
+
+.categoryBox div {
+  cursor: pointer;
+  width: 70%;
+  border-radius: 2%;
+  transition: 0.3s;
+  font-weight: 700;
+  padding: 15px;
 }
 
 .ShopByCategory p,
@@ -93,8 +96,38 @@ button {
   font-family: abel;
 }
 
+.categoryBox div:hover {
+  transform: translateY(2px);
+  box-shadow: var(--primary-theme-color)  0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+
+.showOff {
+  display: flex;
+  flex-direction: column;
+}
+
+.showOff p {
+  font-family: abel;
+}
+.bigImage {
+  height: 600px;
+  width: 100%;
+}
+
+
+.smallImage {
+width:100%;
+     
+}
+.middleImage{
+  width:40%;padding: 10px;
+}
+.whyUs p{
+  font-family: abel;
+}
 
 @media (min-width: 400px) {
+
   .home {
     height: 80vh;
     font-size: 2rem;
@@ -103,15 +136,18 @@ button {
 
   .home button {
     font-size: 1rem;
-    
+
   }
+
   .home h4 {
     font-size: 1.1rem;
     margin-bottom: 0px;
   }
-.home p{
-  max-width: 50%;
-}
+
+  .home p {
+    max-width: 50%;
+  }
+
   .home h3 {
     margin: 0;
   }
@@ -119,8 +155,82 @@ button {
   .productsContainer {
     display: flex;
     width: 100%;
-    justify-content: space-evenly;
+    justify-content: center;
     flex-wrap: wrap;
   }
 
+  .showOff {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+  }
+
+  .showOff .textContent {
+    width: 50%;
+    padding-left: 100px;
+    z-index:3;
+  }
+  .categoryBox {
+    display: flex;
+    flex-wrap:nowrap;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    padding: 20px
+  }
+  
+  .textContent h3{
+    margin-top: 0;
+font-size: 2rem;
+  }
+  .imageContent {
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+  .bigImage {
+    height: 600px;
+    width: 100%;
+  }
+  
+
+  .smallImage {
+   margin-left: -20px;
+   margin-top: 30%;
+    right: -30px;
+    height:500px;
+    z-index:1;
+    position: relative;
+       
+  }
+  .middleImage{
+    width:40%;padding: 10px;
+  }
+
+  .whyusContent{
+    display: flex;
+  }
+  .whyUsDescription{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    
+    align-items: center;
+    gap: 10px;
+  }
+  .whyUsDescription div{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 5px;
+
+  }
+  .whyUsDescription p{
+    text-align: left;
+  }
+ 
+  .whyUsDescription div img{
+    height: 50px;
+    width: 50px;
+  }
+ 
 }

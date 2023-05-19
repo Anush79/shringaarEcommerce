@@ -15,6 +15,8 @@ export default function About(){
   useEffect(() => {
     getApiData();
   }, []);
-  return(<>About Page</>)
+  return(
+    <h1>About page</h1>
+  )
 }
 

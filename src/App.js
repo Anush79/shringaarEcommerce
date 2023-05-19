@@ -14,9 +14,6 @@ function App() {
   return (
     <div className="App">
       <Header />
-
-
- <About/> 
      <Routes>
         <Route path= '/' element={<Home />}/>
         <Route path= '/mockman' element={<MockApi />}/>

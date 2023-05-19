@@ -22,6 +22,7 @@
 
 @media  (min-width: 400px) {
   .emptyCart img{
-width: 50%;
+     width: 50%;
+     
   }
 }

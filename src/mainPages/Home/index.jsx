@@ -57,10 +57,22 @@ export default function Home() {
         </div>
 
       </section>
+      <section className="showOff">
+        <div className="textContent">
+          <p>Unique Pieces</p>
+          <h3>BE ALWAYS ON TREND</h3>
+          <p >We take immense pride in offering jewelry pieces that are crafted with the utmost care and attention to detail. Each item in our collection undergoes rigorous quality checks to ensure it meets our high standards</p>
+        </div>
+        <div className="imageContent">
+          <img className="bigImage" src='\assets\model2.jpg' width="400px" />
+          <img className="smallImage" src='\assets\hands.jpg' alt="" />
+
+        </div>
+      </section>
       <section className="ShopByCategory">
 
         <h3>SHOP BY CATEGORY</h3>
-        <p>Browse through your favorite categories. we have got them all!</p> <div className="productsContainer">
+        <p>Browse through your favorite categories. we have got them all!</p> 
           <div className="categoryBox">
             <div className="necklace">
               <img src="\assets\categoryIcon\necklace.png" alt="necklace image random" srcset="" />
@@ -76,18 +88,42 @@ export default function Home() {
             </div>
             <div className="earring">
               <img src="\assets\categoryIcon\earring.png" alt="earring image random" srcset="" />
-              <p>Bracelets</p>
+              <p>Earrings</p>
             </div>
           </div>
-        </div>
+     
 
       </section>
       <section className="whyUs">
         <p>BEST IN BUSINESS</p>
         <h3>Why Choose Us</h3>
-        <p className="desc">
+        <div className="whyusContent">
+          <img className="middleImage" src="\assets\model.jpg" alt="" srcset="" />
+          <div className="whyUsDescription">
+            <div>
+              <img src="\assets\whyUsIcons\percent-solid.svg" alt="big discount" />
+              <h3>Big Discount</h3>
+              <p>We provide higher discounts without compromising on quality or craftsmanship. Our commitment to offering affordable prices allows you to indulge in your love for exquisite jewelry while enjoying significant savings.</p>
+            </div>
+            <div>
+              <img src="\assets\whyUsIcons\truck-fast-solid.svg" alt="fast delivery" />
+              <h3>Free Delivery</h3>
+              <p>With our Free delivery service, you can shop with confidence, knowing that there are no hidden fees or additional charges. Sit back, relax, and let us take care of delivering your exquisite jewelry directly to you.</p>
+            </div>
+            <div>
+              <img src="\assets\whyUsIcons\wallet-solid.svg" alt="big savings " />
+              <h3>Secure Payments</h3>
+              <p>We ensure your peace of mind throughout your shopping experience. Your financial security is of utmost importance to us, which is why we have implemented advanced encryption and secure payment gateways.</p>
+            </div>
+            <div>
+              <img src="\assets\whyUsIcons\boxes-packing-solid.svg" alt="big tracking order" />
+              <h3>Order Tracking</h3>
+              <p>We provide tracking order services, allowing you to stay informed and updated on the status of your purchase every step of the way.we ensure a seamless and transparent shopping experience.</p>
+            </div>
+          </div>
+        </div>
 
-        </p>
+
       </section>
 
     </>

@@ -3,10 +3,10 @@
 .App {
   text-align: center;
   color: var(--primary-text-color);
-  overflow: hidden;
-  position: relative;
 }
-
+section{
+  margin-bottom:5%;
+}
 .headerContainer {
   display: flex;
   justify-content: space-around;
@@ -17,6 +17,7 @@
   position: fixed;
   top: 0;
   width: 100%;
+  z-index: 50;
 
 }
 
@@ -156,15 +157,32 @@ a {
   display: flex;
   justify-content: space-evenly;
 }
-
-footer {
-  position: absolute;
-  width: 100%;
-  
-  height: fit-content;
-  background: linear-gradient(white, pink, var(--primary-text-color));
+button {
+  border: 1px solid;
+  color: var(--primary-text-color);
+  padding: 0.7em 1em;
+  border-radius: 5px;
+  font-family: 'Cinzel decorative';
+  font-weight: bold;
+  background: linear-gradient(var(--primary-theme-color), white, var(--primary-theme-color));
 }
 
+footer {
+  width: 100%;
+    background: linear-gradient(white, pink, var(--primary-text-color));
+}
+.socialMedia{
+  max-width: 350px;
+  margin: auto;
+
+}
+footer p{
+  color:white;
+  font: 0.7em abel;
+}
+footer h6{
+  margin: 0;
+}
 .navbarIcons li {
   display: none
 }
