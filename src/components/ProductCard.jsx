@@ -1,12 +1,12 @@
 export default function ProductCard({item}){
-  const { name, price, previousPrice, img } = item;
+  const {product_id, product_name, product_price, product_prevPrice, product_image } = item;
   return (
-    <div className="ProductCard" key={name+price}>
-      <img src={img} alt="Jewelry exclusive" />
-      <h3>{name}</h3>
+    <div className="ProductCard" key={product_id}>
+      <img src={product_image} alt="eclusive jewelry by Shringaar"/>
+      <h3>{product_name}</h3>
       <p className="price">
-      {previousPrice && <span className="stikeThrough">$ {previousPrice}</span>}
-      <b> $ {price}</b></p>
+      {product_prevPrice && <span className="stikeThrough">$ {product_prevPrice}</span>}
+      <b> $ {product_price}</b></p>
     </div>
   );
 }

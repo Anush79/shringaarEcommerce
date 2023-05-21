@@ -16,4 +16,14 @@ export const users = [
     createdAt: formatDate(),
     updatedAt: formatDate(),
   },
+  {
+    "_id": "24f9d283-15d9-40b7-a389-7b335d3696b4",
+    "email": "anushka3232@gmail.com",
+    "password": "aosuhis",
+    "createdAt": "2023-05-20T08:10:47+05:30",
+    "updatedAt": "2023-05-20T08:10:47+05:30",
+ 
+  
+    "id": "2"
+  }
 ];

@@ -7,6 +7,7 @@ import About from './mainPages/About/index'
 import Home from './mainPages/Home/index'
 import Cart from './mainPages/Cart/index'
 import Profile from './mainPages/Profile/index'
+import Shop from './mainPages/Shop'
 import Login from './mainPages/Login/index'
 import Footer from './components/Footer';
 
@@ -22,6 +23,7 @@ function App() {
         <Route path = '/profile' element={<Profile/>}/>
         <Route path= '/login' element = {<Login/>} />
 
+        <Route path= '/browse' element = {<Shop/>} />
      </Routes>
      <Footer />
     </div>

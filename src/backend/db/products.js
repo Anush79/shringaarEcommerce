@@ -10,7 +10,7 @@ export const products = [
     "product_id": uuid(),
     "product_name": "rutrum neque aenean auctor gravida",
     "product_description": "Fusce consequat. Nulla nisl. Nunc nisl.\n\nDuis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.",
-    "product_price": 1252.05,
+    "product_price": 1252,
     "product_category": "necklace",
     "product_brand": "Devpoint",
     "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/50D2P2NYZAA32_1.jpg?impolicy=pqmed&imwidth=640",
@@ -20,7 +20,7 @@ export const products = [
     "product_size": "small",
     "product_material": "platinum",
     "product_occasion": "Bridal",
-    "product_prevPrice": 2022.334209408,
+    "product_prevPrice": 2022,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -29,7 +29,7 @@ export const products = [
     "product_id": uuid(),
     "product_name": "diam erat fermentum",
     "product_description": "In hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.\n\nSed ante. Vivamus tortor. Duis mattis egestas metus.",
-    "product_price": 666.09,
+    "product_price": 666,
     "product_category": "ring",
     "product_brand": "Trilith",
     "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/50D2I1FKTAA02_1.jpg?impolicy=pqmed&imwidth=640",
@@ -39,7 +39,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "silver",
     "product_occasion": "Modern",
-    "product_prevPrice": 1743.019546627,
+    "product_prevPrice": 1743,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -48,7 +48,7 @@ export const products = [
     "product_id": uuid(),
     "product_name": "tincidunt nulla mollis",
     "product_description": "Nullam sit amet turpis elementum ligula vehicula consequat. Morbi a ipsum. Integer a nibh.\n\nIn quis justo. Maecenas rhoncus aliquam lacus. Morbi quis tortor id nulla ultrices aliquet.",
-    "product_price": 683.87,
+    "product_price": 683,
     "product_category": "ring",
     "product_brand": "Jabbercube",
     "product_image": "https://cdn.shopify.com/s/files/1/0061/8378/0442/products/R016_1_1024x1024.jpg?v=1653116839",
@@ -58,7 +58,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "silver",
     "product_occasion": "Engagement",
-    "product_prevPrice": 2452.390678355,
+    "product_prevPrice": 2452,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -67,7 +67,7 @@ export const products = [
     "product_id": uuid(),
     "product_name": "sapien iaculis",
     "product_description": "Nulla ut erat id mauris vulputate elementum. Nullam varius. Nulla facilisi.\n\nCras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.",
-    "product_price": 1471.7,
+    "product_price": 1471,
     "product_category": "bracelate",
     "product_brand": "Jabberstorm",
     "product_image": "https://images.cltstatic.com/media/product/350/AT00109-SS0000-antique-veliammas-kitty-party-bracelet-in--silver-prd-1-base.jpg",
@@ -77,7 +77,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "silver",
     "product_occasion": "Office",
-    "product_prevPrice": 1758.827024266,
+    "product_prevPrice": 1758,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -86,7 +86,7 @@ export const products = [
     "product_id": uuid(),
     "product_name": "turpis integer aliquet massa",
     "product_description": "Praesent blandit. Nam nulla. Integer pede justo, lacinia eget, tincidunt eget, tempus vel, pede.",
-    "product_price": 1399.05,
+    "product_price": 1399,
     "product_category": "ring",
     "product_brand": "Voonder",
     "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/511920FCMAA00.jpg?impolicy=pqmed&imwidth=640",
@@ -96,7 +96,7 @@ export const products = [
     "product_size": "large",
     "product_material": "gold",
     "product_occasion": "Casual",
-    "product_prevPrice": 2362.475474475,
+    "product_prevPrice": 2362,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -105,7 +105,7 @@ export const products = [
     "product_id": uuid(),
     "product_name": "nunc vestibulum",
     "product_description": "Cras non velit nec nisi vulputate nonummy. Maecenas tincidunt lacus at velit. Vivamus vel nulla eget eros elementum pellentesque.\n\nQuisque porta volutpat erat. Quisque erat eros, viverra eget, congue eget, semper rutrum, nulla. Nunc purus.\n\nPhasellus in felis. Donec semper sapien a libero. Nam dui.",
-    "product_price": 1027.3,
+    "product_price": 1027,
     "product_category": "bracelate",
     "product_brand": "Babbleset",
     "product_image": "https://images.cltstatic.com/media/product/350/AT00238-SS0000-hall-of-fame-bracelet-in--silver-prd-1-base.jpg",
@@ -115,7 +115,7 @@ export const products = [
     "product_size": "large",
     "product_material": "platinum",
     "product_occasion": "Engagement",
-    "product_prevPrice": 2063.227894893,
+    "product_prevPrice": 2063,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -124,7 +124,7 @@ export const products = [
     "product_id": uuid(),
     "product_name": "morbi quis tortor",
     "product_description": "Duis bibendum, felis sed interdum venenatis, turpis enim blandit mi, in porttitor pede justo eu massa. Donec dapibus. Duis at velit eu est congue elementum.\n\nIn hac habitasse platea dictumst. Morbi vestibulum, velit id pretium iaculis, diam erat fermentum justo, nec condimentum neque sapien placerat ante. Nulla justo.\n\nAliquam quis turpis eget elit sodales scelerisque. Mauris sit amet eros. Suspendisse accumsan tortor quis turpis.",
-    "product_price": 769.75,
+    "product_price": 769,
     "product_category": "bracelate",
     "product_brand": "Devify",
     "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/50D1I2BAHAA02_1.jpg?impolicy=pqmed&imwidth=640",
@@ -134,7 +134,7 @@ export const products = [
     "product_size": "large",
     "product_material": "diamond",
     "product_occasion": "Office",
-    "product_prevPrice": 2150.900780773,
+    "product_prevPrice": 2150,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -153,7 +153,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "silver",
     "product_occasion": "Office",
-    "product_prevPrice": 2113.093431625,
+    "product_prevPrice": 2113.625,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -172,7 +172,7 @@ export const products = [
     "product_size": "large",
     "product_material": "diamond",
     "product_occasion": "Office",
-    "product_prevPrice": 2447.201480063,
+    "product_prevPrice": 2447.063,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -191,7 +191,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "diamond",
     "product_occasion": "Bridal",
-    "product_prevPrice": 1877.751408457,
+    "product_prevPrice": 1877.457,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -210,7 +210,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Casual",
-    "product_prevPrice": 1550.358948009,
+    "product_prevPrice": 1550.009,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -229,7 +229,7 @@ export const products = [
     "product_size": "small",
     "product_material": "gold",
     "product_occasion": "Bridal",
-    "product_prevPrice": 2357.883344507,
+    "product_prevPrice": 2357.507,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -248,7 +248,7 @@ export const products = [
     "product_size": "large",
     "product_material": "platinum",
     "product_occasion": "Casual",
-    "product_prevPrice": 2011.982963614,
+    "product_prevPrice": 2011.614,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -267,7 +267,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "silver",
     "product_occasion": "Bridal",
-    "product_prevPrice": 1900.40456674,
+    "product_prevPrice": 1900.74,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -286,7 +286,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "gold",
     "product_occasion": "Traditional",
-    "product_prevPrice": 2372.590215297,
+    "product_prevPrice": 2372.297,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -305,7 +305,7 @@ export const products = [
     "product_size": "small",
     "product_material": "diamond",
     "product_occasion": "Traditional",
-    "product_prevPrice": 2465.10846583,
+    "product_prevPrice": 2465.83,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -324,7 +324,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "diamond",
     "product_occasion": "Traditional",
-    "product_prevPrice": 2333.807275821,
+    "product_prevPrice": 2333.821,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -343,7 +343,7 @@ export const products = [
     "product_size": "large",
     "product_material": "gold",
     "product_occasion": "Modern",
-    "product_prevPrice": 1651.93587696,
+    "product_prevPrice": 1651.96,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -362,7 +362,7 @@ export const products = [
     "product_size": "small",
     "product_material": "platinum",
     "product_occasion": "Casual",
-    "product_prevPrice": 2341.877049315,
+    "product_prevPrice": 2341.315,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -381,7 +381,7 @@ export const products = [
     "product_size": "small",
     "product_material": "diamond",
     "product_occasion": "Engagement",
-    "product_prevPrice": 2034.396565273,
+    "product_prevPrice": 2034.273,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -400,7 +400,7 @@ export const products = [
     "product_size": "small",
     "product_material": "diamond",
     "product_occasion": "Casual",
-    "product_prevPrice": 1784.122113824,
+    "product_prevPrice": 1784.824,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -419,7 +419,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Casual",
-    "product_prevPrice": 1527.865734828,
+    "product_prevPrice": 1527.828,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -438,7 +438,7 @@ export const products = [
     "product_size": "small",
     "product_material": "gold",
     "product_occasion": "Modern",
-    "product_prevPrice": 1535.948249045,
+    "product_prevPrice": 1535.045,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -457,7 +457,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Office",
-    "product_prevPrice": 1892.444720554,
+    "product_prevPrice": 1892.554,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -476,7 +476,7 @@ export const products = [
     "product_size": "small",
     "product_material": "diamond",
     "product_occasion": "Modern",
-    "product_prevPrice": 2059.086750733,
+    "product_prevPrice": 2059.733,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -495,7 +495,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Traditional",
-    "product_prevPrice": 1698.231879323,
+    "product_prevPrice": 1698.323,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -514,7 +514,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "platinum",
     "product_occasion": "Bridal",
-    "product_prevPrice": 2412.617069791,
+    "product_prevPrice": 2412.791,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -533,7 +533,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "gold",
     "product_occasion": "Traditional",
-    "product_prevPrice": 1730.187588693,
+    "product_prevPrice": 1730.693,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -552,7 +552,7 @@ export const products = [
     "product_size": "large",
     "product_material": "gold",
     "product_occasion": "Bridal",
-    "product_prevPrice": 1757.144381519,
+    "product_prevPrice": 1757.519,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -571,7 +571,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "silver",
     "product_occasion": "Casual",
-    "product_prevPrice": 1944.493346478,
+    "product_prevPrice": 1944.478,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -590,7 +590,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Office",
-    "product_prevPrice": 2112.348150367,
+    "product_prevPrice": 2112.367,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -602,14 +602,14 @@ export const products = [
     "product_price": 1256.04,
     "product_category": "necklace",
     "product_brand": "Demivee",
-    "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/50D2D2NPVAA09_1.jpg?impolicy=pqmed&imwidth=640",
+    "product_image": "https://images.cltstatic.com/media/product/350/AL00294-SS0000-elizabeth-bennet-necklace-in--oxidised-silver-prd-1-model.jpg",
     "product_rating": 2.4,
     "product_reviews": 719,
     "product_color": "Rosegold",
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Casual",
-    "product_prevPrice": 1796.583770055,
+    "product_prevPrice": 1796.055,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -628,7 +628,7 @@ export const products = [
     "product_size": "large",
     "product_material": "diamond",
     "product_occasion": "Engagement",
-    "product_prevPrice": 2364.059911538,
+    "product_prevPrice": 2364.38,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -647,8 +647,8 @@ export const products = [
     "product_size": "medium",
     "product_material": "platinum",
     "product_occasion": "Modern",
-    "product_prevPrice": 1685.00,
-    "product_isFavorite": "true",
+    "product_prevPrice": 1685.99,
+      "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
   },
@@ -666,7 +666,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "silver",
     "product_occasion": "Traditional",
-    "product_prevPrice": 1692.348631305,
+    "product_prevPrice": 1692.305,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -685,7 +685,7 @@ export const products = [
     "product_size": "large",
     "product_material": "diamond",
     "product_occasion": "Engagement",
-    "product_prevPrice": 2135.094240783,
+    "product_prevPrice": 2135.783,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -704,7 +704,7 @@ export const products = [
     "product_size": "large",
     "product_material": "diamond",
     "product_occasion": "Casual",
-    "product_prevPrice": 1612.410893299,
+    "product_prevPrice": 1612.299,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -723,7 +723,7 @@ export const products = [
     "product_size": "large",
     "product_material": "platinum",
     "product_occasion": "Traditional",
-    "product_prevPrice": 1791.35735986,
+    "product_prevPrice": 1791.86,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -742,7 +742,7 @@ export const products = [
     "product_size": "large",
     "product_material": "diamond",
     "product_occasion": "Office",
-    "product_prevPrice": 1522.107833013,
+    "product_prevPrice": 1522.013,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -761,7 +761,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "diamond",
     "product_occasion": "Modern",
-    "product_prevPrice": 2032.101414827,
+    "product_prevPrice": 2032.827,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -780,7 +780,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "platinum",
     "product_occasion": "Bridal",
-    "product_prevPrice": 1748.000956389,
+    "product_prevPrice": 1748.389,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -799,7 +799,7 @@ export const products = [
     "product_size": "large",
     "product_material": "platinum",
     "product_occasion": "Office",
-    "product_prevPrice": 1596.207467262,
+    "product_prevPrice": 1596.262,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -818,7 +818,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "gold",
     "product_occasion": "Office",
-    "product_prevPrice": 2184.775308532,
+    "product_prevPrice": 2184.532,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -837,7 +837,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "silver",
     "product_occasion": "Modern",
-    "product_prevPrice": 1965.685541983,
+    "product_prevPrice": 1965.983,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -856,7 +856,7 @@ export const products = [
     "product_size": "small",
     "product_material": "diamond",
     "product_occasion": "Casual",
-    "product_prevPrice": 2404.868700102,
+    "product_prevPrice": 2404.102,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -875,7 +875,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Traditional",
-    "product_prevPrice": 2064.281524008,
+    "product_prevPrice": 2064.008,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -894,7 +894,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Engagement",
-    "product_prevPrice": 1978.550658696,
+    "product_prevPrice": 1978.696,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -913,7 +913,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "diamond",
     "product_occasion": "Casual",
-    "product_prevPrice": 1895.24669466,
+    "product_prevPrice": 1895.66,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -932,7 +932,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "gold",
     "product_occasion": "Casual",
-    "product_prevPrice": 1951.039838787,
+    "product_prevPrice": 1951.787,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"
@@ -951,7 +951,7 @@ export const products = [
     "product_size": "small",
     "product_material": "diamond",
     "product_occasion": "Traditional",
-    "product_prevPrice": 1511.641915774,
+    "product_prevPrice": 1511.774,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -970,7 +970,7 @@ export const products = [
     "product_size": "extra large",
     "product_material": "platinum",
     "product_occasion": "Bridal",
-    "product_prevPrice": 1854.167706161,
+    "product_prevPrice": 1854.161,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -989,7 +989,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Modern",
-    "product_prevPrice": 1775.748485783,
+    "product_prevPrice": 1775.783,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -1008,7 +1008,7 @@ export const products = [
     "product_size": "large",
     "product_material": "platinum",
     "product_occasion": "Modern",
-    "product_prevPrice": 2062.760816255,
+    "product_prevPrice": 2062.255,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -1027,7 +1027,7 @@ export const products = [
     "product_size": "medium",
     "product_material": "platinum",
     "product_occasion": "Engagement",
-    "product_prevPrice": 1570.0402528,
+    "product_prevPrice": 1570.8,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -1046,7 +1046,7 @@ export const products = [
     "product_size": "large",
     "product_material": "diamond",
     "product_occasion": "Modern",
-    "product_prevPrice": 1602.5866352,
+    "product_prevPrice": 1602.2,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -1058,14 +1058,14 @@ export const products = [
     "product_price": 798.16,
     "product_category": "necklace",
     "product_brand": "Zazio",
-    "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/51D3B1NIVAA00_1.jpg?impolicy=pqmed&imwidth=640",
+    "product_image": "https://images.cltstatic.com/media/product/350/AL00297-SS0000-anne-shirley-necklace-in--oxidised-silver-prd-1-model.jpg",
     "product_rating": 4.5,
     "product_reviews": 528,
     "product_color": "pink",
     "product_size": "medium",
     "product_material": "silver",
     "product_occasion": "Bridal",
-    "product_prevPrice": 2385.653632398,
+    "product_prevPrice": 2385.398,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -1084,7 +1084,7 @@ export const products = [
     "product_size": "small",
     "product_material": "gold",
     "product_occasion": "Casual",
-    "product_prevPrice": 2254.689110336,
+    "product_prevPrice": 2254.336,
     "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "New"
@@ -1096,14 +1096,14 @@ export const products = [
     "product_price": 1006.31,
     "product_category": "bracelate",
     "product_brand": "Dabfeed",
-    "product_image": "https://www.caratlane.com/shaya/lady-luck-bracelet-in-925-silver-at00298-ss0000.html",
+    "product_image": "https://images.cltstatic.com/media/product/350/AT00345-SS0000-feeling-hmeltha-oxidised-bracelet-in--silver-prd-1-model.jpg",
     "product_rating": 1.0,
     "product_reviews": 942,
     "product_color": "green",
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Modern",
-    "product_prevPrice": 1961.831630942,
+    "product_prevPrice": 1961.942,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -1122,7 +1122,7 @@ export const products = [
     "product_size": "large",
     "product_material": "silver",
     "product_occasion": "Bridal",
-    "product_prevPrice": 1514.798968927,
+    "product_prevPrice": 1514.927,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": ""
@@ -1141,7 +1141,7 @@ export const products = [
     "product_size": "small",
     "product_material": "platinum",
     "product_occasion": "Engagement",
-    "product_prevPrice": 2097.680106406,
+    "product_prevPrice": 2097.406,
     "product_isFavorite": "true",
     "product_isCart": "false",
     "product_isBadge": "Trending"

@@ -1,0 +1,24 @@
+.allProductsContainer{
+  margin-top: 98px;
+}
+.main{
+  display: grid;
+  grid-template-columns: 300px 1fr;
+
+
+}
+aside{
+  border: 1px solid ;
+  font-family: abel;
+}
+
+
+aside div{
+  display: flex;
+  flex-direction: column;
+}
+aside .filterHeader{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}

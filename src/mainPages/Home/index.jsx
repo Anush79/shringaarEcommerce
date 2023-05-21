@@ -98,7 +98,7 @@ export default function Home() {
         <p>BEST IN BUSINESS</p>
         <h3>Why Choose Us</h3>
         <div className="whyusContent">
-          <img className="middleImage" src="\assets\model.jpg" alt="" srcset="" />
+          <img className="middleImage" src="\assets\model3.jpg" alt="" srcset="" />
           <div className="whyUsDescription">
             <div>
               <img src="\assets\whyUsIcons\percent-solid.svg" alt="big discount" />
