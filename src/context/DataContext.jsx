@@ -20,6 +20,9 @@ useEffect(()=>{
   getBackendData()
 },[])
 
+
+
+
 console.log(backendData?.productsData)
   return <DataContext.Provider value={{backendData}}>
     {children}

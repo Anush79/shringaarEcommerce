@@ -10,6 +10,7 @@ import Profile from './mainPages/Profile/index'
 import Shop from './mainPages/Shop'
 import Login from './mainPages/Login/index'
 import Footer from './components/Footer';
+import ProductDetails from './mainPages/ProductDetails/index'
 
 function App() {
   return (
@@ -22,7 +23,7 @@ function App() {
         <Route path = '/cart' element={<Cart/>}/>
         <Route path = '/profile' element={<Profile/>}/>
         <Route path= '/login' element = {<Login/>} />
-
+        <Route path= '/products/:prodID' element={<ProductDetails/>}/>
         <Route path= '/browse' element = {<Shop/>} />
      </Routes>
      <Footer />

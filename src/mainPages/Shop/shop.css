@@ -2,23 +2,38 @@
   margin-top: 98px;
 }
 .main{
-  display: grid;
-  grid-template-columns: 300px 1fr;
-
-
+  display: flex; 
 }
 aside{
-  border: 1px solid ;
   font-family: abel;
+  position: fixed;
+  width:20%;
+  height: 70vh;
+  overflow-y: auto;
+
 }
 
 
 aside div{
   display: flex;
+  justify-content: flex-start;
   flex-direction: column;
+  align-items: flex-start;
+  margin-left: 20%;
 }
 aside .filterHeader{
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  align-items: center;
+}
+.displayProducts{
+  margin-left: 20%;
+}
+.filterHeader button{
+  padding: 0.5em;
+}
+.filterHeader h3{
+  margin:0;
+  padding: 0;
 }

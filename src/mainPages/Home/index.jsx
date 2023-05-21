@@ -1,34 +1,14 @@
+import { NavLink } from "react-router-dom";
 import "./home.css";
+
 import ProductCard from "../../components/ProductCard";
-const popularData = [
-  {
-    name: "product name 1",
-    price: 495.0,
-    previousPrice: 600,
-    img: "https://placehold.co/200?text=Shringaar",
-  },
-  {
-    name: "product name 2",
-    price: 1495.0,
-    previousPrice: 1800,
-    img: "https://placehold.co/200?text=Shringaar",
-  },
-  {
-    name: "product name 3",
-    price: 788.0,
-    img: "https://placehold.co/200?text=Shringaar",
-  },
-  {
-    name: "product name 4",
-    price: 595.0,
-    previousPrice: 799,
-    img: "https://placehold.co/200?text=Shringaar",
-  }
 
-];
+import {useData} from '../../'
 
-const category = ['Rings', 'Bracelets', 'Earrings', 'Necklaces']
+
 export default function Home() {
+  const {backendData} = useData()
+  const trendingArray= backendData?.productsData.filter((item) => item.product_isBadge==="Trending")
   return (
     <>
       <section className="home">
@@ -44,7 +24,9 @@ export default function Home() {
           finest materials to ensure both quality and beauty. Explore our collection, and find the perfect piece that speaks to you
         </p>
         <div className="mainbutton">
+         <NavLink to='/browse'>
           <button>Shop Now</button>
+          </NavLink> 
 
         </div>
       </section>
@@ -53,7 +35,7 @@ export default function Home() {
         <p>Popular Products</p>
         <h3>TRENDING NOW</h3>
         <div className="productsContainer">
-          {popularData.map((item) => <ProductCard item={item} />)}
+          {trendingArray.slice(0, 6).map((item)=><ProductCard item={item} />)}
         </div>
 
       </section>
@@ -62,6 +44,12 @@ export default function Home() {
           <p>Unique Pieces</p>
           <h3>BE ALWAYS ON TREND</h3>
           <p >We take immense pride in offering jewelry pieces that are crafted with the utmost care and attention to detail. Each item in our collection undergoes rigorous quality checks to ensure it meets our high standards</p>
+          <div className="mainbutton">
+         <NavLink to='/browse'>
+          <button>Shop Now</button>
+          </NavLink> 
+
+        </div>
         </div>
         <div className="imageContent">
           <img className="bigImage" src='\assets\model2.jpg' width="400px" />

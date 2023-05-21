@@ -130,7 +130,7 @@ li {
   color: grey;
 }
 .ProductCard {
-  width:25%;
+
   padding: 5px;
 
   background: linear-gradient(white, var(--primary-theme-color));
@@ -205,7 +205,6 @@ footer h6{
 
   .navbarIcons li {
     display: flex;
-  
   }
 
 
@@ -247,6 +246,10 @@ footer h6{
   .productsContainer {
     display: flex;
     min-width: 80%;
+  }
+  .ProductCard{
+    width:25%;
+    max-height: 50%;
   }
 
 }

@@ -14,7 +14,7 @@ export default function Shop() {
         <aside>
           <div className="filterHeader">
             <h3>Filters</h3>
-            <button>Clear All</button>
+           
           </div>
           <div className="priceFilter">
             <h3>Price</h3>
@@ -64,6 +64,10 @@ export default function Shop() {
             <label htmlFor="lowToHigh"><input type="radio" name="sorting" id="lowToHigh" />Low to High</label>
             <label htmlFor="highToLow"><input type="radio" name="sorting" id="highToLow" />High to Low</label>
           </div>
+          <div className="clearAll">
+            <button >Clear All</button>
+          </div>
+          
         </aside>
         <div className="displayProducts">
           {

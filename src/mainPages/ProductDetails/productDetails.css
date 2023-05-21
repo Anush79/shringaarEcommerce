@@ -1,0 +1,19 @@
+.productDetailsContainer {
+  margin:auto;
+  margin-top: 98px;
+ 
+}
+.productDetailsContainer h1{
+  font-size: 1em;
+}
+.detailsContainer{
+  font-family: abel, sans-serif;
+  text-align: left;
+  padding: 20px;
+}
+.imgcontainer{
+  width: calc( 100vw - 40px)
+}
+.imgcontainer img{
+  width:100%;
+}

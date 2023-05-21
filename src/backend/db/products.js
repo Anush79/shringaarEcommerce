@@ -158,25 +158,7 @@ export const products = [
     "product_isCart": "false",
     "product_isBadge": "New"
   },
-  {
-    "product_id": uuid(),
-    "product_name": "in ante",
-    "product_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
-    "product_price": 686.61,
-    "product_category": "bracelate",
-    "product_brand": "Tagcat",
-    "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/503119BOXAA32_1.jpg?impolicy=pqmed&imwidth=640",
-    "product_rating": 3.5,
-    "product_reviews": 890,
-    "product_color": "Rosegold",
-    "product_size": "large",
-    "product_material": "diamond",
-    "product_occasion": "Office",
-    "product_prevPrice": 2447.063,
-    "product_isFavorite": "false",
-    "product_isCart": "false",
-    "product_isBadge": "Trending"
-  },
+ 
   {
     "product_id": uuid(),
     "product_name": "pellentesque",
@@ -386,6 +368,7 @@ export const products = [
     "product_isCart": "false",
     "product_isBadge": "New"
   },
+  
   {
     "product_id": uuid(),
     "product_name": "porttitor lacus at",
@@ -573,6 +556,25 @@ export const products = [
     "product_occasion": "Casual",
     "product_prevPrice": 1944.478,
     "product_isFavorite": "true",
+    "product_isCart": "false",
+    "product_isBadge": "Trending"
+  },
+  {
+    "product_id": uuid(),
+    "product_name": "in ante",
+    "product_description": "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Proin risus. Praesent lectus.\n\nVestibulum quam sapien, varius ut, blandit non, interdum in, ante. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Duis faucibus accumsan odio. Curabitur convallis.\n\nDuis consequat dui nec nisi volutpat eleifend. Donec ut dolor. Morbi vel lectus in quam fringilla rhoncus.",
+    "product_price": 686.61,
+    "product_category": "bracelate",
+    "product_brand": "Tagcat",
+    "product_image": "https://staticimg.titan.co.in/Tanishq/Catalog/503119BOXAA32_1.jpg?impolicy=pqmed&imwidth=640",
+    "product_rating": 3.5,
+    "product_reviews": 890,
+    "product_color": "Rosegold",
+    "product_size": "large",
+    "product_material": "diamond",
+    "product_occasion": "Office",
+    "product_prevPrice": 2447.063,
+    "product_isFavorite": "false",
     "product_isCart": "false",
     "product_isBadge": "Trending"
   },
