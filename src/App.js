@@ -11,6 +11,8 @@ import Shop from './mainPages/Shop'
 import Login from './mainPages/Login/index'
 import Footer from './components/Footer';
 import ProductDetails from './mainPages/ProductDetails/index'
+import Error from './mainPages/Error'
+
 
 function App() {
   return (
@@ -25,6 +27,8 @@ function App() {
         <Route path= '/login' element = {<Login/>} />
         <Route path= '/products/:prodID' element={<ProductDetails/>}/>
         <Route path= '/browse' element = {<Shop/>} />
+        <Route path= '*' element = {<Error/>} />
+        
      </Routes>
      <Footer />
     </div>

@@ -139,7 +139,11 @@ li {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+   object-fit: cover;
 
+}
+.ProductCard a{
+  width: 100%;
 }
 
 .ProductCard img {
