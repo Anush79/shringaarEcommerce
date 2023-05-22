@@ -4,9 +4,11 @@
   text-align: center;
   color: var(--primary-text-color);
 }
-section{
-  margin-bottom:5%;
+
+section {
+  margin-bottom: 5%;
 }
+
 .headerContainer {
   display: flex;
   justify-content: space-around;
@@ -18,7 +20,6 @@ section{
   top: 0;
   width: 100%;
   z-index: 50;
-
 }
 
 .logoContatiner {
@@ -88,7 +89,6 @@ section{
   font-family: abel, sans-serif;
   text-align: center;
   margin-top: 75px;
-
 }
 
 li {
@@ -104,7 +104,6 @@ li {
 .sideNav li {
   padding: 0.4em;
   border-bottom: 1px dashed;
-
 }
 
 .sideNav li:hover {
@@ -123,16 +122,14 @@ li {
 .sideNav li select option {
   text-align: center;
   margin: auto;
-
 }
-
 
 .stikeThrough {
   text-decoration: line-through;
   color: grey;
 }
-.ProductCard {
 
+.ProductCard {
   padding: 5px;
 
   background: linear-gradient(white, var(--primary-theme-color));
@@ -141,16 +138,16 @@ li {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-   object-fit: cover;
-
+  object-fit: cover;
 }
-.ProductCard a{
+
+.ProductCard a {
   width: 100%;
 }
 
 .ProductCard img {
   width: 100%;
-  height:250px;
+  height: 250px;
   object-fit: cover;
   border-radius: 4px;
 }
@@ -163,48 +160,55 @@ li {
 
 a {
   text-decoration: none;
-  color: var(--primary-text-color)
+  color: var(--primary-text-color);
 }
 
 .socialMedia {
   display: flex;
   justify-content: space-evenly;
 }
+
 button {
   border: 1px solid;
   color: var(--primary-text-color);
   padding: 0.7em 1em;
   border-radius: 5px;
-  font-family: 'Cinzel decorative';
+  font-family: "Cinzel decorative";
   font-weight: bold;
-  background: linear-gradient(var(--primary-theme-color), white, var(--primary-theme-color));
+  background: linear-gradient(
+    var(--primary-theme-color),
+    white,
+    var(--primary-theme-color)
+  );
 }
 
 footer {
   width: 100%;
   position: relative;
-  bottom:0;
-  margin-bottom:0;
-    background: linear-gradient(white, pink, var(--primary-text-color));
+  bottom: 0;
+  margin-top:100px;
+  background: linear-gradient(white, pink, var(--primary-text-color));
 }
-.socialMedia{
+
+.socialMedia {
   max-width: 350px;
   margin: auto;
-
 }
-footer p{
-  color:white;
+
+footer p {
+  color: white;
   font: 0.7em abel;
 }
-footer h6{
+
+footer h6 {
   margin: 0;
 }
+
 .navbarIcons li {
-  display: none
+  display: none;
 }
 
 @media (min-width: 400px) {
-
   .headerContainer {
     justify-content: space-between;
   }
@@ -212,7 +216,6 @@ footer h6{
   .navbarIcons li {
     display: flex;
   }
-
 
   .logoContatiner {
     text-align: left;
@@ -238,12 +241,13 @@ footer h6{
 
   .navbarIcons {
     gap: 30px;
-    margin-right: 20px
+    margin-right: 20px;
   }
 
   .navbarIcons svg {
     font-size: 1.5rem;
   }
+
   .navbarIcons li {
     font-size: 1.1em;
     font-weight: 600;
@@ -253,9 +257,9 @@ footer h6{
     display: flex;
     min-width: 80%;
   }
-  .ProductCard{
-    width:25%;
+
+  .ProductCard {
+    width: 25%;
     max-height: 50%;
   }
-
 }

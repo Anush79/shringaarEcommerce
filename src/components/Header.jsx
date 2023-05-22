@@ -4,15 +4,21 @@ import SearchIcon from "@mui/icons-material/Search";
 
 import Badge from '@mui/material/Badge';
 import StoreTwoToneIcon from '@mui/icons-material/StoreTwoTone';
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCartRounded';
-import LocalGroceryStoreTwoToneIcon from '@mui/icons-material/LocalGroceryStoreTwoTone';import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
+import LocalGroceryStoreTwoToneIcon from '@mui/icons-material/LocalGroceryStoreTwoTone'; import LoginRoundedIcon from '@mui/icons-material/LoginRounded';
 import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+
+
+import { useData } from '../'
 export default function Header() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isSearchclicked, setIsSearchedClicked] = useState(false)
+
+  const [inputValue, setInputValue] = useState("")
   const [category, setCategory] = useState("");
+
+  const { setFiltersUsed } = useData()
 
   const handleMenu = () => {
     setIsMenuClicked(!isMenuClicked);
@@ -20,6 +26,7 @@ export default function Header() {
   const handleCategory = (e) => {
     setCategory(e.target.value);
   };
+  
   return (
     <>
       <div className="headerContainer">
@@ -59,21 +66,21 @@ export default function Header() {
           <NavLink to='contact'>
             <li>Contact</li>
           </NavLink>
-     {/* <span className="shop">
-     <StoreTwoToneIcon/>
-     </span> */}
 
           <span className="search" >
-         
+
             {
               isSearchclicked ?
                 <div className="inputElement">
-                  <input type="text" placeholder="search items" />
+                  <input type="text" placeholder="search items" onChange={(e) => { setInputValue(e.target.value) }} />
                   <SearchIcon onClick={() => {
+
+                    setFiltersUsed({ type: "SEARCH", inputValue: inputValue });
                     setIsSearchedClicked(!isSearchclicked)
                   }} />
 
                 </div> : <SearchIcon onClick={() => {
+
                   setIsSearchedClicked(!isSearchclicked)
                 }} />
             }

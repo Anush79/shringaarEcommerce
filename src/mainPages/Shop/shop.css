@@ -1,39 +1,56 @@
-.allProductsContainer{
+.allProductsContainer {
   margin-top: 98px;
+  min-height:100vh
 }
-.main{
-  display: flex; 
+
+.main {
+  display: flex;
 }
-aside{
+
+aside {
   font-family: abel;
   position: fixed;
-  width:20%;
+  width: 20%;
   height: 70vh;
   overflow-y: auto;
 
 }
 
+.priceFilter p {
+  display: flex;
+  justify-content: space-between;
+  width: 90%;
+  margin-bottom: 0;
+}
 
-aside div{
+.priceFilter input {
+  width: 90%;
+}
+
+aside div {
   display: flex;
   justify-content: flex-start;
   flex-direction: column;
   align-items: flex-start;
   margin-left: 20%;
 }
-aside .filterHeader{
+
+aside .filterHeader {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
 }
-.displayProducts{
+
+.displayProducts {
   margin-left: 20%;
 }
-.filterHeader button{
+
+.filterHeader button {
   padding: 0.5em;
 }
-.filterHeader h3{
-  margin:0;
+
+.filterHeader h3 {
+  margin: 0;
   padding: 0;
 }

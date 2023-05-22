@@ -64,7 +64,7 @@ export default function Home() {
           <div className="categoryBox">
             <div className="necklace">
               <img src="\assets\categoryIcon\necklace.png" alt="necklace image random" srcset="" />
-              <p>Bracelets</p>
+              <p>Necklace</p>
             </div>
             <div className="ring">
               <img src="\assets\categoryIcon\ring.png" alt="ring image random" srcset="" />

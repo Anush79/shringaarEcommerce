@@ -29,7 +29,7 @@ import './cart.css'
 export default function Cart(){
   return <div className="cart">
     <div className="allProductsInCarts">
-           i am alll products
+           i am all products
     </div>
     <div className="totalPrice">
 i am total price
