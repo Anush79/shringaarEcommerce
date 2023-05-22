@@ -1,5 +1,6 @@
 import {Routes, Route} from 'react-router-dom'
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
 import MockApi from './components/MockMan'
 import Header from './components/Header'
@@ -18,6 +19,7 @@ function App() {
   return (
     <div className="App">
       <Header />
+      <ToastContainer/>
      <Routes>
         <Route path= '/' element={<Home />}/>
         <Route path= '/mockman' element={<MockApi />}/>
@@ -28,7 +30,7 @@ function App() {
         <Route path= '/products/:prodID' element={<ProductDetails/>}/>
         <Route path= '/browse' element = {<Shop/>} />
         <Route path= '*' element = {<Error/>} />
-        
+
      </Routes>
      <Footer />
     </div>
