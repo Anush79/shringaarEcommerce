@@ -22,10 +22,13 @@ aside {
   width: 90%;
   margin-bottom: 0;
 }
-
+.priceFilter h3 {
+  margin:0;
+}
 .priceFilter input {
   width: 90%;
 }
+
 
 aside div {
   display: flex;
@@ -53,4 +56,16 @@ aside .filterHeader {
 .filterHeader h3 {
   margin: 0;
   padding: 0;
+}
+.clearAll{
+  padding: 20px;
+  padding-left: 0px;
+}
+.hideFilter{
+  display: hidden;
+}
+@media (max-width:400px) {
+  /* //9820681798 */
+ 
+
 }

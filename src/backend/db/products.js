@@ -666,7 +666,7 @@ export const products = [
     "product_reviews": 753,
     "product_color": "Platinum",
     "product_size": "medium",
-    "product_material": "silver",
+    "product_material": "gold",
     "product_occasion": "Traditional",
     "product_prevPrice": 1692.305,
     "product_isFavorite": "false",

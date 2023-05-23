@@ -1,14 +1,14 @@
-import { createContext, useContext, useReducer } from "react";
-import { useState, useEffect } from "react";
-
+import { createContext, useContext, useReducer , useState, useEffect } from "react";
+import {reducerFilterFunction} from '../allReducers/filtersReducer'
 export const DataContext = createContext();
-
+// import {GetAllProducts} from '../services/shopingService'
 export function DataProvider({ children }) {
   const [backendData, setBackendData] = useState({
     loading: true,
     error: null,
     productsData: [],
   });
+
 
   const getBackendData = async () => {
     try {
@@ -27,48 +27,9 @@ export function DataProvider({ children }) {
     getBackendData();
   }, []);
 
-  const reducerFunction = (state, action) => {
-    const value =
-      action.type !== "SEARCH"
-        ? action.inputValue.target.value
-        : action.inputValue;
-    switch (action.type) {
-      case "PRICE":
-        return { ...state, priceRange: value };
-      case "SEARCH":
-        return { ...state, search: value };
-      case "SORT":
-        return { ...state, sort: value };
-      case "RATINGS":
-        return { ...state, rating: value };
-      case "OCCASION":
-        return {
-          ...state,
-          ocassionFilters: state.ocassionFilters.includes(value)
-            ? [...state.ocassionFilters.filter((item) => item !== value)]
-            : [...state.ocassionFilters, value],
-        };
-      case "MATERIAL":
-        return {
-          ...state,
-          materialFilter: state.materialFilter.includes(value)
-            ? [...state.materialFilter.filter((item) => item !== value)]
-            : [...state.materialFilter, value],
-        };
-      case "CATEGORY":
-        return {
-          ...state,
-          categoryFilters: state.categoryFilters.includes(value)
-            ? [...state.categoryFilters.filter((item) => item !== value)]
-            : [...state.categoryFilters, value],
-        };
-      default:
-        console.log("something is wrong in filters");
-        break;
-    }
-  };
 
-  const [filtersUsed, setFiltersUsed] = useReducer(reducerFunction, {
+
+  const [filtersUsed, setFiltersUsed] = useReducer(reducerFilterFunction, {
     priceRange: "",
     search: "",
     sort: "",
@@ -77,7 +38,7 @@ export function DataProvider({ children }) {
     categoryFilters: [],
     materialFilter: [],
   });
-  console.log(filtersUsed);
+
   const lowercaseSearch = filtersUsed.search.toLowerCase();
 
   const searchedDataValue =
@@ -132,7 +93,13 @@ export function DataProvider({ children }) {
 
   const finalPriceSortedData = filtersUsed?.sort.length > 0 && filtersUsed.sort === "LOWTOHIGH" ? ratingFilter.sort((first, second) => first.product_price - second.product_price) :
     ratingFilter.sort((first, second) => second.product_price - first.product_price)
-  console.log(priceRangeData);
+ 
+
+
+
+  
+    
+
   return (
     <DataContext.Provider
       value={{ backendData, finalPriceSortedData, setFiltersUsed }}

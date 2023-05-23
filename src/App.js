@@ -1,4 +1,4 @@
-import {Routes, Route} from 'react-router-dom'
+import { Routes, Route } from 'react-router-dom'
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import "./App.css";
@@ -13,28 +13,33 @@ import Login from './mainPages/Login/index'
 import Footer from './components/Footer';
 import ProductDetails from './mainPages/ProductDetails/index'
 import Error from './mainPages/Error'
+import Orders from './mainPages/Profile/components/Orders';
+import Address from './mainPages/Profile/components/Address';
+import User from './mainPages/Profile/components/User';
+  function App() {
+    return (
+      <div className="App">
+        <Header />
+        <ToastContainer />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/mockman' element={<MockApi />} />
+          <Route path='/about' element={<About />} />
+          <Route path='/cart' element={<Cart />} />
+          <Route path='/profile' element={<Profile />}>
+            <Route path="" element={<User />} />
+            <Route path="orders" element={<Orders />} />
+            <Route path="address" element={<Address />} />
+          </Route>
+          <Route path='/login' element={<Login />} />
+          <Route path='/products/:prodID' element={<ProductDetails />} />
+          <Route path='/browse' element={<Shop />} />
+          <Route path='*' element={<Error />} />
 
-
-function App() {
-  return (
-    <div className="App">
-      <Header />
-      <ToastContainer/>
-     <Routes>
-        <Route path= '/' element={<Home />}/>
-        <Route path= '/mockman' element={<MockApi />}/>
-        <Route path = '/about' element = {<About/>} />
-        <Route path = '/cart' element={<Cart/>}/>
-        <Route path = '/profile' element={<Profile/>}/>
-        <Route path= '/login' element = {<Login/>} />
-        <Route path= '/products/:prodID' element={<ProductDetails/>}/>
-        <Route path= '/browse' element = {<Shop/>} />
-        <Route path= '*' element = {<Error/>} />
-
-     </Routes>
-     <Footer />
-    </div>
-  );
-}
+        </Routes>
+        <Footer />
+      </div>
+    );
+  }
 
 export default App;
