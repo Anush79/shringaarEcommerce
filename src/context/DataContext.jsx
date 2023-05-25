@@ -1,16 +1,16 @@
 import { createContext, useContext, useReducer , useState, useEffect } from "react";
 import {reducerFilterFunction} from '../allReducers/filtersReducer'
 export const DataContext = createContext();
-// import {GetAllProducts} from '../services/shopingService'
+
 export function DataProvider({ children }) {
-  const [backendData, setBackendData] = useState({
+const [backendData, setBackendData] = useState({
     loading: true,
     error: null,
     productsData: [],
   });
 
 
-  const getBackendData = async () => {
+const getBackendData = async () => {
     try {
       const response = await fetch("/api/products");
       const finalData = await response.json();
@@ -29,7 +29,7 @@ export function DataProvider({ children }) {
 
 
 
-  const [filtersUsed, setFiltersUsed] = useReducer(reducerFilterFunction, {
+const [filtersUsed, setFiltersUsed] = useReducer(reducerFilterFunction, {
     priceRange: "",
     search: "",
     sort: "",
@@ -39,9 +39,9 @@ export function DataProvider({ children }) {
     materialFilter: [],
   });
 
-  const lowercaseSearch = filtersUsed.search.toLowerCase();
+const lowercaseSearch = filtersUsed.search.toLowerCase();
 
-  const searchedDataValue =
+const searchedDataValue =
     filtersUsed.search.length > 0
       ? backendData?.productsData.filter(
         (item) =>
@@ -55,7 +55,7 @@ export function DataProvider({ children }) {
       )
       : backendData?.productsData;
 
-  const categoryFilterData =
+const categoryFilterData =
     filtersUsed.categoryFilters.length > 0
       ? searchedDataValue.filter((item) =>
         filtersUsed.categoryFilters.some(
@@ -64,7 +64,7 @@ export function DataProvider({ children }) {
       )
       : searchedDataValue;
 
-  const occasionFilterData =
+const occasionFilterData =
     filtersUsed.ocassionFilters.length > 0
       ? categoryFilterData.filter((item) =>
         filtersUsed.ocassionFilters.some(
@@ -72,7 +72,7 @@ export function DataProvider({ children }) {
         )
       )
       : categoryFilterData;
-  const materialFilterData =
+const materialFilterData =
     filtersUsed.materialFilter.length > 0
       ? occasionFilterData.filter((item) =>
         filtersUsed.materialFilter.some(
@@ -81,26 +81,18 @@ export function DataProvider({ children }) {
       )
       : occasionFilterData;
 
-  const priceRangeData =
+const priceRangeData =
     filtersUsed.priceRange.length > 0
       ? materialFilterData.filter(
         (item) => item.product_price < filtersUsed.priceRange
       )
       : materialFilterData;
-  const ratingFilter = filtersUsed.rating > 0 ?
+const ratingFilter = filtersUsed.rating > 0 ?
     priceRangeData.filter(item => item.product_rating > filtersUsed.rating) :
-    priceRangeData
-
-  const finalPriceSortedData = filtersUsed?.sort.length > 0 && filtersUsed.sort === "LOWTOHIGH" ? ratingFilter.sort((first, second) => first.product_price - second.product_price) :
+    priceRangeData  
+const finalPriceSortedData = filtersUsed?.sort.length > 0 && filtersUsed.sort === "LOWTOHIGH" ? ratingFilter.sort((first, second) => first.product_price - second.product_price) :
     ratingFilter.sort((first, second) => second.product_price - first.product_price)
- 
-
-
-
-  
-    
-
-  return (
+return (
     <DataContext.Provider
       value={{ backendData, finalPriceSortedData, setFiltersUsed }}
     >

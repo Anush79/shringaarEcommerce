@@ -1,3 +1,7 @@
+.cart{
+  margin-top:95px;
+  min-height:90vh;
+}
 .emptyCart{
   display: flex;
   flex-direction: column;

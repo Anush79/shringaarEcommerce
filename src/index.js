@@ -6,19 +6,19 @@ import { makeServer } from "./server";
 import { BrowserRouter as Router } from 'react-router-dom'
 import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 
-import {useAuth, AuthProvider} from './context/AuthContext'
+import { useAuth, AuthProvider } from './context/AuthContext'
 import { useData, DataProvider } from './context/DataContext'
 export { useData }
 // Call make Server
 makeServer();
-export {useAuth}
+export { useAuth }
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
-          <DataProvider>
-        <App />
-      </DataProvider>
+        <DataProvider>
+          <App />
+        </DataProvider>
       </AuthProvider>
     </Router>
 

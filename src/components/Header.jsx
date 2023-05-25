@@ -30,6 +30,7 @@ export default function Header() {
     setCategory(e.target.value);
   };
 
+
   return (
     <>
       <div className="headerContainer">
@@ -125,7 +126,7 @@ export default function Header() {
           </span>
           <span className="wishList">
             <Badge badgeContent={1} color="secondary" sx={{ color: "#5f3926" }}>
-              <NavLink to="favorite">
+              <NavLink to="/wishlist">
                 <FavoriteBorderIcon />
               </NavLink>
             </Badge>

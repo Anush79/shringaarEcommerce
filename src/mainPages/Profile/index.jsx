@@ -7,12 +7,15 @@ import User from "./components/User";
 export default function Profile() {
   return (
     <><div className="profile">
-      <h2>Profile page</h2>
+      {/* <img src="\assets\model5.jpg" alt="" width="50px"/> */}
       <div className="profileContainer">
-        <NavLink to=''>user</NavLink>--||--
-        <NavLink to="/profile/address">Address</NavLink>--||--
+        <nav>
+        <NavLink to=''>user</NavLink>
+        <NavLink to="/profile/address">Address</NavLink>
         <NavLink to="/profile/orders">Orders</NavLink>
-        <div className="profilePages">
+       
+        </nav>
+       <div className="displayPages">
           <Outlet/>
         </div>
       </div>

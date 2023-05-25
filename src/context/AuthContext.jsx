@@ -1,4 +1,5 @@
 import { createContext, useContext, useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
 import { loginService } from "../services/authService/loginService";
 
@@ -11,6 +12,8 @@ export function AuthProvider({ children }) {
 
   const [token, setToken] = useState(localStorageToken?.token);
   const [currentUser, setCurrentUser] = useState(localStorageToken?.user);
+  const location = useLocation();
+  const navigate = useNavigate();
 
   const loginHandler = async ({
     loginEmail: email,
@@ -27,8 +30,12 @@ export function AuthProvider({ children }) {
       if (status === 200) {
         setToken(encodedToken);
         setCurrentUser(foundUser);
+        navigate(location?.state?.from?.pathname)
       }
-      toast.success("successfully logged in")
+      toast.success("successfully logged in",{
+        position: toast.POSITION.BOTTOM_RIGHT
+      })
+
     } catch (error) {
       console.log(error);
     }
@@ -64,8 +71,16 @@ export function AuthProvider({ children }) {
     }
   };
 
+  const logOutHandler=async()=>{
+    setToken(null);
+    setCurrentUser(null);
+    console.log("logout success")
+    toast.success("logged out successfully",{
+      position: toast.POSITION.BOTTOM_RIGHT
+    })
+  }
   return (
-    <AuthContext.Provider value={{ signUpHandler, loginHandler, token }}>
+    <AuthContext.Provider value={{ signUpHandler, loginHandler,logOutHandler, token }}>
       {children}
     </AuthContext.Provider>
   );
