@@ -30,12 +30,11 @@ export function AuthProvider({ children }) {
       if (status === 200) {
         setToken(encodedToken);
         setCurrentUser(foundUser);
-        navigate(location?.state?.from?.pathname)
+        navigate(location?.state?.from?.pathname);
       }
-      toast.success("successfully logged in",{
-        position: toast.POSITION.BOTTOM_RIGHT
-      })
-
+      toast.success("successfully logged in", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -67,20 +66,25 @@ export function AuthProvider({ children }) {
       notify("Sign Up Successful");
     } catch (error) {
       console.log(error);
-      toast.error("Sign up unsuccessful");
+      toast.error("Sign up unsuccessful", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     }
   };
 
-  const logOutHandler=async()=>{
+  const logOutHandler = async () => {
     setToken(null);
     setCurrentUser(null);
-    console.log("logout success")
-    toast.success("logged out successfully",{
-      position: toast.POSITION.BOTTOM_RIGHT
-    })
-  }
+    console.log("logout success");
+    toast.success("logged out successfully", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    });
+    navigate("/");
+  };
   return (
-    <AuthContext.Provider value={{ signUpHandler, loginHandler,logOutHandler, token }}>
+    <AuthContext.Provider
+      value={{ signUpHandler, loginHandler, logOutHandler, token }}
+    >
       {children}
     </AuthContext.Provider>
   );

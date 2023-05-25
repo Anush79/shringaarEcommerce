@@ -8,16 +8,20 @@ import 'react-inner-image-zoom/lib/InnerImageZoom/styles.css';
 
 import { useAuth, AuthProvider } from './context/AuthContext'
 import { useData, DataProvider } from './context/DataContext'
-export { useData }
+import {useWish, WishProvider} from './context/WishListContext'
+
+export { useData , useWish, useAuth}
 // Call make Server
 makeServer();
-export { useAuth }
+
 ReactDOM.render(
   <React.StrictMode>
     <Router>
       <AuthProvider>
         <DataProvider>
-          <App />
+          <WishProvider>
+              <App />
+          </WishProvider>        
         </DataProvider>
       </AuthProvider>
     </Router>

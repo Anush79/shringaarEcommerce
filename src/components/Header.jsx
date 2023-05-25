@@ -10,8 +10,8 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import PersonIcon from "@mui/icons-material/Person";
 
-import { useData } from "../";
-import { useAuth } from "../";
+import { useData,useWish,useAuth  } from "../";
+
 export default function Header() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
   const [isSearchclicked, setIsSearchedClicked] = useState(false);
@@ -21,6 +21,7 @@ export default function Header() {
 
   const { setFiltersUsed } = useData();
   const { token } = useAuth();
+  const {wishlistCount}= useWish()
   const navigate = useNavigate();
 
   const handleMenu = () => {
@@ -125,7 +126,7 @@ export default function Header() {
             )}
           </span>
           <span className="wishList">
-            <Badge badgeContent={1} color="secondary" sx={{ color: "#5f3926" }}>
+            <Badge badgeContent={wishlistCount} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/wishlist">
                 <FavoriteBorderIcon />
               </NavLink>
