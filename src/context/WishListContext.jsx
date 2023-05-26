@@ -4,6 +4,7 @@ import { initialWishList, wishReducerFunction } from '../allReducers/wishReducer
 import {getWishList, removeFromWishList, addToWishList} from '../services/shopingService/wishlistService'
 
 import {useAuth} from '../'
+import { useNavigate } from 'react-router-dom';
 export const  WishContext = createContext();
 
 
@@ -11,6 +12,7 @@ export const  WishContext = createContext();
 export function WishProvider ({children}){
 const [wishList, setWishList] = useReducer(wishReducerFunction, initialWishList)
 const {token} = useAuth()
+const navigate = useNavigate();
 
 const getWishListData = async ()=>{
   try {
@@ -30,6 +32,9 @@ const getWishListData = async ()=>{
 }
 const addWishListData = async (product)=>{
   try {
+    if(!token) {navigate('/login');toast.warn("You need to login first",{
+      position: toast.POSITION.BOTTOM_RIGHT
+    })}
     const response = await addToWishList(product, token)
     const {status, data: {wishlist}} = response;
 
@@ -51,6 +56,7 @@ const addWishListData = async (product)=>{
 }
 const deleteWishListData = async (productId)=>{
   try {
+ 
     const response = await removeFromWishList(productId, token)
     const {status, data: {wishlist}} = response;
 
