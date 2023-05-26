@@ -13,12 +13,11 @@ const [singleProduct, setSingleProduct] = useState({product: {}, loading: true})
 
 const getBackendData = async () => {
     try {
-      const response = await fetch("/api/products");
-      const finalData = await response.json();
+      const response = await getAllProducts();
       setBackendData({
         ...backendData,
         loading: false,
-        productsData: [...finalData.products],
+        productsData: [...response?.data?.products],
       });
     } catch (error) {
       setBackendData({ ...backendData, loading: false, error: error });

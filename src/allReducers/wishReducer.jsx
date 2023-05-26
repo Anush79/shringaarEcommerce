@@ -3,7 +3,7 @@ export const initialWishList = {
   backendWishList: [],
   loading:true
 };
-const uniqueArrayOfObjects = (array)=>array.reduce((acc, current) => {
+ const uniqueArrayOfObjects = (array)=>array.reduce((acc, current) => {
   const exists = acc.some(obj =>
     obj._id === current._id
   );
