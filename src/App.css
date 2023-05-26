@@ -152,6 +152,12 @@ li {
   object-fit: cover;
   border-radius: 4px;
 }
+.ProductCard .cardTextContent{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+}
 
 .navbarIcons {
   display: flex;
@@ -170,6 +176,8 @@ a {
 }
 
 button {
+  margin:auto;
+  cursor: pointer;
   border: 1px solid;
   color: var(--primary-text-color);
   padding: 0.7em 1em;

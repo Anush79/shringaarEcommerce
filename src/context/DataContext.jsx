@@ -1,28 +1,38 @@
 import { createContext, useContext, useReducer , useState, useEffect } from "react";
 import {reducerFilterFunction} from '../allReducers/filtersReducer'
-export const DataContext = createContext();
 
+import {getProduct,getAllProducts} from '../services/shopingService/shopService'
+export const DataContext = createContext();
 export function DataProvider({ children }) {
 const [backendData, setBackendData] = useState({
     loading: true,
     error: null,
     productsData: [],
   });
-
+const [singleProduct, setSingleProduct] = useState({product: {}, loading: true})
 
 const getBackendData = async () => {
     try {
-      const response = await fetch("/api/products");
-      const finalData = await response.json();
+      const response = await getAllProducts();
       setBackendData({
         ...backendData,
         loading: false,
-        productsData: [...finalData.products],
+        productsData: [...response?.data?.products],
       });
     } catch (error) {
       setBackendData({ ...backendData, loading: false, error: error });
     }
   };
+ 
+const getSingleProduct = async(id)=>{
+   try{
+    const response = await getProduct(id)
+    console.log(response)
+   }catch(error){
+    console.log(error)
+   }
+}
+
   useEffect(() => {
     getBackendData();
   }, []);
@@ -94,7 +104,7 @@ const finalPriceSortedData = filtersUsed?.sort.length > 0 && filtersUsed.sort ==
     ratingFilter.sort((first, second) => second.product_price - first.product_price)
 return (
     <DataContext.Provider
-      value={{ backendData, finalPriceSortedData, setFiltersUsed }}
+      value={{ backendData, finalPriceSortedData, setFiltersUsed ,getSingleProduct}}
     >
       {children}
     </DataContext.Provider>
