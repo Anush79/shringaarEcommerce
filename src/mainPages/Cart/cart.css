@@ -1,7 +1,13 @@
-.cart{
-  margin-top:95px;
-  min-height:90vh;
+.mainCartContainerPage{
+  margin-top:100px;
+  min-height: 90vh;
+
+  display: flex;;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
+
 .emptyCart{
   display: flex;
   flex-direction: column;

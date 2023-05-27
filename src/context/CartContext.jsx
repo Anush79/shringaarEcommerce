@@ -61,7 +61,7 @@ const deleteFromCartFunction = async (id, title, encodedToken)=>{
 useEffect(()=>{
   getAllCartItems(token)
 },[token])
-  return <CartContext.Provider value={{cartManager,addToCardFunction}}>
+  return <CartContext.Provider value={{cartManager,addToCardFunction, deleteFromCartFunction}}>
     {children}
   </CartContext.Provider>
 }
