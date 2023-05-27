@@ -5,7 +5,6 @@ import { useWish } from '../..'
 import ProductCard from '../../components/ProductCard'
 export default function WishList(){
   const {wishList} = useWish()
-  console.log(wishList)
   return <div className="wishLish">
      <h1>Your Wish List</h1>
     <div className="productsContainer">
