@@ -95,6 +95,7 @@ section {
 li {
   list-style: none;
   font-family: abel;
+  text-transform: capitalize;
 }
 
 .sideNav ul {
@@ -291,6 +292,7 @@ footer h6 {
 
   .ProductCard {
     width: 25%;
-    max-height: 50%;
+
+    max-height: 40%;
   }
 }

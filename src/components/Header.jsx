@@ -30,7 +30,6 @@ export default function Header() {
     setCategory(e.target.value);
   };
 
-console.log(categoriesData)
   return (
     <>
       <div className="headerContainer">
@@ -71,6 +70,7 @@ console.log(categoriesData)
               <div className="inputElement">
                 <input
                   type="text"
+                  value={inputValue}
                   placeholder="search items"
                   onChange={(e) => {
                     setInputValue(e.target.value);
@@ -155,7 +155,6 @@ console.log(categoriesData)
 
 
 const CategoryList = ({item, navigate, setFiltersUsed}) => {
-  console.log(item)
   return <li key= {item._id}
     // value={item.categoryName}
     onClick={() => {

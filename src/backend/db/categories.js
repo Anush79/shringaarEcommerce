@@ -9,21 +9,21 @@ export const categories = [
   {
     _id: uuid(),
     categoryName: "necklace",
-    thumbnail: "assetscategoryIcon\necklace.png",
+    thumbnail: "/assets/categoryIcon/necklace.png",
   },
   {
     _id: uuid(),
     categoryName: "bracelet",
-    thumbnail: "assetscategoryIcon\bracelet.png",
+    thumbnail: "/assets/categoryIcon/bracelet.png",
   },
   {
     _id: uuid(),
     categoryName: "ring",
-    thumbnail: "assetscategoryIcon\ring.png",
+    thumbnail: "/assets/categoryIcon/ring.png",
   },
   {
     _id: uuid(),
     categoryName: "earring",
-    thumbnail: "assetscategoryIcon\earring.png"
+    thumbnail: "/assets/categoryIcon/earring.png"
   }
 ];
