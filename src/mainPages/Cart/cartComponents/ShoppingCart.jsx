@@ -1,46 +1,98 @@
-export default function ShoppingCart(){
-  return <div className="shoppingCart">Shopping Cart
-{/*   
-  <table>
-  <thead>
-			<tr>
-				
-				<th class="product-thumbnail">Thumbnail image</th>
-				<th class="product-name">Product</th>
-				<th class="product-price">Price</th>
-				<th class="product-quantity">Quantity</th>
-				<th class="product-subtotal">Subtotal</th>
-        <th class="product-remove">Remove item</th>
-			</tr>
-		</thead>
-    <tbody>
-    <tr class="woocommerce-cart-form__cart-item cart_item">
+import AddCircleOutlineIcon from '@mui/icons-material/AddCircleOutline';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
-<td class="product-remove">
- 	</td>
 
-<td class="product-thumbnail">
-<img width="300" height="375" src={} alt=""/></td>
+export default function ShoppingCart() {
+  return (
+    <div className="shoppingCart">
+      
+        <table className="cartData">
+      
 
-<td class="product-name" >
-<div>  <div class="ast-product-name">Product Name 11</div></div>					
-</td>
+          <thead>
+            <tr>
+              <th class="product-thumbnail screen-reader-text">
+              Product image
+              </th>
+              <th class="product-name">Product</th>
+              <th class="product-price">Price</th>
+              <th class="product-quantity">Quantity</th>
+              <th class="product-subtotal">Subtotal</th>
+              <th class="product-remove">Remove</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr className="cartItem">
+              <td class="product-thumbnail" data-cell="">
+                <img src='\assets\stonesjewel.jpg'width="70px" alt="" />
+              </td>
 
-<td class="product-price">
-  <span ><span class="woocommerce-Price-currencySymbol">$</span>400.00</bdi></span>						</td>
+              <td class="product-name" data-cell="Product ">
+              Lorem, ipsum dolor.
+              </td>
 
-<td class="product-quantity" data-title="Quantity">
-<div class="quantity buttons_added"><label class="screen-reader-text" for="minus_qty">Minus Quantity</label><a href="javascript:void(0)" id="minus_qty" class="minus">-</a>
-<label class="screen-reader-text" for="quantity_6471ae8801564">Product Name 11 quantity</label>
-<input type="number" id="quantity_6471ae8801564" class="input-text qty text" name="cart[eb163727917cbba1eea208541a643e74][qty]" value="2" title="Qty" size="4" min="0" max="" step="1" placeholder="" inputmode="numeric" autocomplete="off">
-<label class="screen-reader-text" for="plus_qty"> Plus Quantity</label><a href="javascript:void(0)" id="plus_qty" class="plus">+</a></div>
-</td>
+              <td class="product-price" data-cell="Price  ">
+                <b>$ {900}</b>
+              </td>
 
-<td class="product-subtotal" data-title="Subtotal">
-  <span class="woocommerce-Price-amount amount"><bdi><span class="woocommerce-Price-currencySymbol">$</span>800.00</bdi></span>						</td>
-</tr>
-    </tbody>
-  </table> */}
-  
-  </div>
+              <td class="product-quantity" data-cell="Quantity :">
+                <div className="counter">
+                    <span><RemoveCircleOutlineIcon/></span>
+                  <span className="displayQty">2</span>
+                <span><AddCircleOutlineIcon/></span>            
+             
+                </div>
+                </td>
+
+              <td class="product-subtotal" data-cell="Subtotal :">
+                <span>$ {800.00}</span>
+              </td>
+              <td class="product-remove" ><HighlightOffIcon/></td>
+            </tr>
+            <tr className="cartItem">
+              <td class="product-thumbnail" data-cell="">
+                <img src='\assets\stonesjewel.jpg'width="70px" alt="" />
+              </td>
+
+              <td class="product-name" data-cell="Product ">
+              Lorem, ipsum dolor.
+              </td>
+
+              <td class="product-price" data-cell="Price  ">
+                <b>$ {900}</b>
+              </td>
+
+              <td class="product-quantity" data-cell="Quantity :">
+                <div className="counter">
+                    <span><RemoveCircleOutlineIcon/></span>
+                  <span className="displayQty">2</span>
+                <span><AddCircleOutlineIcon/></span>            
+             
+                </div>
+                </td>
+
+              <td class="product-subtotal" data-cell="Subtotal :">
+                <span>$ {800.00}</span>
+              </td>
+              <td class="product-remove" ><HighlightOffIcon/></td>
+            </tr>
+          </tbody>
+
+        </table>
+       
+      <table className='cartTotal'>
+        <thead><th>Cart Total</th></thead>
+        <tbody>
+          <tr className='subTotal'>
+             <span className="dataTitle">Subtotal</span>
+             <span className="Sprice">${3000}</span></tr>
+          <tr className='discount'><span className="disc">Discount :</span> 10%</tr>
+          <tr className="Tprice"> <span>Total</span><span className="TotalPrice">${2300}</span></tr>
+          <div className="applyCoupon">Apply Coupon</div>
+        <button>Proceed to Checkout</button>
+        </tbody>
+      </table>
+    </div>
+  );
 }

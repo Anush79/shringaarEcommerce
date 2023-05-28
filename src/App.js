@@ -40,9 +40,9 @@ function App() {
         <Route
           path="/cart"
           element={
-            <RequiresAuth token={token}>
+           
               <Cart />
-            </RequiresAuth>
+           
           }
         >
           <Route path="" element={<ShoppingCart />} />

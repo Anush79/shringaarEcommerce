@@ -3,7 +3,10 @@ export const reducerFilterFunction = (state, action) => {
 action.type !== "SEARCH" || action.isNav ===true
 ? action.inputValue.target.value
 : */
-  const value =action.type !== "SEARCH" ? action.inputValue.target.value: action.inputValue;
+  const value =action.type !== "SEARCH" ?
+        action.inputValue.target.value: 
+        action.inputValue;
+  
   switch (action.type) {
     case "PRICE":
       return { ...state, priceRange: value };
