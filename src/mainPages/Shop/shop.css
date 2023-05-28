@@ -16,6 +16,7 @@ aside {
 
 }
 
+
 .priceFilter p {
   display: flex;
   justify-content: space-between;
@@ -64,8 +65,14 @@ aside .filterHeader {
 .hideFilter{
   display: hidden;
 }
-@media (max-width:400px) {
-  /* //9820681798 */
- 
+@media (min-width:400px) {
+
+  .allProductsContainer p:first-child {
+    background-color: var(--primary-theme-color);
+    position: sticky;
+    padding-left:10px;
+    text-align: center;
+    margin: 0 2px;
+  }
 
 }

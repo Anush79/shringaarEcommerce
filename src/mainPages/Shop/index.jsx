@@ -3,12 +3,13 @@ import { useState } from "react";
 import { useData } from "../../context/DataContext";
 import ProductCard from "../../components/ProductCard";
 export default function Shop() {
-  const { backendData, finalPriceSortedData, setFiltersUsed } = useData();
+  const { backendData, finalPriceSortedData, productCount,setFiltersUsed } = useData();
   const [showFilters, setShowFilters] = useState(false)
+
   return (
     <>
       <div className="allProductsContainer">
-
+     <p>Total Products found : <b> {productCount}</b></p>
         <div className="main">
           {/* {!showFilters ? <p onClick={() => { setShowFilters(!showFilters) }}>Show Filters ↓ </p> : */}
             <aside className="allFilters">
@@ -291,6 +292,9 @@ export default function Shop() {
     </>
   );
 }
+
+
+
 /**
  * show number of products
  * handle noproducts

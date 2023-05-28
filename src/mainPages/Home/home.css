@@ -94,7 +94,7 @@ h4 {
 
 .categoryBox div:hover {
   transform: translateY(2px);
-  box-shadow: var(--primary-theme-color)  0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+  box-shadow: var(--primary-theme-color) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
 }
 
 .showOff {
@@ -105,21 +105,28 @@ h4 {
 .showOff p {
   font-family: abel;
 }
+
 .bigImage {
   height: 600px;
   width: 100%;
+  height: 50%;
 }
-
-
 .smallImage {
-width:100%;
-     
+  width: 100%;
+
 }
-.middleImage{
-  width:40%;padding: 10px;
+
+.middleImage {
+  width: 50%;
+  padding: 10px;
 }
-.whyUs p{
+
+.whyUs p {
   font-family: abel;
+}
+
+.whyUsDescription div img {
+  width: 20%;
 }
 
 @media (min-width: 400px) {
@@ -164,21 +171,23 @@ width:100%;
   .showOff .textContent {
     width: 50%;
     padding-left: 100px;
-    z-index:3;
+    z-index: 3;
   }
+
   .categoryBox {
     display: flex;
-    flex-wrap:nowrap;
+    flex-wrap: nowrap;
     margin: auto;
     align-items: center;
     justify-content: center;
     padding: 20px
   }
-  
-  .textContent h3{
+
+  .textContent h3 {
     margin-top: 0;
-font-size: 2rem;
+    font-size: 2rem;
   }
+
   .imageContent {
     display: flex;
     flex-direction: row-reverse;
@@ -188,45 +197,52 @@ font-size: 2rem;
     height: 600px;
     width: 100%;
   }
-  
+
 
   .smallImage {
-   margin-left: -20px;
-   margin-top: 30%;
+    margin-left: -20px;
+    margin-top: 30%;
     right: -30px;
-    height:500px;
-    z-index:1;
+    height: 500px;
+    z-index: 1;
     position: relative;
-       
+
   }
-  .middleImage{
-    width:30%;padding: 10px; border-radius: 1%;
-   
+
+  .middleImage {
+    width: 30%;
+    padding: 10px;
+    border-radius: 1%;
+
   }
-  .whyusContent{
+
+  .whyusContent {
     display: flex;
   }
-  .whyUsDescription{
+
+  .whyUsDescription {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    
+
     align-items: center;
     gap: 10px;
   }
-  .whyUsDescription div{
+
+  .whyUsDescription div {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     padding: 5px;
 
   }
-  .whyUsDescription p{
+
+  .whyUsDescription p {
     text-align: left;
   }
- 
-  .whyUsDescription div img{
+
+  .whyUsDescription div img {
     height: 50px;
     width: 50px;
   }
- 
+
 }

@@ -1,4 +1,4 @@
-import { Routes, Route} from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -15,12 +15,16 @@ import Shop from "./mainPages/Shop";
 import Login from "./mainPages/Login/index";
 import Footer from "./components/Footer";
 import ProductDetails from "./mainPages/ProductDetails/index";
-import WishList from './mainPages/WishList/index'
+import WishList from "./mainPages/WishList/index";
 import Error from "./mainPages/Error";
 import Orders from "./mainPages/Profile/components/Orders";
 import Address from "./mainPages/Profile/components/Address";
 import User from "./mainPages/Profile/components/User";
+import CheckoutDetails from "./mainPages/Cart/cartComponents/CheckoutDetails";
+import ShoppingCart from "./mainPages/Cart/cartComponents/ShoppingCart";
+import OrderComplete from "./mainPages/Cart/cartComponents/OrdersComplete";
 import { useAuth } from "./context/AuthContext";
+
 function App() {
   const { token } = useAuth();
 
@@ -36,20 +40,26 @@ function App() {
         <Route
           path="/cart"
           element={
-            <RequiresAuth token={token}>
+           
               <Cart />
+           
+          }
+        >
+          <Route path="" element={<ShoppingCart />} />
+          <Route path="completedorders" element={<OrderComplete />} />
+          <Route path="checkout" element={<CheckoutDetails />} />
+        </Route>
+
+        <Route
+          path="/wishlist"
+          element={
+            <RequiresAuth token={token}>
+              <WishList />
             </RequiresAuth>
           }
         />
-        <Route path="/wishlist" element={  <RequiresAuth token={token}>
-              <WishList />
-            </RequiresAuth>} />
-        <Route      
-          path="/profile"
-          element={
-              <Profile />
-          }
-        >
+
+        <Route path="/profile" element={<Profile />}>
           <Route path="" element={<User />} />
           <Route path="orders" element={<Orders />} />
           <Route path="address" element={<Address />} />

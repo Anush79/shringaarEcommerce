@@ -1,17 +1,31 @@
-import { createContext, useContext, useReducer , useState, useEffect } from "react";
-import {reducerFilterFunction} from '../allReducers/filtersReducer'
+import {
+  createContext,
+  useContext,
+  useReducer,
+  useState,
+  useEffect,
+} from "react";
+import { reducerFilterFunction } from "../allReducers/filtersReducer";
+import {
+  getProduct,
+  getAllProducts,
+} from "../services/shopingService/shopService";
+import { getAllCategories } from "../services/shopingService/categoryService";
 
-import {getProduct,getAllProducts} from '../services/shopingService/shopService'
 export const DataContext = createContext();
 export function DataProvider({ children }) {
-const [backendData, setBackendData] = useState({
+  const [backendData, setBackendData] = useState({
     loading: true,
     error: null,
     productsData: [],
   });
-const [singleProduct, setSingleProduct] = useState({product: {}, loading: true})
+  const [categoriesData, setCategoriesData] = useState([]);
+  const [singleProduct, setSingleProduct] = useState({
+    product: {},
+    loading: true,
+  });
 
-const getBackendData = async () => {
+  const getBackendData = async () => {
     try {
       const response = await getAllProducts();
       setBackendData({
@@ -23,23 +37,38 @@ const getBackendData = async () => {
       setBackendData({ ...backendData, loading: false, error: error });
     }
   };
- 
-const getSingleProduct = async(id)=>{
-   try{
-    const response = await getProduct(id)
-    console.log(response)
-   }catch(error){
-    console.log(error)
-   }
-}
+
+  const getSingleProduct = async (id) => {
+    try {
+      const response = await getProduct(id);
+      // const {status,data:{categories}}= response;
+      // if(status === 200)
+      // setCategories(categories)
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const getCategories = async () => {
+    try {
+      const response = await getAllCategories();
+      const {
+        status,
+        data: { categories },
+      } = response;
+      if (status === 200) setCategoriesData(categories);
+      console.log(categories);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     getBackendData();
+    getCategories();
   }, []);
 
-
-
-const [filtersUsed, setFiltersUsed] = useReducer(reducerFilterFunction, {
+  const [filtersUsed, setFiltersUsed] = useReducer(reducerFilterFunction, {
     priceRange: "",
     search: "",
     sort: "",
@@ -49,62 +78,78 @@ const [filtersUsed, setFiltersUsed] = useReducer(reducerFilterFunction, {
     materialFilter: [],
   });
 
-const lowercaseSearch = filtersUsed.search.toLowerCase();
+  const lowercaseSearch = filtersUsed.search.toLowerCase();
 
-const searchedDataValue =
+  const searchedDataValue =
     filtersUsed.search.length > 0
       ? backendData?.productsData.filter(
-        (item) =>
-          item.product_name.toLowerCase().includes(lowercaseSearch) ||
-          item.product_material.toLowerCase().includes(lowercaseSearch) ||
-          item.product_occasion.toLowerCase().includes(lowercaseSearch) ||
-          item.product_brand.toLowerCase().includes(lowercaseSearch) ||
-          item.product_category.toLowerCase().includes(lowercaseSearch) ||
-          item.product_color.toLowerCase().includes(lowercaseSearch) ||
-          item.product_isBadge.toLowerCase().includes(lowercaseSearch)
-      )
+          (item) =>
+            item.product_name.toLowerCase().includes(lowercaseSearch) ||
+            item.product_material.toLowerCase().includes(lowercaseSearch) ||
+            item.product_occasion.toLowerCase().includes(lowercaseSearch) ||
+            item.product_brand.toLowerCase().includes(lowercaseSearch) ||
+            item.product_category.toLowerCase().includes(lowercaseSearch) ||
+            item.product_color.toLowerCase().includes(lowercaseSearch) ||
+            item.product_isBadge.toLowerCase().includes(lowercaseSearch)
+        )
       : backendData?.productsData;
 
-const categoryFilterData =
+  const categoryFilterData =
     filtersUsed.categoryFilters.length > 0
       ? searchedDataValue.filter((item) =>
-        filtersUsed.categoryFilters.some(
-          (elem) => item.product_category === elem
+          filtersUsed.categoryFilters.some(
+            (elem) => item.product_category === elem
+          )
         )
-      )
       : searchedDataValue;
 
-const occasionFilterData =
+  const occasionFilterData =
     filtersUsed.ocassionFilters.length > 0
       ? categoryFilterData.filter((item) =>
-        filtersUsed.ocassionFilters.some(
-          (elem) => item.product_occasion === elem
+          filtersUsed.ocassionFilters.some(
+            (elem) => item.product_occasion === elem
+          )
         )
-      )
       : categoryFilterData;
-const materialFilterData =
+  const materialFilterData =
     filtersUsed.materialFilter.length > 0
       ? occasionFilterData.filter((item) =>
-        filtersUsed.materialFilter.some(
-          (elem) => item.product_material === elem
+          filtersUsed.materialFilter.some(
+            (elem) => item.product_material === elem
+          )
         )
-      )
       : occasionFilterData;
 
-const priceRangeData =
+  const priceRangeData =
     filtersUsed.priceRange.length > 0
       ? materialFilterData.filter(
-        (item) => item.product_price < filtersUsed.priceRange
-      )
+          (item) => item.product_price < filtersUsed.priceRange
+        )
       : materialFilterData;
-const ratingFilter = filtersUsed.rating > 0 ?
-    priceRangeData.filter(item => item.product_rating > filtersUsed.rating) :
-    priceRangeData  
-const finalPriceSortedData = filtersUsed?.sort.length > 0 && filtersUsed.sort === "LOWTOHIGH" ? ratingFilter.sort((first, second) => first.product_price - second.product_price) :
-    ratingFilter.sort((first, second) => second.product_price - first.product_price)
-return (
+  const ratingFilter =
+    filtersUsed.rating > 0
+      ? priceRangeData.filter(
+          (item) => item.product_rating > filtersUsed.rating
+        )
+      : priceRangeData;
+  const finalPriceSortedData =
+    filtersUsed?.sort.length > 0 && filtersUsed.sort === "LOWTOHIGH"
+      ? ratingFilter.sort(
+          (first, second) => first.product_price - second.product_price
+        )
+      : ratingFilter.sort(
+          (first, second) => second.product_price - first.product_price
+        );
+  return (
     <DataContext.Provider
-      value={{ backendData, finalPriceSortedData, setFiltersUsed ,getSingleProduct}}
+      value={{
+        backendData,
+        finalPriceSortedData,
+        productCount: finalPriceSortedData.length,
+        setFiltersUsed,
+        categoriesData,
+        getSingleProduct,
+      }}
     >
       {children}
     </DataContext.Provider>

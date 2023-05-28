@@ -21,7 +21,7 @@
 .displayPages{
   margin-top:10px;
   min-height: 80vh;
-  border:5px ridge var(--primary-text-color);
+  border:1px solid var(--primary-text-color);
 min-width: 100%;
 
 }

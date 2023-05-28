@@ -7,10 +7,9 @@ import LocalGroceryStoreTwoToneIcon from "@mui/icons-material/LocalGroceryStoreT
 import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
 import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
-import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import PersonIcon from "@mui/icons-material/Person";
 
-import { useData,useWish,useAuth  } from "../";
+import { useData, useWish, useAuth } from "../";
 
 export default function Header() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -19,9 +18,9 @@ export default function Header() {
   const [inputValue, setInputValue] = useState("");
   const [category, setCategory] = useState("");
 
-  const { setFiltersUsed } = useData();
+  const { setFiltersUsed, categoriesData } = useData();
   const { token } = useAuth();
-  const {wishlistCount}= useWish()
+  const { wishlistCount } = useWish()
   const navigate = useNavigate();
 
   const handleMenu = () => {
@@ -31,47 +30,15 @@ export default function Header() {
     setCategory(e.target.value);
   };
 
-
+console.log(categoriesData)
   return (
     <>
       <div className="headerContainer">
         <div className="categories">
-          <li
-            value="ring"
-            onClick={(e) => {
-              setFiltersUsed({ type: "CATEGORY", inputValue: e });
-              navigate("/browse");
-            }}
-          >
-            Rings
-          </li>
-          <li
-            value="bracelet"
-            onClick={(e) => {
-              setFiltersUsed({ type: "CATEGORY", inputValue: e });
-              navigate("/browse");
-            }}
-          >
-            Bracelets
-          </li>
-          <li
-            value="necklace"
-            onClick={(e) => {
-              setFiltersUsed({ type: "CATEGORY", inputValue: e });
-              navigate("/browse");
-            }}
-          >
-            Necklaces
-          </li>
-          <li
-            value="earring"
-            onClick={(e) => {
-              setFiltersUsed({ type: "CATEGORY", inputValue: e });
-              navigate("/browse");
-            }}
-          >
-            Earrings
-          </li>
+          {
+            categoriesData.map(item => <CategoryList item={item} navigate={navigate } setFiltersUsed={setFiltersUsed}/>)
+          }
+
         </div>
         <div className="headerLeft">
           <div
@@ -184,4 +151,18 @@ export default function Header() {
       )}
     </>
   );
+}
+
+
+const CategoryList = ({item, navigate, setFiltersUsed}) => {
+  console.log(item)
+  return <li key= {item._id}
+    // value={item.categoryName}
+    onClick={() => {
+      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName, isNav:true });
+      navigate("/browse");
+    }}
+  >
+   {item.categoryName}
+  </li>
 }

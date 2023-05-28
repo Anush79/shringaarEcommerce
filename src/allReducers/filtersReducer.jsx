@@ -1,8 +1,12 @@
 export const reducerFilterFunction = (state, action) => {
-  const value =
-    action.type !== "SEARCH"
-      ? action.inputValue.target.value
-      : action.inputValue;
+/*
+action.type !== "SEARCH" || action.isNav ===true
+? action.inputValue.target.value
+: */
+  const value =action.type !== "SEARCH" ?
+        action.inputValue.target.value: 
+        action.inputValue;
+  
   switch (action.type) {
     case "PRICE":
       return { ...state, priceRange: value };
@@ -34,19 +38,18 @@ export const reducerFilterFunction = (state, action) => {
           : [...state.categoryFilters, value],
       };
     case "CLEARFILTER":
-      return( {
-          priceRange: "",
-          search: "",
-          sort: "",
-          rating: "",
-          ocassionFilters: [],
-          categoryFilters: [],
-          materialFilter: [],
-        })
-      
+      return {
+        priceRange: "",
+        search: "",
+        sort: "",
+        rating: "",
+        ocassionFilters: [],
+        categoryFilters: [],
+        materialFilter: [],
+      };
+
     default:
       console.log("something is wrong in filters");
       break;
   }
 };
-

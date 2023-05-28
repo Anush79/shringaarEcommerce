@@ -1,10 +1,12 @@
 import { NavLink } from "react-router-dom";
 
-import { useData, useWish } from "..";
+import { useData,useAuth, useWish, useCart } from "..";
 
 export default function ProductCard({ item, inWishlist }) {
   const { deleteWishListData } = useWish();
   const {getSingleProduct} = useData()
+  const {addToCardFunction} = useCart()
+  const {token} = useAuth()
   const {
     _id,
     product_name,
@@ -30,7 +32,8 @@ export default function ProductCard({ item, inWishlist }) {
             <button
               onClick={(e) => {
                 e.preventDefault();
-                console.log("added to cart");
+                addToCardFunction(item,token)
+               
               }}
             >
               Add to cart
