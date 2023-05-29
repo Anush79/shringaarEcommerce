@@ -6,7 +6,9 @@ import { useCart, useAuth } from '../../../'
 
 
 export default function ShoppingCart() {
-  const { cartManager, changeQuantity,deleteFromCartFunction } = useCart()
+  const { cartManager, changeQuantity,deleteFromCartFunction,totalPrice,
+    totalPrevPrice,
+    totalDiscount } = useCart()
   const {token} = useAuth()
   return (
     <div className="shoppingCart">
@@ -60,7 +62,7 @@ export default function ShoppingCart() {
                   </td>
 
                   <td class="product-subtotal" data-cell="Subtotal :">
-                    <span>$ {product_price*qty}</span>
+                    <span>$ {Math.floor(product_price*qty)}</span>
                   </td>
                   <td class="product-remove" onClick={()=>{deleteFromCartFunction(_id, product_name, token)}} ><HighlightOffIcon /></td>
                 </tr>
@@ -78,9 +80,9 @@ export default function ShoppingCart() {
         <tbody>
           <tr className='subTotal'>
             <span className="dataTitle">Subtotal</span>
-            <span className="Sprice">${3000}</span></tr>
-          <tr className='discount'><span className="disc">Discount :</span> 10%</tr>
-          <tr className="Tprice"> <span>Total</span><span className="TotalPrice">${2300}</span></tr>
+            <span className="Sprice">${totalPrevPrice}</span></tr>
+          <tr className='discount'><span className="disc">Discount :</span> {totalDiscount}%</tr>
+          <tr className="Tprice"> <span>Total</span><span className="TotalPrice">${totalPrice}</span></tr>
           <div className="applyCoupon">Apply Coupon</div>
           <button>Proceed to Checkout</button>
         </tbody>
