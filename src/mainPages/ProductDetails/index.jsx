@@ -3,14 +3,16 @@ import "./productDetails.css";
 import InnerImageZoom from "react-inner-image-zoom";
 
 import { useParams } from "react-router-dom";
-import { useData, useWish } from "../../";
+import { useData, useWish, useCart, useAuth } from "../../";
 
-export default function () {
+export default function ProductDetails() {
   const { backendData, getSingleProduct } = useData();
+  const {addToCardFunction} = useCart();
+  const {token} = useAuth()
   const todate = new Date().toString();
   const { prodID } = useParams();
   const { addWishListData } = useWish();
-  console.log(addWishListData);
+
   const product = backendData?.productsData.find(
     (item) => item._id === prodID
   );
@@ -20,7 +22,7 @@ export default function () {
       product_category,
       product_color,
       product_description,
-      product_id,
+      _id,
       product_image,
       product_isBadge,
       product_isCart,
@@ -40,13 +42,15 @@ export default function () {
     );
 
     return (
-      <div className="productDetailsContainer" key={product_id}>
+      <div className="productDetailsContainer" key={_id}>
         <div className="detailsContainer">
           <div className="imgcontainer">
             <InnerImageZoom src={product_image} zoomSrc={product_image} />
 
             <div className="buttons">
-              <button>Add to Cart</button>
+              <button onClick={() => {
+                  addToCardFunction(product, token)
+                }}>Add to Cart</button>
               <button
                 onClick={() => {
                   addWishListData(product);

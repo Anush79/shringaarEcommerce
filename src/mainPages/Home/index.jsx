@@ -8,7 +8,7 @@ import {useData} from '../../'
 
 export default function Home() {
   const {backendData, categoriesData} = useData()
-  console.log(categoriesData)
+
   const trendingArray= backendData?.productsData.filter((item) => item.product_isBadge==="Trending")
   return (
     <>

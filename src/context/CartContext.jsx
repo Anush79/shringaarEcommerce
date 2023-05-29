@@ -33,10 +33,11 @@ const addToCardFunction = async(product,encodedToken)=>{
     const {status, data: {cart}} = response;
     if(status === 201){
       setCartManager({type: "ADDTOCART", payload:cart})
+      toast.success("Added to cart",{position:"bottom-right"})
     }
     
   }catch(error){
-    console.error(error)
+    toast.warn("Please Login in before you add to cart")
   }
 }
 const deleteFromCartFunction = async (id, title, encodedToken)=>{
@@ -59,9 +60,9 @@ const deleteFromCartFunction = async (id, title, encodedToken)=>{
   }
 }
 useEffect(()=>{
-  getAllCartItems(token)
+  if(token) getAllCartItems(token)
 },[token])
-  return <CartContext.Provider value={{cartManager,addToCardFunction, deleteFromCartFunction}}>
+  return <CartContext.Provider value={{cartManager,addToCardFunction, deleteFromCartFunction, cartCount: cartManager.cartData.length}}>
     {children}
   </CartContext.Provider>
 }

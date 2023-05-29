@@ -9,7 +9,7 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
 
-import { useData, useWish, useAuth } from "../";
+import { useData,useCart, useWish, useAuth } from "../";
 
 export default function Header() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -21,6 +21,7 @@ export default function Header() {
   const { setFiltersUsed, categoriesData } = useData();
   const { token } = useAuth();
   const { wishlistCount } = useWish()
+  const {cartCount} = useCart()
   const navigate = useNavigate();
 
   const handleMenu = () => {
@@ -100,7 +101,7 @@ export default function Header() {
             </Badge>
           </span>
           <span className="emptyCart">
-            <Badge badgeContent={3} color="secondary" sx={{ color: "#5f3926" }}>
+            <Badge badgeContent={cartCount} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/cart">
                 <LocalGroceryStoreTwoToneIcon />
               </NavLink>
