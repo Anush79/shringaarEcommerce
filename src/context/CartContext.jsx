@@ -14,7 +14,7 @@ const getAllCartItems =async (encodedToken) =>{
     const response = await getCartList(encodedToken)
     const {status, data: {cart}} = response;
     if(status === 200){
-      setCartManager({type:"DISPLAYCART", payload:cart})
+      setCartManager({type:"DISPLAYCART", payload:[...cart]})
     }
    }
    catch(error){
@@ -33,7 +33,9 @@ const addToCardFunction = async(product,encodedToken)=>{
     const {status, data: {cart}} = response;
     if(status === 201){
       setCartManager({type: "ADDTOCART", payload:cart})
-      toast.success("Added to cart",{position:"bottom-right"})
+      toast.success("Added to cart",{
+        position: toast.POSITION.BOTTOM_RIGHT,
+      })
     }
     
   }catch(error){
@@ -59,10 +61,33 @@ const deleteFromCartFunction = async (id, title, encodedToken)=>{
     })
   }
 }
+
+const changeQuantity = async(productId,encodedToken ,type)=>{
+  try{
+    const response = await incDecQuantity(productId, encodedToken, type);
+    const {status, data: {cart}} = response;
+    if(status === 200){
+      if(type==="increment") setCartManager({type: "INCREASEQUANT", payload: cart});
+      else setCartManager({type:'DECREASEQUANT', payload: cart})
+        toast.success( type === "increment" ? `Cart quantity incrased successfully!` : `Cart quantity decreased successfully!`, 
+        {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        }
+        );    
+    }
+
+  }
+  catch(error){
+    toast.error(error.message)
+    console.log(error)
+  }
+}
+
+
 useEffect(()=>{
   if(token) getAllCartItems(token)
 },[token])
-  return <CartContext.Provider value={{cartManager,addToCardFunction, deleteFromCartFunction, cartCount: cartManager.cartData.length}}>
+  return <CartContext.Provider value={{changeQuantity,cartManager,addToCardFunction, deleteFromCartFunction, cartCount: cartManager.cartData.length}}>
     {children}
   </CartContext.Provider>
 }

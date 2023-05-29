@@ -6,7 +6,7 @@ import { useCart, useAuth } from '../../../'
 
 
 export default function ShoppingCart() {
-  const { cartManager, deleteFromCartFunction } = useCart()
+  const { cartManager, changeQuantity,deleteFromCartFunction } = useCart()
   const {token} = useAuth()
   return (
     <div className="shoppingCart">
@@ -33,7 +33,8 @@ export default function ShoppingCart() {
           
               cartManager?.cartData.map(item => {
                 
-                const {_id,product_image,product_name ,product_price}= item;
+                const {_id,product_image,product_name ,product_price , qty}= item;
+                console.log(qty)
                 const shortName = product_name.slice(0,14)
 
                 return( <tr className="cartItem" key={_id}>
@@ -51,15 +52,15 @@ export default function ShoppingCart() {
 
                   <td class="product-quantity" data-cell="Quantity :">
                     <div className="counter">
-                      <span><RemoveCircleOutlineIcon /></span>
-                      <span className="displayQty">1</span>
-                      <span><AddCircleOutlineIcon /></span>
+                      <span style={{color:qty<2?"#d1d1d1":""}}onClick={()=>{if(qty>1)changeQuantity(_id, token, "decrement")}}><RemoveCircleOutlineIcon /></span>
+                      <span className="displayQty">{qty}</span>
+                      <span onClick={()=>{changeQuantity(_id, token, "increment")}}><AddCircleOutlineIcon /></span>
 
                     </div>
                   </td>
 
                   <td class="product-subtotal" data-cell="Subtotal :">
-                    <span>$ {product_price}</span>
+                    <span>$ {product_price*qty}</span>
                   </td>
                   <td class="product-remove" onClick={()=>{deleteFromCartFunction(_id, product_name, token)}} ><HighlightOffIcon /></td>
                 </tr>
