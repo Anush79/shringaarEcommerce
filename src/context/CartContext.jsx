@@ -106,6 +106,11 @@ export function CartProvider({ children }) {
       console.log(error);
     }
   };
+
+const isItemInCart = (prodId)=>{
+  return cartManager?.cartData.find(item=> item._id === prodId)?true:false
+}
+
   const totalPrevPrice = token
   ? Math.floor(cartManager?.cartData.reduce(
       (acc, curr) => curr.product_prevPrice * curr.qty + acc,
@@ -122,6 +127,8 @@ export function CartProvider({ children }) {
   const totalDiscount = Math.floor(
     100 - ((totalPrice / totalPrevPrice) * 100)
   ); 
+
+
   useEffect(() => {
     if (token) getAllCartItems(token);
   }, [token]);
@@ -132,6 +139,7 @@ export function CartProvider({ children }) {
         cartManager,
         addToCardFunction,
         deleteFromCartFunction,
+        isItemInCart,
         totalPrice,
         totalPrevPrice,
         totalDiscount,

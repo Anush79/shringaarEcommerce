@@ -1,6 +1,10 @@
+import {useState} from 'react'
 import EditIcon from '@mui/icons-material/Edit';
 import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
 import { v4 as uuid } from "uuid";
+
+import UpdateAddress from '../../../components/UpdateAdd';
+
 const addresses = [
   {
     id: uuid(),
@@ -28,15 +32,21 @@ const addresses = [
 
 
 export default function Address() {
+const [isAddClicked, setIsAddClicked] = useState(false)
+
+
   return (
     <div className="address">
-      <div className="addAddress">
+      <div className="addAddress" onClick={()=>{setIsAddClicked(!isAddClicked)}}>
         <span className="plus">+</span>
         Add New Address
 
       </div>
       {
         addresses.map(item => <AddressCard addObj={item} />)
+      }
+      {
+        isAddClicked?<div className="overlay"><UpdateAddress clickF={setIsAddClicked} /></div>:null
       }
     </div>
   )

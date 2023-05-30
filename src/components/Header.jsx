@@ -68,7 +68,7 @@ export default function Header() {
 
           <span className="search">
             {isSearchclicked ? (
-              <div className="inputElement">
+              <div className="inputElement overlay">
                 <input
                   type="text"
                   value={inputValue}
