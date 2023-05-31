@@ -1,3 +1,5 @@
+import { NavLink } from "react-router-dom"
+
 export default function Orders(){
   const orders= []
   return(
@@ -7,7 +9,7 @@ export default function Orders(){
       {
         orders.length > 0? "here are all your previous orders" : <div>
          <p> "No orders yet , please shop something"</p>
-          <button>Shop Now</button>
+          <button><NavLink to="/browse">Shop Now</NavLink></button>
         </div>
       }
     </div>

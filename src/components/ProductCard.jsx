@@ -1,15 +1,14 @@
 import { NavLink } from "react-router-dom";
 
-import { useData,useAuth, useWish, useCart } from "..";
-import AddShoppingCartIcon from '@mui/icons-material/AddShoppingCart';
-import ShoppingCartCheckoutIcon from '@mui/icons-material/ShoppingCartCheckout';
-import TrendingUpOutlinedIcon from '@mui/icons-material/TrendingUpOutlined';
+import { useData, useAuth, useWish, useCart } from "..";
+import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
+import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
 
 export default function ProductCard({ item, inWishlist }) {
   const { deleteWishListData } = useWish();
-  const {getSingleProduct} = useData()
-  const {addToCardFunction, isItemInCart} = useCart()
-  const {token} = useAuth();
+  const { getSingleProduct } = useData();
+  const { addToCardFunction, isItemInCart } = useCart();
+  const { token } = useAuth();
   const {
     _id,
     product_name,
@@ -22,12 +21,14 @@ export default function ProductCard({ item, inWishlist }) {
   return (
     <div className="ProductCard" key={_id}>
       <NavLink to={`/products/${_id}`}>
-       
-        <div onClick={()=>{getSingleProduct(_id)}}>
-      
-          <img src={product_image} alt="eclusive jewelry by Shringaar" />
+        <div
+          onClick={() => {
+            getSingleProduct(_id);
+          }}
+        >
+          <img src={product_image} alt="exclusive jewelry by Shringaar" />
           <div className="cardTextContent">
-            <h3>{product_name.slice(0,15)}</h3>
+            <h3>{product_name.slice(0, 15)}</h3>
             <p className="price">
               {product_prevPrice && (
                 <span className="stikeThrough">$ {product_prevPrice}</span>
@@ -35,40 +36,37 @@ export default function ProductCard({ item, inWishlist }) {
               <b> $ {product_price}</b>
             </p>
           </div>
+
           <span title="trending" className="trendingIcon">
-            <small>
-              {
-             product_isBadge}
-              
-              </small>
-      
-          {/* // <TrendingUpOutlinedIcon /> */}
-        </span>
+            {product_isBadge.length > 0 ? (
+              <div className="ribbon ribbon-top-left">
+                <span>{product_isBadge}</span>
+              </div>
+            ) : null}
+
+          </span>
           <div className="buttons">
             <div className="addToCartButton">
-             {
-              isItemInCart(_id)?
-              <span title ="Move to Cart" className="moveToCart" style={{background:"#cb9fe3",borderRadius:"12px"}}>
-                <NavLink to='/cart'>
-              <ShoppingCartCheckoutIcon  />
-            </NavLink>
-              </span>
-              :
-              <AddShoppingCartIcon
-              onClick={(e) => {
-                e.preventDefault();
-                addToCardFunction(item,token)
-               
-              }}
-              />
-             
-             }
-              
-            
+              {isItemInCart(_id) ? (
+                <span
+                  title="Move to Cart"
+                  className="moveToCart"
+                  style={{ background: "#cb9fe3", borderRadius: "12px" }}
+                >
+                  <NavLink to="/cart">
+                    <ShoppingCartCheckoutIcon />
+                  </NavLink>
+                </span>
+              ) : (
+                <AddShoppingCartIcon
+                  onClick={(e) => {
+                    e.preventDefault();
+                    addToCardFunction(item, token);
+                  }}
+                />
+              )}
             </div>
-            
-            
-           
+
             {inWishlist ? (
               <button
                 onClick={(e) => {

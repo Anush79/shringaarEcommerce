@@ -36,7 +36,9 @@ export function AuthProvider({ children }) {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     } catch (error) {
-      console.log(error);
+      toast.error("Login unsuccessful, Email or Password is wrong", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     }
   };
 
