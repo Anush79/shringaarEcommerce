@@ -22,8 +22,5 @@ export const users = [
     "password": "aosuhis",
     "createdAt": "2023-05-20T08:10:47+05:30",
     "updatedAt": "2023-05-20T08:10:47+05:30",
- 
-  
-    "id": "2"
   }
 ];

@@ -79,6 +79,31 @@ font-weight: bold;
  .addressContainer .buttons{
   width:90%;
  }
+
+ .addFormBox{
+  position: absolute;
+  width: 400px;
+  height: 450px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.233);
+  border: 2px solid var(--primary-theme-color);
+  border-radius: 20px;
+  font-family: abel;
+  letter-spacing: 1px;
+
+  backdrop-filter: blur(4px);
+ }
+
+.addressForm{
+  height: auto;
+  width:90vw;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
 @media (min-width:465px){
   .profileContainer{
     min-width: 50%;

@@ -7,7 +7,8 @@ import {useData} from '../../'
 
 
 export default function Home() {
-  const {backendData} = useData()
+  const {backendData, categoriesData} = useData()
+
   const trendingArray= backendData?.productsData.filter((item) => item.product_isBadge==="Trending")
   return (
     <>
@@ -62,22 +63,14 @@ export default function Home() {
         <h3>SHOP BY CATEGORY</h3>
         <p>Browse through your favorite categories. we have got them all!</p> 
           <div className="categoryBox">
-            <div className="necklace">
-              <img src="\assets\categoryIcon\necklace.png" alt="necklace image random" srcset="" />
-              <p>Necklace</p>
-            </div>
-            <div className="ring">
-              <img src="\assets\categoryIcon\ring.png" alt="ring image random" srcset="" />
-              <p>Rings</p>
-            </div>
-            <div className="bracelet">
-              <img src="\assets\categoryIcon\bracelet.png" alt="bracelet image random" srcset="" />
-              <p>Bracelets</p>
-            </div>
-            <div className="earring">
-              <img src="\assets\categoryIcon\earring.png" alt="earring image random" srcset="" />
-              <p>Earrings</p>
-            </div>
+            { 
+              categoriesData.map(({_id,categoryName, thumbnail })=> <div key={_id} className={categoryName}>
+              <img src={thumbnail} alt={` random image of ${categoryName}`} />
+              <p>{categoryName}</p>
+                </div>
+                )
+            }
+            
           </div>
      
 

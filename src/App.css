@@ -34,7 +34,18 @@ section {
   font-size: 1.1em;
   margin-bottom: 10px;
 }
-
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999; /* Ensures the overlay is on top of other elements */
+}
 .categories {
   display: none;
 }
@@ -95,6 +106,7 @@ section {
 li {
   list-style: none;
   font-family: abel;
+  text-transform: capitalize;
 }
 
 .sideNav ul {
@@ -132,7 +144,7 @@ li {
 
 .ProductCard {
   padding: 5px;
-
+  position:relative;
   background: linear-gradient(white, var(--primary-theme-color));
   box-shadow: 0 3px 4px rgba(128, 128, 128, 0.592);
   display: flex;
@@ -157,8 +169,83 @@ li {
   flex-direction: column;
   justify-content: space-between;
 
+
+}
+.trendingIcon{
+  display: relative;
+  left:-50%;
+  background:var(--primary-theme-color);
 }
 
+
+
+.addToCartButton{
+  position:absolute;
+  top:0;
+  right:0;
+
+  height:25px;
+  width:25px;
+  background:var(--primary-theme-color);
+  border-radius:5px;
+  padding:5px;
+}
+.trendingIcon svg{
+  left:0;
+ }
+ .ribbon {
+  width: 100px;
+  height: 100px;
+  overflow: hidden;
+  position: absolute;
+}
+.ribbon::before,
+.ribbon::after {
+  position: absolute;
+  z-index: -1;
+  content: '';
+  display: block;
+  border: 5px solid rgb(144, 96, 96);
+}
+.ribbon span {
+  position: absolute;
+  display: block;
+  width: 220px;
+  padding: 15px 0;
+  background-color: var(--primary-text-color);
+  box-shadow: 0 5px 10px rgba(0,0,0,.1);
+  color: #fff;
+  font: 500 0.9em/1 'abel', sans-serif;
+  text-shadow: 0 1px 1px rgba(0,0,0,.2);
+  text-transform: capitalize;
+  text-align: center;
+}
+
+ .ribbon-top-left {
+  top: -10px;
+  left: -10px;
+}
+.ribbon-top-left::before,
+.ribbon-top-left::after {
+  border-top-color: transparent;
+  border-left-color: transparent;
+}
+.ribbon-top-left::before {
+  top: 0;
+  right: 0;
+}
+.ribbon-top-left::after {
+  bottom: 0;
+  left: 0;
+}
+.ribbon-top-left span {
+  right: -46px;
+    top: 10px;
+  transform: rotate(-45deg);
+}
+.cardTextContent h3{
+  margin-bottom:0;
+}
 .navbarIcons {
   display: flex;
   flex-direction: row;
@@ -291,6 +378,7 @@ footer h6 {
 
   .ProductCard {
     width: 25%;
-    max-height: 50%;
+
+    max-height: 40%;
   }
 }

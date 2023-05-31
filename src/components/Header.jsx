@@ -9,7 +9,7 @@ import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
 
-import { useData, useWish, useAuth } from "../";
+import { useData,useCart, useWish, useAuth } from "../";
 
 export default function Header() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -21,6 +21,7 @@ export default function Header() {
   const { setFiltersUsed, categoriesData } = useData();
   const { token } = useAuth();
   const { wishlistCount } = useWish()
+  const {cartCount} = useCart()
   const navigate = useNavigate();
 
   const handleMenu = () => {
@@ -30,7 +31,6 @@ export default function Header() {
     setCategory(e.target.value);
   };
 
-console.log(categoriesData)
   return (
     <>
       <div className="headerContainer">
@@ -68,9 +68,10 @@ console.log(categoriesData)
 
           <span className="search">
             {isSearchclicked ? (
-              <div className="inputElement">
+              <div className="inputElement overlay">
                 <input
                   type="text"
+                  value={inputValue}
                   placeholder="search items"
                   onChange={(e) => {
                     setInputValue(e.target.value);
@@ -100,7 +101,7 @@ console.log(categoriesData)
             </Badge>
           </span>
           <span className="emptyCart">
-            <Badge badgeContent={3} color="secondary" sx={{ color: "#5f3926" }}>
+            <Badge badgeContent={cartCount} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/cart">
                 <LocalGroceryStoreTwoToneIcon />
               </NavLink>
@@ -155,7 +156,6 @@ console.log(categoriesData)
 
 
 const CategoryList = ({item, navigate, setFiltersUsed}) => {
-  console.log(item)
   return <li key= {item._id}
     // value={item.categoryName}
     onClick={() => {
