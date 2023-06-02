@@ -14,6 +14,7 @@ export default function Address() {
       <div
         className="addAddress"
         onClick={() => {
+          handleEdit(123, false)
           setIsAddClicked(!isAddClicked);
         }}
       >
@@ -22,7 +23,6 @@ export default function Address() {
       </div>
       {address.map((item) => (
         <AddressCard
-        clickF={setIsAddClicked}
           addObj={item}
           addressDispatch={addressDispatch}
           isEditClicked={isEditClicked}
@@ -34,8 +34,9 @@ export default function Address() {
         <div className="overlay">
           <UpdateAddress
             clickF={setIsAddClicked}
-            setIsAddClicked={setIsAddClicked}
-            isAddClicked={isAddClicked}
+                   
+            isEditClicked={isEditClicked}
+             setIsEditClicked={setIsEditClicked}
           />
         </div>
       ) : null}
@@ -49,7 +50,7 @@ const AddressCard = ({
   isEditClicked,
   setIsEditClicked,
   addressDispatch,
-  clickF,
+
 }) => {
   const {
     id,
@@ -89,9 +90,9 @@ const AddressCard = ({
       <div className="buttons">
         <button
           onClick={() => {
-            handleEdit(id)
-            
-            setIsEditClicked(!isEditClicked);
+            handleEdit(id, true)            
+            setIsEditClicked(()=>true);
+            console.log(isEditClicked, "from address edit button")
           }}
         >
           Edit <EditIcon />

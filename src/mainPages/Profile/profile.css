@@ -111,7 +111,20 @@ font-weight: bold;
   text-align: left;
   padding: 0 10px;
 }
+.addressForm div label{
+  text-shadow: 0 0 10px white;
+}
+.closeAdd{
+  text-align: center;
+  margin:auto;
+  height:1.3rem;
+  border:thick double;
+  border-radius:50%;
+}
+.closeAdd:hover{
+color:var(--secondary-theme-color)
 
+}
 
 @media (min-width:768px){
   .profileContainer{

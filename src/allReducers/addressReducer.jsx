@@ -16,17 +16,16 @@ export const initialAddressData=
   },
 ]
 export const reducer = (state, action) => {
-  console.log(action.payload);
+  
   switch (action.type) {
     case "ADDRESSADD":
       return [...state, action.payload];
     case "DELETEADD":
       const newArray = state.filter((item) => item.id !== action.payload);
       return newArray;
-    case "EDITADD":  
+    case "EDITADD": 
     const uniqueAddresses =  state.map((item)=>
-      item._id === action.payload.id ? action.payload : item)
-      console.log(uniqueAddresses)
+      item.id === action.payload.id ? action.payload : item)
       return uniqueAddresses;
     default:
       console.log("something is wrong in reducer");
