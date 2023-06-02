@@ -182,9 +182,6 @@ li {
   left: -50%;
   background: var(--primary-theme-color);
 }
-
-
-
 .addToCartButton {
   position: absolute;
   top: 0;
@@ -261,6 +258,12 @@ li {
   position:absolute;
   top:230px;
   right:10px;
+}
+.favorite svg{
+  color:var(--secondary-theme-color)
+}
+.favorite svg[data-testid="FavoriteBorderIcon"]{
+  color:var(--primary-text-color)
 }
 .cardTextContent h3 {
   margin-bottom: 0;
