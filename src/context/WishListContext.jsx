@@ -11,7 +11,6 @@ import {
 } from "../services/shopingService/wishlistService";
 
 import { useAuth } from "../";
-import { useNavigate } from "react-router-dom";
 export const WishContext = createContext();
 
 export function WishProvider({ children }) {
@@ -20,7 +19,6 @@ export function WishProvider({ children }) {
     initialWishList
   );
   const { token } = useAuth();
-  const navigate = useNavigate();
 
   const getWishListData = async () => {
     try {
@@ -35,9 +33,7 @@ export function WishProvider({ children }) {
       }
     } catch (error) {
       console.log(error);
-    } finally {
-      console.log(wishList, "finally");
-    }
+    } 
   };
   const addWishListData = async (product) => {
     try {
@@ -64,9 +60,7 @@ export function WishProvider({ children }) {
       toast.error("Product could not be found", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
-    } finally {
-      console.log(wishList, "finally");
-    }
+    } 
   };
   const deleteWishListData = async (productId) => {
     try {
@@ -87,10 +81,13 @@ export function WishProvider({ children }) {
       toast.error("Product could not be found", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
-    } finally {
-      console.log(wishList, "finally");
     }
   };
+
+  const isAvailableInWishList = (id)=>{
+    return wishList?.backendWishList.findIndex(item=>item._id===id)
+  }
+
   useEffect(() => {
     getWishListData();
   }, [token]);
@@ -101,6 +98,7 @@ export function WishProvider({ children }) {
         wishlistCount: wishList.backendWishList.length,
         addWishListData,
         deleteWishListData,
+        isAvailableInWishList
       }}
     >
       {children}

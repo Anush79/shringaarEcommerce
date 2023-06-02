@@ -1,70 +1,110 @@
-import {useState} from 'react'
-import EditIcon from '@mui/icons-material/Edit';
-import DeleteForeverIcon from '@mui/icons-material/DeleteForever';
-import { v4 as uuid } from "uuid";
-
-import UpdateAddress from '../../../components/UpdateAdd';
-
-const addresses = [
-  {
-    id: uuid(),
-    userName: 'Anushka Jaiswal',
-    mobile: "9746472738",
-    house: "A12",
-    town: "RamNagar",
-    district: "Madhubani",
-    pincode: '543221',
-    state: "Bihar",
-    addressType: "home"
-  },
-  {
-    id: uuid(),
-    userName: 'Niharika Kesharwani',
-    mobile: "6276736374",
-    house: "N32",
-    town: "Nasiknagar",
-    district: "Punepur",
-    pincode: '422013',
-    state: "Maharashtra",
-    addressType: "work"
-  }
-]
-
+import { useState } from "react";
+import EditIcon from "@mui/icons-material/Edit";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
+import { useAddress } from "../../../";
+import UpdateAddress from "../../../components/UpdateAdd";
 
 export default function Address() {
-const [isAddClicked, setIsAddClicked] = useState(false)
-
+  const [isAddClicked, setIsAddClicked] = useState(false);
+  const [isEditClicked, setIsEditClicked] = useState(false);
+  const { address, handleEdit, addressDispatch } = useAddress();
 
   return (
     <div className="address">
-      <div className="addAddress" onClick={()=>{setIsAddClicked(!isAddClicked)}}>
+      <div
+        className="addAddress"
+        onClick={() => {
+          handleEdit(123, false)
+          setIsAddClicked(!isAddClicked);
+        }}
+      >
         <span className="plus">+</span>
         Add New Address
-
       </div>
-      {
-        addresses.map(item => <AddressCard addObj={item} />)
-      }
-      {
-        isAddClicked?<div className="overlay"><UpdateAddress clickF={setIsAddClicked} /></div>:null
-      }
+      {address.map((item) => (
+        <AddressCard
+          addObj={item}
+          addressDispatch={addressDispatch}
+          isEditClicked={isEditClicked}
+          setIsEditClicked={setIsEditClicked}
+          handleEdit={handleEdit}
+        />
+      ))}
+      {isAddClicked || isEditClicked  ? (
+        <div className="overlay">
+          <UpdateAddress
+            clickF={setIsAddClicked}
+                   
+            isEditClicked={isEditClicked}
+             setIsEditClicked={setIsEditClicked}
+          />
+        </div>
+      ) : null}
     </div>
-  )
+  );
 }
 
-const AddressCard = ({ addObj }) => {
-  const { userName, addressType, id, mobile, house, town, district, pincode, state } = addObj
-  return <div key={id} className="addressContainer">
-    <div className="addressText">
-      <p className='addType'><small>{addressType}</small></p>
-      <p><b>{userName}<span style={{ width: "20px" }}> ... </span>{mobile}</b></p>
-      <p>House Number: {house}</p>
-      <p>{town},{district}</p>
-      <p>{state} - <b>{pincode}</b></p>
+const AddressCard = ({
+  addObj,
+  handleEdit,
+  isEditClicked,
+  setIsEditClicked,
+  addressDispatch,
+
+}) => {
+  const {
+    id,
+    fullName,
+    home,
+    work,
+    streetName,
+    mobile,
+    building,
+    town,
+    districtName,
+    pincode,
+    state,
+  } = addObj;
+  return (
+    <div key={id} className="addressContainer">
+      <div className="addressText">
+        <p className="addType">
+          <small>{home ? "Home" : work ? "Work" : null}</small>
+        </p>
+        <p>
+          <b>
+            {fullName}
+            <span style={{ width: "20px" }}> ... </span>
+            {mobile}
+          </b>
+        </p>
+        <p>House Number: {building}</p>
+        <p>{streetName}</p>
+        <p>
+          {town},{districtName}
+        </p>
+        <p>
+          {state} - <b>{pincode}</b>
+        </p>
+      </div>
+      <div className="buttons">
+        <button
+          onClick={() => {
+            handleEdit(id, true)            
+            setIsEditClicked(()=>true);
+            console.log(isEditClicked, "from address edit button")
+          }}
+        >
+          Edit <EditIcon />
+        </button>
+        <button
+          onClick={() => {
+            addressDispatch({ type: "DELETEADD", payload: id });
+          }}
+        >
+          Delete <DeleteForeverIcon />
+        </button>
+      </div>
     </div>
-    <div className="buttons">
-      <button>Edit <EditIcon/></button>
-      <button>Delete <DeleteForeverIcon/></button>
-    </div>
-  </div>
-}
+  );
+};

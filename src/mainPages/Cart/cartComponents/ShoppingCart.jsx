@@ -2,11 +2,15 @@ import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 
-import { useCart, useAuth ,useData} from "../../../";
-import { NavLink } from "react-router-dom";
+import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+
+import { useCart, useAuth, useData, useWish } from "../../../";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function ShoppingCart() {
-  const {getSingleProduct} = useData()
+  const navigate= useNavigate()
+  const { getSingleProduct } = useData();
   const {
     cartManager,
     changeQuantity,
@@ -16,16 +20,21 @@ export default function ShoppingCart() {
     totalDiscount,
   } = useCart();
   const { token } = useAuth();
+  const { isAvailableInWishList, addWishListData, deleteWishListData } =
+    useWish();
+
   return (
     <div className="shoppingCart">
       <table className="cartData">
         <thead>
           <tr>
-            <th class="product-thumbnail screen-reader-text">Product image</th>
+            
+            <th class="product-thumbnail ">Product image</th>
             <th class="product-name">Product</th>
             <th class="product-price">Price</th>
             <th class="product-quantity">Quantity</th>
             <th class="product-subtotal">Subtotal</th>
+            <th className="Add to Favoite">Wishlist</th>
             <th class="product-remove">Remove</th>
           </tr>
         </thead>
@@ -37,11 +46,12 @@ export default function ShoppingCart() {
               cartManager?.cartData.map((item) => {
                 const { _id, product_image, product_name, product_price, qty } =
                   item;
-                console.log(qty);
+                console.log(isAvailableInWishList(_id));
                 const shortName = product_name.slice(0, 14);
 
                 return (
                   <tr className="cartItem" key={_id}>
+                   
                     <td class="product-thumbnail" data-cell="">
                       <NavLink to={`/products/${_id}`}>
                         <div
@@ -59,7 +69,7 @@ export default function ShoppingCart() {
                     </td>
 
                     <td class="product-price" data-cell="Price  ">
-                     $ {product_price}
+                      $ {product_price}
                     </td>
 
                     <td class="product-quantity" data-cell="Quantity :">
@@ -85,7 +95,36 @@ export default function ShoppingCart() {
                     </td>
 
                     <td class="product-subtotal" data-cell="Subtotal :">
-                      <span><b>$ {Math.floor(product_price * qty)}</b></span>
+                      <span>
+                        <b>$ {Math.floor(product_price * qty)}</b>
+                      </span>
+                    </td>
+                    <td class="product-add-to-fav" data-cell="Add to wishList">
+                      <div
+                        onClick={() => {
+                          getSingleProduct(_id);
+                        }}
+                      >
+                        {isAvailableInWishList(_id) > -1 ? (
+                          <span
+                            className="addedtofav"
+                            onClick={() => {
+                              deleteWishListData(_id);
+                            }}
+                          >
+                            <FavoriteRoundedIcon />
+                          </span>
+                        ) : (
+                          <span
+                            className="addtofav"
+                            onClick={() => {
+                              addWishListData(item);
+                            }}
+                          >
+                            <FavoriteBorderIcon />
+                          </span>
+                        )}
+                      </div>
                     </td>
                     <td
                       class="product-remove"
@@ -123,7 +162,7 @@ export default function ShoppingCart() {
             <span className="TotalPrice">${totalPrice}</span>
           </tr>
           <div className="applyCoupon">Apply Coupon</div>
-          <button>Proceed to Checkout</button>
+          <button onClick={()=>{navigate("/cart/checkout")}}>Proceed to Checkout</button>
         </tbody>
       </table>
     </div>
