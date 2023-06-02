@@ -84,6 +84,7 @@ tbody tr td::before {
 
 .cartTotal{
   width: 100vw;
+  max-height: 350px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -110,6 +111,7 @@ tbody tr td::before {
   justify-content: space-between;
   padding:10px;
 }
+
 
 @media (min-width: 768px) {
   .shoppingCart {
@@ -184,4 +186,5 @@ tbody tr td::before {
     width: 30px;
     min-height: 1.5rem;
   }
+ 
 }

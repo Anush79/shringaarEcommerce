@@ -25,7 +25,7 @@ margin-bottom: 0;
   border-radius: 20px;
   font-family: abel;
   letter-spacing: 1px;
-  margin: 80px;
+  margin-top: 118px;
   backdrop-filter: blur(4px);
 }
 .formBox h2{
@@ -80,12 +80,12 @@ input:valid ~ label{
 .forget label input{
   margin-right: 3px;
 }
-.forget a, .signUp p a {
+.forget span, .signUp p a {
   color: var(--primary-text-color);
   text-shadow:0 0 10px #fff;
   font-weight: 600;
 }
-.forget a:hover, .signUp p a:hover{
+.forget span:hover, .signUp p a:hover{
   text-decoration: underline;
   font-weight: 700;
 
@@ -108,12 +108,17 @@ input:valid ~ label{
   text-align: center;
   margin: 25px 0 20px;
 }
-
-@media  (max-width: 400px) {
+.Toastify__toast{
+  font-family: "abel", sans-serif;
+  color: var(--primary-text-color);
+  background: linear-gradient(var(--primary-theme-color), #fff, var(--primary-theme-color));
+  margin-bottom:10px;
+}
+@media  (max-width: 768px) {
   .formBox{
     position: absolute;
     margin: 30px;
-    margin-top: 90px;
+    
     max-width:90%;
     font-size: 0.78em;
     height: calc( 100vh - 100px);

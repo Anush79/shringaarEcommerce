@@ -1,6 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import "./App.css";
 import MockApi from "./components/MockMan";
@@ -71,6 +71,18 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
+      <ToastContainer
+position="bottom-right"
+autoClose={4000}
+hideProgressBar={false}
+newestOnTop={false}
+closeOnClick
+rtl={false}
+pauseOnFocusLoss
+draggable
+pauseOnHover
+theme="light"
+/>
     </div>
   );
 }

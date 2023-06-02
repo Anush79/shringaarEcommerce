@@ -82,9 +82,10 @@ font-weight: bold;
 
  .addFormBox{
   position: absolute;
-  width: 400px;
-  height: 450px;
+  min-width: 300px;
+  height: auto;
   display: flex;
+  padding: 20px;
   justify-content: space-between;
   align-items: center;
   background-color: rgba(255, 255, 255, 0.233);
@@ -103,8 +104,16 @@ font-weight: bold;
   justify-content: space-between;
   flex-direction: column;
 }
+.addressForm div{
+  display: flex;
+  width:auto;
+  flex-direction: column-reverse;
+  text-align: left;
+  padding: 0 10px;
+}
 
-@media (min-width:465px){
+
+@media (min-width:768px){
   .profileContainer{
     min-width: 50%;
     display: flex;
@@ -136,4 +145,7 @@ font-weight: bold;
     border:15px ridge var(--primary-text-color);
   
   }
+  .addFormBox{
+    
+    max-width: 500px;}
 }

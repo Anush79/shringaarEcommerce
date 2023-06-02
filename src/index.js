@@ -10,8 +10,9 @@ import { useAuth, AuthProvider } from "./context/AuthContext";
 import { useData, DataProvider } from "./context/DataContext";
 import { useWish, WishProvider } from "./context/WishListContext";
 import { useCart, CartProvider } from "./context/CartContext";
+import {useAddress, AddressProvider} from './context/AddressContext';
 
-export { useData, useWish, useAuth, useCart };
+export { useData, useWish, useAuth, useCart,useAddress };
 // Call make Server
 makeServer();
 
@@ -21,9 +22,12 @@ ReactDOM.render(
       <AuthProvider>
         <DataProvider>
           <CartProvider>
-            <WishProvider>
+            <AddressProvider>
+              <WishProvider>
               <App />
             </WishProvider>
+            </AddressProvider>
+            
           </CartProvider>
         </DataProvider>
       </AuthProvider>

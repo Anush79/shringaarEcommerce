@@ -1,5 +1,6 @@
-import "./productDetails.css";
 
+import "./productDetails.css";
+import { useNavigate  } from "react-router-dom";
 import InnerImageZoom from "react-inner-image-zoom";
 
 import { useParams } from "react-router-dom";
@@ -7,12 +8,12 @@ import { useData, useWish, useCart, useAuth } from "../../";
 
 export default function ProductDetails() {
   const { backendData, getSingleProduct } = useData();
-  const {addToCardFunction} = useCart();
+  const {addToCardFunction, isItemInCart, changeQuantity} = useCart();
   const {token} = useAuth()
   const todate = new Date().toString();
   const { prodID } = useParams();
   const { addWishListData } = useWish();
-
+  const navigate = useNavigate()
   const product = backendData?.productsData.find(
     (item) => item._id === prodID
   );
@@ -25,8 +26,6 @@ export default function ProductDetails() {
       _id,
       product_image,
       product_isBadge,
-      product_isCart,
-      product_isFavorite,
       product_material,
       product_name,
       product_occasion,
@@ -34,7 +33,6 @@ export default function ProductDetails() {
       product_price,
       product_rating,
       product_reviews,
-      product_size,
     } = product;
 
     const discount = Math.floor(
@@ -49,8 +47,8 @@ export default function ProductDetails() {
 
             <div className="buttons">
               <button onClick={() => {
-                  addToCardFunction(product, token)
-                }}>Add to Cart</button>
+isItemInCart(_id)?navigate('/cart'):  addToCardFunction(product, token)
+                }}>{isItemInCart(_id)?"Go to Cart" :"Add to Cart"}</button>
               <button
                 onClick={() => {
                   addWishListData(product);

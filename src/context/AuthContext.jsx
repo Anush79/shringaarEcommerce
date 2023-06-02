@@ -6,7 +6,6 @@ import { loginService } from "../services/authService/loginService";
 import { signUpService } from "../services/authService/signUpSevice";
 export const AuthContext = createContext();
 
-const notify = (message) => toast(message);
 export function AuthProvider({ children }) {
   const localStorageToken = JSON.parse(localStorage.getItem("loginDetails"));
 
@@ -34,6 +33,7 @@ export function AuthProvider({ children }) {
       }
       toast.success("successfully logged in", {
         position: toast.POSITION.BOTTOM_RIGHT,
+        className:"loginToast"
       });
     } catch (error) {
       toast.error("Login unsuccessful, Email or Password is wrong", {
@@ -65,9 +65,12 @@ export function AuthProvider({ children }) {
         setToken(encodedToken);
         setCurrentUser(createdUser);
       }
-      notify("Sign Up Successful");
+      toast.success("Sign Up Successful");
     } catch (error) {
       console.log(error);
+      if(error.response.status === 422){
+        toast.error("User Already exists");
+      }else
       toast.error("Sign up unsuccessful", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
@@ -85,7 +88,7 @@ export function AuthProvider({ children }) {
   };
   return (
     <AuthContext.Provider
-      value={{ signUpHandler, loginHandler, logOutHandler, token }}
+      value={{ signUpHandler, loginHandler, logOutHandler, token,currentUser }}
     >
       {children}
     </AuthContext.Provider>

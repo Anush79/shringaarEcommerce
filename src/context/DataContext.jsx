@@ -57,7 +57,7 @@ export function DataProvider({ children }) {
         data: { categories },
       } = response;
       if (status === 200) setCategoriesData(categories);
-      console.log(categories);
+ 
     } catch (error) {
       console.log(error);
     }

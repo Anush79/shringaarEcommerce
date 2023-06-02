@@ -1,11 +1,10 @@
 import { useState } from "react";
 import { NavLink, useNavigate } from "react-router-dom";
 import SearchIcon from "@mui/icons-material/Search";
-
+import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Badge from "@mui/material/Badge";
 import LocalGroceryStoreTwoToneIcon from "@mui/icons-material/LocalGroceryStoreTwoTone";
 import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
-import LogoutRoundedIcon from "@mui/icons-material/LogoutRounded";
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PersonIcon from "@mui/icons-material/Person";
 
@@ -69,10 +68,13 @@ export default function Header() {
           <span className="search">
             {isSearchclicked ? (
               <div className="inputElement overlay">
+                <span className="closeSearch" onClick={() => {
+                  setIsSearchedClicked(!isSearchclicked);
+                }}><HighlightOffIcon /></span>
                 <input
                   type="text"
                   value={inputValue}
-                  placeholder="search items"
+                  placeholder="Search items/ metals/ brand / category"
                   onChange={(e) => {
                     setInputValue(e.target.value);
                   }}
@@ -81,7 +83,7 @@ export default function Header() {
                   onClick={() => {
                     setFiltersUsed({ type: "SEARCH", inputValue: inputValue });
                     setIsSearchedClicked(!isSearchclicked);
-                    navigate("/browse");
+                    if(inputValue.length>0)navigate("/browse");
                   }}
                 />
               </div>
@@ -156,10 +158,11 @@ export default function Header() {
 
 
 const CategoryList = ({item, navigate, setFiltersUsed}) => {
+  const value=item.categoryName
   return <li key= {item._id}
-    // value={item.categoryName}
+   
     onClick={() => {
-      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName, isNav:true });
+      setFiltersUsed({ type: "CATEGORY", inputValue: value, isNav:true });
       navigate("/browse");
     }}
   >
