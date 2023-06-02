@@ -65,11 +65,15 @@ export function AuthProvider({ children }) {
         setToken(encodedToken);
         setCurrentUser(createdUser);
       }
-      toast.success("Sign Up Successful");
+      toast.success("Sign Up Successful", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     } catch (error) {
       console.log(error);
       if(error.response.status === 422){
-        toast.error("User Already exists");
+        toast.error("User Already exists", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
       }else
       toast.error("Sign up unsuccessful", {
         position: toast.POSITION.BOTTOM_RIGHT,

@@ -3,9 +3,18 @@ import { useState } from "react";
 import { useData } from "../../context/DataContext";
 import ProductCard from "../../components/ProductCard";
 export default function Shop() {
-  const { backendData, finalPriceSortedData, productCount,setFiltersUsed } = useData();
+  const { backendData, finalPriceSortedData, productCount,setFiltersUsed,filtersUsed } = useData();
   const [showFilters, setShowFilters] = useState(false)
-
+/***
+ *    priceRange: "",
+    search: "",
+    sort: "",
+    rating: "",
+    ocassionFilters: [],
+    categoryFilters: [],
+    materialFilter: [],
+  });
+ */
   return (
     <>
       <div className="allProductsContainer">
@@ -28,9 +37,10 @@ export default function Shop() {
                   name="priceRange"
                   id="priceRange"
                   step="100"
+                  value={filtersUsed.priceRange}
                   min={500}
                   max={1500}
-                  onChange={(event) => { setFiltersUsed({ type: "PRICE", inputValue: event }) }}
+                  onChange={(e) => { setFiltersUsed({ type: "PRICE", inputValue: e.target.value }) }}
                 />
               </div>
               <div className="categoryFilter">
@@ -38,11 +48,12 @@ export default function Shop() {
                 <label htmlFor="necklace">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.categoryFilters.includes("necklace")}
                     name="category"
                     id="necklace"
                     value="necklace"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value });
                     }}
                   />
                   Necklaces
@@ -51,11 +62,12 @@ export default function Shop() {
                 <label htmlFor="ring">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.categoryFilters.includes("ring")}
                     name="category"
                     id="ring"
                     value="ring"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value  });
                     }}
                   />
                   Rings
@@ -64,11 +76,12 @@ export default function Shop() {
                 <label htmlFor="bracelet">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.categoryFilters.includes("bracelet")}
                     name="category"
                     id="bracelet"
                     value="bracelet"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value  });
                     }}
                   />
                   Bracelets
@@ -76,11 +89,12 @@ export default function Shop() {
                 <label htmlFor="earring">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.categoryFilters.includes("earring")}
                     name="category"
                     id="earring"
                     value="earring"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value  });
                     }}
                   />
                   Earrings
@@ -91,11 +105,12 @@ export default function Shop() {
                 <label htmlFor="office">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.ocassionFilters.includes("Office")}
                     name="office"
                     id="office"
                     value="Office"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
                     }}
                   />
                   Office
@@ -103,11 +118,12 @@ export default function Shop() {
                 <label htmlFor="casual">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.ocassionFilters.includes("Casual")}
                     name="casual"
                     id="casual"
                     value="Casual"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
                     }}
                   />
                   Casual
@@ -115,11 +131,12 @@ export default function Shop() {
                 <label htmlFor="engagement">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.ocassionFilters.includes("Engagement")}
                     name="engagement"
                     id="engagement"
                     value="Engagement"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
                     }}
                   />
                   Engagement
@@ -127,11 +144,12 @@ export default function Shop() {
                 <label htmlFor="bridal">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.ocassionFilters.includes("Bridal")}
                     name="bridal"
                     id="bridal"
                     value="Bridal"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
                     }}
                   />
                   Bridal
@@ -142,11 +160,12 @@ export default function Shop() {
                 <label htmlFor="diamond">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.materialFilter.includes("diamond")}
                     name="diamond"
                     id="diamond"
                     value="diamond"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
                     }}
                   />
                   Diamond
@@ -154,11 +173,12 @@ export default function Shop() {
                 <label htmlFor="platinum">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.materialFilter.includes("platinum")}
                     name="platinum"
                     id="platinum"
                     value="platinum"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
                     }}
                   />
                   Platinum
@@ -166,11 +186,12 @@ export default function Shop() {
                 <label htmlFor="gold">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.materialFilter.includes("gold")}
                     name="gold"
                     id="gold"
                     value="gold"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
                     }}
                   />
                   Gold
@@ -178,11 +199,12 @@ export default function Shop() {
                 <label htmlFor="silver">
                   <input
                     type="checkbox"
+                    checked={filtersUsed.materialFilter.includes("silver")}
                     name="silver"
                     id="silver"
                     value="silver"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
                     }}
                   />
                   Silver
@@ -196,8 +218,8 @@ export default function Shop() {
                     name="rating"
                     id="onePlus"
                     value={1}
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "RATINGS", inputValue: e.target.value  });
                     }}
                   />
                   1 ⭐ & above
@@ -208,8 +230,8 @@ export default function Shop() {
                     name="rating"
                     id="twoPlus"
                     value={2}
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
                     }}
                   />
                   2 ⭐ & above
@@ -220,8 +242,8 @@ export default function Shop() {
                     name="rating"
                     id="threePlus"
                     value={3}
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
                     }}
                   />
                   3 ⭐ & above
@@ -232,8 +254,8 @@ export default function Shop() {
                     name="rating"
                     id="fourPlus"
                     value={4}
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
                     }}
                   />
                   4 ⭐ & above
@@ -247,8 +269,8 @@ export default function Shop() {
                     name="sorting"
                     id="lowToHigh"
                     value="LOWTOHIGH"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "SORT", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "SORT", inputValue:  e.target.value  });
                     }}
                   />
                   Low to High
@@ -259,8 +281,8 @@ export default function Shop() {
                     name="sorting"
                     id="highToLow"
                     value="HIGHTOLOW"
-                    onClick={(event) => {
-                      setFiltersUsed({ type: "SORT", inputValue: event });
+                    onClick={(e) => {
+                      setFiltersUsed({ type: "SORT", inputValue:  e.target.value  });
                     }}
                   />
                   High to Low
@@ -268,7 +290,7 @@ export default function Shop() {
               </div>
               <div className="clearAll">
                 <button onClick={(e)=>{
-                  setFiltersUsed({type:"CLEARFILTER", inputValue:e})
+                  setFiltersUsed({type:"CLEARFILTER", inputValue: e.target.value })
                 }}>Clear All</button>
               </div>
             </aside>
