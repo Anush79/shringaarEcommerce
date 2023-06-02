@@ -371,7 +371,15 @@ footer h6 {
   font-weight: 800;
 
 }
+input[type=range]::-webkit-slider-runnable-track {
+  background-color:var(--primary-theme-color);
+  border-radius:5px;
+  height:10px;
 
+}
+input[type=range]::-webkit-slider-thumb {
+  background: var(--primary-text-color);
+}
 @media (min-width: 400px) {
   .headerContainer {
     justify-content: space-between;

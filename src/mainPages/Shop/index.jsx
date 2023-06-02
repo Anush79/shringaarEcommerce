@@ -218,6 +218,7 @@ export default function Shop() {
                     name="rating"
                     id="onePlus"
                     value={1}
+                    checked={filtersUsed.rating==="1"}
                     onClick={(e) => {
                       setFiltersUsed({ type: "RATINGS", inputValue: e.target.value  });
                     }}
@@ -229,6 +230,7 @@ export default function Shop() {
                     type="radio"
                     name="rating"
                     id="twoPlus"
+                    checked={filtersUsed.rating==="2"}
                     value={2}
                     onClick={(e) => {
                       setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
@@ -241,6 +243,7 @@ export default function Shop() {
                     type="radio"
                     name="rating"
                     id="threePlus"
+                    checked={filtersUsed.rating==="3"}
                     value={3}
                     onClick={(e) => {
                       setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
@@ -253,6 +256,7 @@ export default function Shop() {
                     type="radio"
                     name="rating"
                     id="fourPlus"
+                    checked={filtersUsed.rating==="4"}
                     value={4}
                     onClick={(e) => {
                       setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
@@ -269,6 +273,7 @@ export default function Shop() {
                     name="sorting"
                     id="lowToHigh"
                     value="LOWTOHIGH"
+                    checked={filtersUsed.sort==="LOWTOHIGH"}
                     onClick={(e) => {
                       setFiltersUsed({ type: "SORT", inputValue:  e.target.value  });
                     }}
@@ -280,6 +285,7 @@ export default function Shop() {
                     type="radio"
                     name="sorting"
                     id="highToLow"
+                    checked={filtersUsed.sort==="HIGHTOLOW"}
                     value="HIGHTOLOW"
                     onClick={(e) => {
                       setFiltersUsed({ type: "SORT", inputValue:  e.target.value  });
