@@ -96,14 +96,14 @@ export default function Header() {
             )}
           </span>
           <span className="wishList">
-            <Badge badgeContent={wishlistCount} color="secondary" sx={{ color: "#5f3926" }}>
+            <Badge badgeContent={token ? wishlistCount:0} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/wishlist">
                 <FavoriteBorderIcon />
               </NavLink>
             </Badge>
           </span>
           <span className="emptyCart">
-            <Badge badgeContent={cartCount} color="secondary" sx={{ color: "#5f3926" }}>
+            <Badge badgeContent={token ? cartCount:0} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/cart">
                 <LocalGroceryStoreTwoToneIcon />
               </NavLink>
@@ -158,11 +158,11 @@ export default function Header() {
 
 
 const CategoryList = ({item, navigate, setFiltersUsed}) => {
-  const value=item.categoryName
+  // const value=item.categoryName
   return <li key= {item._id}
-   
-    onClick={() => {
-      setFiltersUsed({ type: "CATEGORY", inputValue: value, isNav:true });
+  value={item.categoryName}
+    onClick={(e) => {
+      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName, isNav:true });
       navigate("/browse");
     }}
   >

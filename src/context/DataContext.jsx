@@ -149,6 +149,7 @@ export function DataProvider({ children }) {
         setFiltersUsed,
         categoriesData,
         getSingleProduct,
+        filtersUsed
       }}
     >
       {children}

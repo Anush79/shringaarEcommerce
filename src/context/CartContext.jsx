@@ -56,7 +56,9 @@ export function CartProvider({ children }) {
         });
       }
     } catch (error) {
-      toast.warn("Please Login in before you add to cart");
+      toast.warn("Please Login in before you add to cart", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
     }
   };
   const deleteFromCartFunction = async (id, title, encodedToken) => {

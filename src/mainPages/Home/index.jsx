@@ -1,4 +1,4 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import "./home.css";
 
 import ProductCard from "../../components/ProductCard";
@@ -7,7 +7,8 @@ import {useData} from '../../'
 
 
 export default function Home() {
-  const {backendData, categoriesData} = useData()
+  const {backendData, categoriesData, setFiltersUsed} = useData()
+const navigate = useNavigate()
 
   const trendingArray= backendData?.productsData.filter((item) => item.product_isBadge==="Trending")
   return (
@@ -64,7 +65,10 @@ export default function Home() {
         <p>Browse through your favorite categories. we have got them all!</p> 
           <div className="categoryBox">
             { 
-              categoriesData.map(({_id,categoryName, thumbnail })=> <div key={_id} className={categoryName}>
+              categoriesData.map(({_id,categoryName, thumbnail })=> <div key={_id} className={categoryName} onClick= {()=>{
+                setFiltersUsed({type:"CATEGORY", payload:categoryName })
+                navigate('/browse')
+              }}>
               <img src={thumbnail} alt={` random image of ${categoryName}`} />
               <p>{categoryName}</p>
                 </div>

@@ -19,6 +19,17 @@ const EmptyCart =()=>{
 const FilledCart =()=>{
   return (
     <div className="filledCart">
+      <div className="cutomerDetails">
+       
+      </div>
+      <div className="orderDetails">
+           <h4>Your Order</h4>
+           <div className="orderBox">
+            <header><span>Product</span><span>Subtotal</span></header>
+            .
+
+           </div>
+      </div>
          
     </div>
   )

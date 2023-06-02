@@ -71,7 +71,7 @@ function App() {
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
-      <ToastContainer
+      {/* <ToastContainer
 position="bottom-right"
 autoClose={4000}
 hideProgressBar={false}
@@ -82,7 +82,7 @@ pauseOnFocusLoss
 draggable
 pauseOnHover
 theme="light"
-/>
+/> */}
     </div>
   );
 }
