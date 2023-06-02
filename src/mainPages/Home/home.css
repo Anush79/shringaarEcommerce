@@ -57,10 +57,6 @@ h4 {
   justify-content: center;
 }
 
-.price {
-  font-family: abel;
-}
-
 .productsContainer {
   display: grid;
   grid-template-columns: 1fr 1fr;

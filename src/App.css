@@ -173,10 +173,10 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-
-
 }
-
+.cardTextContent .price{
+  font-size: 1rem;
+}
 .trendingIcon {
   display: relative;
   left: -50%;
@@ -257,7 +257,11 @@ li {
   top: 10px;
   transform: rotate(-45deg);
 }
-
+.favorite{
+  position:absolute;
+  top:230px;
+  right:10px;
+}
 .cardTextContent h3 {
   margin-bottom: 0;
 }

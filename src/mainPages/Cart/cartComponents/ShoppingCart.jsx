@@ -6,9 +6,10 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 
 import { useCart, useAuth, useData, useWish } from "../../../";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function ShoppingCart() {
+  const navigate= useNavigate()
   const { getSingleProduct } = useData();
   const {
     cartManager,
@@ -161,7 +162,7 @@ export default function ShoppingCart() {
             <span className="TotalPrice">${totalPrice}</span>
           </tr>
           <div className="applyCoupon">Apply Coupon</div>
-          <button>Proceed to Checkout</button>
+          <button onClick={()=>{navigate("/cart/checkout")}}>Proceed to Checkout</button>
         </tbody>
       </table>
     </div>

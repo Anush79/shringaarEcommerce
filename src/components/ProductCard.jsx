@@ -7,7 +7,7 @@ import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
 export default function ProductCard({ item, inWishlist }) {
-  const { deleteWishListData } = useWish();
+  const { deleteWishListData, addWishListData ,isAvailableInWishList} = useWish();
   const { getSingleProduct } = useData();
   const { addToCardFunction, isItemInCart } = useCart();
   const { token } = useAuth();
@@ -19,7 +19,9 @@ export default function ProductCard({ item, inWishlist }) {
     product_image,
     product_isBadge,
   } = item;
-
+  const discount = Math.floor(
+    100 - (product_price / product_prevPrice) * 100
+  );
   return (
     <div className="ProductCard" key={_id}>
       <NavLink to={`/products/${_id}`}>
@@ -35,11 +37,19 @@ export default function ProductCard({ item, inWishlist }) {
               {product_prevPrice && (
                 <span className="stikeThrough">$ {product_prevPrice}</span>
               )}
-              <b> $ {product_price}</b>
+              <b> $ {product_price}</b> ({discount} % off)
             </p>
+            
           </div>
-          <span className="favorite" title= "Add to WishList">
-
+          <span className="favorite" title= "Add to WishList" onClick={(e)=>{e.preventDefault();
+           isAvailableInWishList(_id)>=0 ?deleteWishListData(_id):addWishListData(item)
+          }}>
+           {
+           isAvailableInWishList(_id)>=0 ?<FavoriteRoundedIcon/>:
+            <FavoriteBorderIcon/>
+          
+            
+}
           </span>
           <span title={product_isBadge} className="trendingIcon">
             {product_isBadge.length > 0 ? (
@@ -75,7 +85,6 @@ export default function ProductCard({ item, inWishlist }) {
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  console.log(_id);
                   deleteWishListData(_id);
                 }}
               >
