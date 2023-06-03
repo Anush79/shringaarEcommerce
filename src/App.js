@@ -23,6 +23,7 @@ import User from "./mainPages/Profile/components/User";
 import CheckoutDetails from "./mainPages/Cart/cartComponents/CheckoutDetails";
 import ShoppingCart from "./mainPages/Cart/cartComponents/ShoppingCart";
 import OrderComplete from "./mainPages/Cart/cartComponents/OrdersComplete";
+import Contact from "./mainPages/Contact/index";
 import { useAuth } from "./context/AuthContext";
 
 function App() {
@@ -40,9 +41,9 @@ function App() {
         <Route
           path="/cart"
           element={
-           
-              <Cart />
-           
+
+            <Cart />
+
           }
         >
           <Route path="" element={<ShoppingCart />} />
@@ -68,6 +69,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/products/:prodID" element={<ProductDetails />} />
         <Route path="/browse" element={<Shop />} />
+        <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Error />} />
       </Routes>
       <Footer />

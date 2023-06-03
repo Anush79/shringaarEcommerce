@@ -36,7 +36,7 @@ export const AddressProvider = ({ children }) => {
   });
 
   const handleEdit = (id, isEditClicked) => {
-    console.log(isEditClicked)
+
     const addressToEdit = address.find((item) => item.id === id);
      if(isEditClicked)
     setAddressState(addressToEdit);
