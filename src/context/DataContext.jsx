@@ -76,6 +76,8 @@ export function DataProvider({ children }) {
     ocassionFilters: [],
     categoryFilters: [],
     materialFilter: [],
+    
+
   });
 
   const lowercaseSearch = filtersUsed.search.toLowerCase();
