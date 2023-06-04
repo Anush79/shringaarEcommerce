@@ -40,11 +40,7 @@ function App() {
 
         <Route
           path="/cart"
-          element={
-
-            <Cart />
-
-          }
+          element={ <Cart />  }
         >
           <Route path="" element={<ShoppingCart />} />
           <Route path="completedorders" element={<OrderComplete />} />

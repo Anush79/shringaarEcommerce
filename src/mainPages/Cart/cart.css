@@ -20,7 +20,7 @@
 .emptyCart img {
   width: 80%;
   height: 50%;
-  padding: 100px 0 10px 0;
+  padding: 10px;
   z-index: -1;
   border: none;
   clip-path: circle(45%);
@@ -82,7 +82,7 @@ tbody tr td::before {
   color: red;
 }
 
-.cartTotal{
+.cartTotal {
   width: 100vw;
   max-height: 350px;
   display: flex;
@@ -90,80 +90,92 @@ tbody tr td::before {
   align-items: center;
   justify-content: space-between;
 }
-.cartTotal thead{
+.cartTotal thead {
   display: flex;
   align-items: center;
- justify-content:center;
+  justify-content: center;
   width: 100%;
   background-color: var(--primary-theme-color);
 }
-.cartTotal tbody{
+.cartTotal tbody {
   display: flex;
   width: 100%;
   align-items: center;
   flex-direction: column;
 }
 
-.cartTotal tbody tr{
+.cartTotal tbody tr {
   display: flex;
   width: 90%;
   flex-direction: row;
   justify-content: space-between;
-  padding:10px;
+  padding: 10px;
 }
-.filledCart,.orderDetails,.orderBox ,.productCartCard{
+.filledCart,
+.orderDetails,
+.orderBox,
+.productCartCard {
   display: flex;
   flex-direction: column;
-   gap: 10px;  
+  gap: 10px;
 }
-.orderBox .header, .grandTotal{
+.orderBox .header,
+.grandTotal {
   font-weight: bold;
 }
-.cutomerDetails{border:1px solid}
-.orderBox>div{
-  border:1px solid;
-  padding:5px 20px;
-  min-width:300px;
+.cutomerDetails {
+  border: 1px solid rgba(128, 128, 128, 0.554);
+}
+.customerDetails h5{
+  width:fit-content;
+  padding: 30px;
+}
+.orderBox > div {
+  border: 1px solid;
+  padding: 5px 20px;
+  min-width: 300px;
   font-family: abel;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 }
-.orderBox .header ,.productCartCard{
+.orderBox .header,
+.productCartCard {
   flex-direction: row;
   justify-content: space-between;
   align-items: flex-end;
 }
 .cartProductBox {
   font-family: abel;
-  padding:  20px;
+  padding: 20px;
 }
-.productCartCard img{
-margin-right: 5px;
+.productCartCard {
+  border-bottom: 1px solid var(--primary-text-color);
 }
-.filledCart h5, .cartProductBox h5{
-  font-family: 'Cinzel Decorative';
+.productCartCard img {
+  margin-right: 5px;
+}
+.filledCart h5,
+.cartProductBox h5 {
+  font-family: "Cinzel Decorative";
   margin: 10px auto;
   background: var(--primary-theme-color);
   width: 100%;
-  padding:5px;
-
-  
+  padding: 5px;
 }
 
-.totals>span, .cartProductBox .header{
+.totals > span,
+.cartProductBox .header {
   display: flex;
   justify-content: space-between;
 }
-.addressText p{
-  margin:0.1rem;
+.addressText p {
+  margin: 0.1rem;
   text-align: left;
 }
-.choosePayment label{
+.choosePayment label {
   text-align: left;
 }
-
-
 
 @media (min-width: 769px) {
   .shoppingCart {
@@ -233,17 +245,16 @@ margin-right: 5px;
   tbody tr td::before {
     display: none;
   }
- 
+
   .product-quantity input {
     width: 30px;
     min-height: 1.5rem;
   }
- .filledCart{
-  max-width: 80%;
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  justify-content: center;
-  margin: auto;
-
- }
+  .filledCart {
+    max-width: 80%;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    justify-content: center;
+    margin: auto;
+  }
 }

@@ -23,6 +23,7 @@ export default function Header() {
   const {cartCount} = useCart()
   const navigate = useNavigate();
 
+  console.log(token)
   const handleMenu = () => {
     setIsMenuClicked(!isMenuClicked);
   };
@@ -95,14 +96,14 @@ export default function Header() {
               />
             )}
           </span>
-          <span className="wishList">
+          <span className={token?"wishList":"hiddenElement"}>
             <Badge badgeContent={token ? wishlistCount:0} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/wishlist">
                 <FavoriteBorderIcon />
               </NavLink>
             </Badge>
           </span>
-          <span className="emptyCart">
+          <span className={token?"emptyCart":"hiddenElement"}>
             <Badge badgeContent={token ? cartCount:0} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/cart">
                 <LocalGroceryStoreTwoToneIcon />
