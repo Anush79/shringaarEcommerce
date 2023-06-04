@@ -1,21 +1,25 @@
 export const initialCartData = {
   cartData: [],
+  orderPlaced:[],
   loading: true,
 };
 
 export const cartReducer = (state, action) => {
   const { type, payload } = action;
-  switch (action.type) {
+  switch (type) {
     case "DISPLAYCART":
-      return { loading: false, cartData: payload };
+      return {...state,  loading: false, cartData: payload };
     case "ADDTOCART":
-      return { loading: false, cartData: payload };
+      return {...state,  loading: false, cartData: payload };
     case "DELETEFROMCART":
-      return { loading: false, cartData: payload };
+      return {...state,  loading: false, cartData: payload };
     case "INCREASEQUANT":
-      return { loading: false, cartData: payload };
+      return {...state,  loading: false, cartData: payload };
     case "DECREASEQUANT":
-      return { loading: false, cartData: payload };
+      return { ...state, loading: false, cartData: payload };
+    case "ORDERPLACED":
+      console.log(payload)
+      return {loading:false, orderPlaced: [...state.orderPlaced, payload]};
     default:
       console.log("something is wrong in cart reducer");
       return state;
