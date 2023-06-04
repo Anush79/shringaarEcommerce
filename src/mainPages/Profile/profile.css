@@ -110,6 +110,12 @@
   text-align: left;
   padding: 0 10px;
 }
+.addressForm input[type='text'],.addressForm input[type='number']{
+font-size: 1rem;
+border-radius:5px;
+padding: 5px;
+border:none;
+}
 .addressForm div label {
   text-shadow: 0 0 10px white;
 }

@@ -67,7 +67,7 @@ const navigate = useNavigate()
           <div className="categoryBox">
             { 
               categoriesData.map(({_id,categoryName, thumbnail })=> <div key={_id} className={categoryName} onClick= {()=>{
-                setFiltersUsed({type:"CATEGORY", payload:categoryName })
+                setFiltersUsed({ type: "CATEGORY", inputValue: categoryName });
                 navigate('/browse')
               }}>
               <img src={thumbnail} alt={` random image of ${categoryName}`} />

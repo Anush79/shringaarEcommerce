@@ -159,11 +159,11 @@ export default function Header() {
 
 
 const CategoryList = ({item, navigate, setFiltersUsed}) => {
-  // const value=item.categoryName
+
   return <li key= {item._id}
   value={item.categoryName}
     onClick={(e) => {
-      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName, isNav:true });
+      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName });
       navigate("/browse");
     }}
   >
