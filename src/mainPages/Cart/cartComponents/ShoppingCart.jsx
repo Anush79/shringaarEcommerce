@@ -7,6 +7,7 @@ import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 
 import { useCart, useAuth, useData, useWish } from "../../../";
 import { NavLink, useNavigate } from "react-router-dom";
+import EmptyCart from "../../../components/EmptyCart";
 
 export default function ShoppingCart() {
   const navigate= useNavigate()
@@ -24,6 +25,7 @@ export default function ShoppingCart() {
     useWish();
 
   return (
+    cartManager?.cartData.length>0?
     <div className="shoppingCart">
       <table className="cartData">
         <thead>
@@ -166,5 +168,7 @@ export default function ShoppingCart() {
         </tbody>
       </table>
     </div>
+    :
+    <EmptyCart/>
   );
 }
