@@ -1,86 +1,85 @@
-.profile{
-  margin-top:100px;
+.profile {
+  margin-top: 100px;
   min-height: 90vh;
 
-  display: flex;;
+  display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.profileContainer{
-  max-width:1000px;
- 
+.profileContainer {
+  max-width: 1000px;
 }
-.profileContainer a{
+.profileContainer a {
   background-color: var(--primary-theme-color);
   padding: 0.5em;
   border-radius: 5px;
-  margin:10px;
+  margin: 10px;
 }
-.displayPages{
-  margin-top:10px;
+.displayPages {
+  margin-top: 10px;
   min-height: 80vh;
-  border:1px solid var(--primary-text-color);
-min-width: 100%;
-
+  border: 1px solid var(--primary-text-color);
+  min-width: 100%;
 }
-.userDetails{
+.userDetails {
   font-family: abel;
- 
-  padding:10px
+
+  padding: 10px;
 }
-.userDetails img{
+.userDetails img {
   max-width: 50%;
   border-radius: 10px;
 }
-.userDetails div{
+.userDetails div {
   display: flex;
   flex-direction: column;
-  align-items:center;
-   text-align: left;
+  align-items: center;
+  text-align: left;
 }
-.userDetails .info{
-font-weight: bold;
+.userDetails .info {
+  font-weight: bold;
 }
-.userDetails .heading{
-  color:var(--primary-theme-color)
+.userDetails .heading {
+  color: var(--primary-theme-color);
 }
-.addressContainer , .addAddress{
+.addressContainer,
+.addAddress {
   margin: 5px;
   font-family: abel;
   text-align: left;
   padding: 5px 0;
-  border:1px solid var(--primary-text-color)
+  border: 1px solid var(--primary-text-color);
 }
-.addressContainer p{
-  margin:0px;
+.addressContainer p {
+  margin: 0px;
   margin-left: 20px;
 }
-.addAddress{
-   padding: 10px;
+.addAddress {
+  padding: 10px;
 }
-.addType{
+.addType {
   padding: 3px;
-  margin:0px ;
+  margin: 0px;
   border-radius: 3px;
   display: inline-block;
   background-color: rgb(212, 212, 212);
 }
-.addressContainer .buttons button{
+.addressContainer .buttons button {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0.5em;
- }
- .addressContainer .buttons svg{
+}
+.addressContainer .buttons svg {
   font-size: 1rem;
- }
- .addressContainer .buttons{
-  width:90%;
- }
+}
+.addressContainer .buttons {
+  width: 90%;
+}
 
- .addFormBox{
+.addFormBox {
   position: absolute;
   min-width: 300px;
   height: auto;
@@ -95,70 +94,75 @@ font-weight: bold;
   letter-spacing: 1px;
 
   backdrop-filter: blur(4px);
- }
+}
 
-.addressForm{
+.addressForm {
   height: auto;
-  width:90vw;
+  width: 90vw;
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
-.addressForm div{
+.addressForm div {
   display: flex;
-  width:auto;
+  width: auto;
   flex-direction: column-reverse;
   text-align: left;
   padding: 0 10px;
 }
-.addressForm div label{
+.addressForm div label {
   text-shadow: 0 0 10px white;
 }
-.closeAdd{
+.closeAdd {
   text-align: center;
-  margin:auto;
-  height:1.3rem;
-  border:thick double;
-  border-radius:50%;
+  margin: auto;
+  height: 1.3rem;
+  border: thick double;
+  border-radius: 50%;
 }
-.closeAdd:hover{
-color:var(--secondary-theme-color)
-
+.closeAdd:hover {
+  color: var(--secondary-theme-color);
 }
-
-@media (min-width:768px){
-  .profileContainer{
+.css-o4b71y-MuiAccordionSummary-content {
+  justify-content: center;
+}
+@media (min-width: 768px) {
+  .profileContainer {
     min-width: 50%;
     display: flex;
     flex-direction: row;
     align-items: flex-start;
     justify-content: center;
-
   }
-  .profileContainer nav{
+  .profileContainer nav {
     display: flex;
     flex-direction: column;
   }
-.addressContainer{
-  display: flex;
-  justify-content: space-between;
-}
- .addressContainer .buttons{
-  width:30%;
+  .addressContainer {
+    display: flex;
+    justify-content: space-between;
+  }
+  .addressContainer .buttons {
+    width: 30%;
     display: flex;
     flex-direction: column;
- }
+  }
 
-  .userDetails{
-    max-width:300px;
+  .userDetails {
+    max-width: 300px;
     margin: auto;
   }
-  .displayPages{
+  .displayPages {
     min-height: 80vh;
-    border:15px ridge var(--primary-text-color);
-  
+    border: 15px ridge var(--primary-text-color);
   }
-  .addFormBox{
-    
-    max-width: 500px;}
+  .addFormBox {
+    max-width: 500px;
+  }
+  .address .checkoutLabel{
+    display: grid;
+    grid-template-columns: 1fr 16fr;
+    justify-content: center;
+    accent-color: var(--primary-theme-color);
+  }
 }
