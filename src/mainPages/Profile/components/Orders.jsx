@@ -114,7 +114,7 @@ export default function Orders() {
         ) : (
           <div>
             <p> "No orders yet , please shop something"</p>
-            <button onClick={navigate("/browse")}>Shop Now</button>
+            <button onClick={()=>{navigate("/browse")}}>Shop Now</button>
           </div>
         )}
       </div>

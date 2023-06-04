@@ -82,8 +82,8 @@ export function AuthProvider({ children }) {
   };
 
   const logOutHandler = async () => {
-    setToken(null);
-    setCurrentUser(null);
+    setToken(()=>null);
+    setCurrentUser(()=>null);
     console.log("logout success");
     toast.success("logged out successfully", {
       position: toast.POSITION.BOTTOM_RIGHT,

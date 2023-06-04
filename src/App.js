@@ -40,7 +40,7 @@ function App() {
 
         <Route
           path="/cart"
-          element={ <Cart />  }
+          element={ <RequiresAuth token={token}> <Cart /></RequiresAuth>  }
         >
           <Route path="" element={<ShoppingCart />} />
           <Route path="completedorders" element={<OrderComplete />} />
@@ -56,7 +56,7 @@ function App() {
           }
         />
 
-        <Route path="/profile" element={<Profile />}>
+        <Route path="/profile" element={ <RequiresAuth token={token}><Profile /></RequiresAuth>}>
           <Route path="" element={<User />} />
           <Route path="orders" element={<Orders />} />
           <Route path="address" element={<Address />} />

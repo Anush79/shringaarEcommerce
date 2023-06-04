@@ -17,7 +17,7 @@ export default function CheckoutDetails() {
     deleteFromCartFunction,
     addItemstoOrdersPlaced,
   } = useCart();
-  const {token} = useAuth()
+  const { token } = useAuth();
 
   return (
     <div className="checkout">
@@ -49,8 +49,8 @@ const FilledCart = ({
   paymentSelected,
   totalPrice,
   deleteFromCartFunction,
-  setPaymentSelected
-  ,addItemstoOrdersPlaced
+  setPaymentSelected,
+  addItemstoOrdersPlaced,
 }) => {
   const navigate = useNavigate();
   const todate = new Date().toString();
@@ -73,19 +73,19 @@ const FilledCart = ({
       addItemstoOrdersPlaced({
         orderId: uuid(),
         orders: cartData,
-        address:selectedAddress,
-        amount:(totalPrice - 250 )+ 1,
+        address: selectedAddress,
+        amount: totalPrice - 250 + 1,
         payBy: paymentSelected,
         deliveryDate: todate.slice(0, 15),
       });
-      cartData.forEach(({_id, product_name})=>{
-          deleteFromCartFunction(_id, product_name, token, false)
-      })
-     console.log(cartData)
+      cartData.forEach(({ _id, product_name }) => {
+        deleteFromCartFunction(_id, product_name, token, false);
+      });
+      console.log(cartData);
       navigate("/cart/completedorders");
     } else
       toast.warn("Please Select Payment Option", {
-        POSITION: "bottome-right",
+        POSITION: toast.POSITION.BOTTOM_RIGHT,
       });
   };
   return (
@@ -111,7 +111,13 @@ const FilledCart = ({
           ) : (
             cartData.map((item) => {
               return (
-                <div className="productCartCard" style={{cursor:"pointer"}} onClick={()=>{navigate(`/products/${item._id}`)}}>
+                <div
+                  className="productCartCard"
+                  style={{ cursor: "pointer" }}
+                  onClick={() => {
+                    navigate(`/products/${item._id}`);
+                  }}
+                >
                   <span>
                     <img
                       src={item.product_image}
@@ -120,7 +126,7 @@ const FilledCart = ({
                       width="70px"
                     />
                     <span>
-                      {item.product_name.slice(0,15)} x {item.qty}
+                      {item.product_name.slice(0, 15)} x {item.qty}
                     </span>
                   </span>
                   <span>${item.product_price * item.qty}</span>

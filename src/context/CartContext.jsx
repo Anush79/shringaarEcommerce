@@ -3,8 +3,9 @@ import {
   createContext,
   useEffect,
   useState,
-  useReducer,
+  useReducer,  
 } from "react";
+import {useNavigate, useLocation} from 'react-router-dom'
 import { toast } from "react-toastify";
 import { useAuth } from "../";
 import {
@@ -22,7 +23,8 @@ export function CartProvider({ children }) {
     initialCartData
   );
   const { token } = useAuth();
-
+ const navigate = useNavigate()
+ const location = useLocation()
   const getAllCartItems = async (encodedToken) => {
     try {
       const response = await getCartList(encodedToken);
@@ -59,6 +61,8 @@ export function CartProvider({ children }) {
       toast.warn("Please Login in before you add to cart", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+      navigate('/login', {state:{from :location}})
+      
     }
   };
   const deleteFromCartFunction = async (id, title, encodedToken,showNotification) => {

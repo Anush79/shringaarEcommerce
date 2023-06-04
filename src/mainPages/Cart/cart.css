@@ -176,7 +176,13 @@ tbody tr td::before {
 .choosePayment label {
   text-align: left;
 }
-
+.placedOrderSummary{
+  border: 1px solid var(--primary-theme-color);
+  margin: 5px 20px;
+  padding:10px;
+  font-family: abel;
+  text-align: left;
+}
 @media (min-width: 769px) {
   .shoppingCart {
     margin: auto 5%;
