@@ -5,7 +5,7 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Badge from "@mui/material/Badge";
 import LocalGroceryStoreTwoToneIcon from "@mui/icons-material/LocalGroceryStoreTwoTone";
 import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import PersonIcon from "@mui/icons-material/Person";
 
 import { useData,useCart, useWish, useAuth } from "../";
@@ -23,7 +23,6 @@ export default function Header() {
   const {cartCount} = useCart()
   const navigate = useNavigate();
 
-  console.log(token)
   const handleMenu = () => {
     setIsMenuClicked(!isMenuClicked);
   };
@@ -99,7 +98,7 @@ export default function Header() {
           <span className={token?"wishList":"hiddenElement"}>
             <Badge badgeContent={token ? wishlistCount:0} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/wishlist">
-                <FavoriteBorderIcon />
+                <FavoriteTwoToneIcon />
               </NavLink>
             </Badge>
           </span>

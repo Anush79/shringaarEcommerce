@@ -8,29 +8,29 @@
   align-items: center;
   min-height: 96vh;
   min-width: 100%;
-  background: url('../../../public/assets/loginBg.jpg') ;
+  background: url('../../../public/assets/stonesjewel.jpg') ;
   background-position: center;
 background-size: cover;
 margin-bottom: 0;
 }
 .formBox{
   position: absolute;
-  width: 400px;
-  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: rgba(255, 255, 255, 0.233);
+  background-color:#dabec1a6;
   border: 2px solid rgba(255, 255, 255, 0.5);
   border-radius: 20px;
   font-family: abel;
   letter-spacing: 1px;
-  margin-top: 118px;
+  margin: 128px auto 50px auto;
   backdrop-filter: blur(4px);
+  padding: 30px 50px;
 }
 .formBox h2{
   font-size: 2em;
   text-align: center;
+  margin:20px auto 20px auto
 }
 .inputBox{
   position: relative;
@@ -60,7 +60,7 @@ input:valid ~ label{
   outline: none;
   font-size: 1em;
   padding: 0 35px 0 5px;
-  color:#fff;
+  color:var(--primary-text-color);
 }
 .inputBox svg{
    position: absolute;
@@ -75,17 +75,17 @@ input:valid ~ label{
   color: #fff;
   display: flex;
   justify-content: space-between;
-
 }
 .forget label input{
   margin-right: 3px;
 }
+
 .forget span, .signUp p a {
   color: var(--primary-text-color);
-  text-shadow:0 0 10px #fff;
+  text-shadow:0 0 20px 30px #fff;
   font-weight: 600;
 }
-.forget span:hover, .signUp p a:hover{
+.forget span:hover, .signUp p a:hover, .formValue a:hover{
   text-decoration: underline;
   font-weight: 700;
 
@@ -108,6 +108,10 @@ input:valid ~ label{
   text-align: center;
   margin: 25px 0 20px;
 }
+.signUp p, .forget label{
+  text-shadow: #000 1px 0 10px;
+
+}
 .Toastify__toast{
   font-family: "abel", sans-serif;
   color: var(--primary-text-color);
@@ -116,13 +120,12 @@ input:valid ~ label{
 }
 @media  (max-width: 768px) {
   .formBox{
-    position: absolute;
-    margin: 30px;
     
-    max-width:90%;
+    margin: 128px auto 50px auto;
+    min-width:95%;
     font-size: 0.78em;
-    height: calc( 100vh - 100px);
-    padding: 0;
+    height:auto;
+    padding: 0 20px;
 
   }
   .inputBox{
@@ -130,6 +133,6 @@ input:valid ~ label{
     margin: 30px 0; 
     border-bottom: 2px solid #fff;
   }
- 
+  
 
 }

@@ -85,7 +85,7 @@ const FilledCart = ({
       navigate("/cart/completedorders");
     } else
       toast.warn("Please Select Payment Option", {
-        POSITION: toast.POSITION.BOTTOM_RIGHT,
+        position: toast.POSITION.BOTTOM_RIGHT,
       });
   };
   return (
