@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useAddress } from "../../../";
 import UpdateAddress from "../../../components/UpdateAdd";
 import AddressCard from "../../../components/AddressCard";
-export default function Address({ isPresentinCheckout, setSelectedAddress }) {
+export default function Address({ isPresentinCheckout, setSelectedAddress ,id}) {
   const [isAddClicked, setIsAddClicked] = useState(false);
   const [isEditClicked, setIsEditClicked] = useState(false);
   const { address, handleEdit, addressDispatch } = useAddress();
@@ -22,21 +22,25 @@ export default function Address({ isPresentinCheckout, setSelectedAddress }) {
       </div>
       {address.map((item) => {
         return isPresentinCheckout ? (
-          <label htmlFor="">
+          <label htmlFor="" class="checkoutLabel">
             <input
               type="radio"
               name="setAddress"
+              // checked={item.id===id?true:false}
               onChange={() => {
                 setSelectedAddress(item);
               }}
             />
-            <AddressCard
+            <div>
+              <AddressCard
               addObj={item}
               addressDispatch={addressDispatch}
               isEditClicked={isEditClicked}
               setIsEditClicked={setIsEditClicked}
               handleEdit={handleEdit}
             />
+            </div>
+            
           </label>
         ) : (
           <AddressCard

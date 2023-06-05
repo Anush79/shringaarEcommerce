@@ -3,7 +3,7 @@ import { NavLink } from "react-router-dom";
 import { useData, useAuth, useWish, useCart } from "..";
 import AddShoppingCartIcon from "@mui/icons-material/AddShoppingCart";
 import ShoppingCartCheckoutIcon from "@mui/icons-material/ShoppingCartCheckout";
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 
 export default function ProductCard({ item, inWishlist }) {
@@ -18,6 +18,7 @@ export default function ProductCard({ item, inWishlist }) {
     product_prevPrice,
     product_image,
     product_isBadge,
+    
   } = item;
   const discount = Math.floor(
     100 - (product_price / product_prevPrice) * 100
@@ -46,7 +47,7 @@ export default function ProductCard({ item, inWishlist }) {
           }}>
            {
            isAvailableInWishList(_id)>=0 ?<FavoriteRoundedIcon/>:
-            <FavoriteBorderIcon/>
+            <FavoriteTwoToneIcon/>
           
             
 }
@@ -59,6 +60,9 @@ export default function ProductCard({ item, inWishlist }) {
             ) : null}
 
           </span>
+      
+       
+
           <div className="buttons">
             <div className="addToCartButton" title= "Add to Cart">
               {isItemInCart(_id) ? (

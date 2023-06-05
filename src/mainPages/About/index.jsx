@@ -1,17 +1,22 @@
-import { useState, useEffect } from "react";
+import './about.css'
 export default function About() {
   return (
-    <>
+    <><div className="aboutPage">
       <section className="heading">
-        <h1>About page</h1>
+       <div className='text'>
+         <small>A few Words...</small>
+        <h1>About Us</h1>
+       </div>
+       
       </section>
       <section className="aboutFounder">
-        <img src="\assets\model3.jpg" alt="model Photo" width="300px"/>
-        <div>
+        <img src="\assets\owner.jpg" alt="model Photo" width="300px"/>
+        <div className='textContent'>
           <h5>Shrinidhi Gehnewal</h5>
           <h3>About the Founder</h3>
           <h4>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita,
+          Similique libero quaerat
+            exercitationem delectus ipsum, maiores unde sit amet consectetur adipisicing elit. Expedita,
             quod!
           </h4>
           <p>
@@ -22,8 +27,13 @@ export default function About() {
             deserunt molestiae cupiditate omnis? Est excepturi adipisci corporis
             non magni asperiores distinctio eius nulla.
           </p>
+          <p>
+          Sed ut fringilla dolor. Morbi suscipit a nunc eu finibus. Nam rutrum mattis velit eget volutpat. Fusce egestas mi urna, id pulvinar ipsum dictum eget. Mauris in dolor velit. Vestibulum finibus felis non massa commodo molestie at id justo. Quisque sollicitudin elit sit amet facilisis euismod. Fusce at arcu sed.
+          </p>
         </div>
       </section>
+    </div>
+      
     </>
   );
 }

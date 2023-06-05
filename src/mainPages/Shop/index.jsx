@@ -1,27 +1,40 @@
 import "./shop.css";
 import { useState } from "react";
+import TuneIcon from "@mui/icons-material/Tune";
+import Loader from '../../components/Loader'
 import { useData } from "../../context/DataContext";
 import ProductCard from "../../components/ProductCard";
 export default function Shop() {
-  const { backendData, finalPriceSortedData, productCount,setFiltersUsed,filtersUsed } = useData();
-  const [showFilters, setShowFilters] = useState(false)
-/***
- *    priceRange: "",
-    search: "",
-    sort: "",
-    rating: "",
-    ocassionFilters: [],
-    categoryFilters: [],
-    materialFilter: [],
-  });
- */
+  const {
+    backendData,
+    finalPriceSortedData,
+    productCount,
+    setFiltersUsed,
+    filtersUsed,
+  } = useData();
+  const [showFilters, setShowFilters] = useState(false);
+
   return (
     <>
       <div className="allProductsContainer">
-     <p>Total Products found : <b> {productCount}</b></p>
+        <p>
+          Total Products found : <b> {productCount}</b>
+        </p>
         <div className="main">
-          {/* {!showFilters ? <p onClick={() => { setShowFilters(!showFilters) }}>Show Filters ↓ </p> : */}
-            <aside className="allFilters">
+          <div className="allFilters">
+            <button
+              className="showFiltersBtn"
+              onClick={() => {
+                setShowFilters(!showFilters);
+              }}
+            >
+              {showFilters ? "Hide" : "Show"}
+              <TuneIcon />
+            </button>
+
+         {   <aside
+              className={!showFilters ? "allFilters " : "mobileViewFilter"}
+            >
               <div className="filterHeader">
                 <h3>Filters</h3>
               </div>
@@ -40,7 +53,12 @@ export default function Shop() {
                   value={filtersUsed.priceRange}
                   min={500}
                   max={1500}
-                  onChange={(e) => { setFiltersUsed({ type: "PRICE", inputValue: e.target.value }) }}
+                  onChange={(e) => {
+                    setFiltersUsed({
+                      type: "PRICE",
+                      inputValue: e.target.value,
+                    });
+                  }}
                 />
               </div>
               <div className="categoryFilter">
@@ -53,7 +71,10 @@ export default function Shop() {
                     id="necklace"
                     value="necklace"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value });
+                      setFiltersUsed({
+                        type: "CATEGORY",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Necklaces
@@ -67,7 +88,10 @@ export default function Shop() {
                     id="ring"
                     value="ring"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "CATEGORY",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Rings
@@ -81,7 +105,10 @@ export default function Shop() {
                     id="bracelet"
                     value="bracelet"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "CATEGORY",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Bracelets
@@ -94,7 +121,10 @@ export default function Shop() {
                     id="earring"
                     value="earring"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "CATEGORY",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Earrings
@@ -110,7 +140,10 @@ export default function Shop() {
                     id="office"
                     value="Office"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "OCCASION",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Office
@@ -123,7 +156,10 @@ export default function Shop() {
                     id="casual"
                     value="Casual"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "OCCASION",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Casual
@@ -136,7 +172,10 @@ export default function Shop() {
                     id="engagement"
                     value="Engagement"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "OCCASION",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Engagement
@@ -149,7 +188,10 @@ export default function Shop() {
                     id="bridal"
                     value="Bridal"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "OCCASION", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "OCCASION",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Bridal
@@ -165,7 +207,10 @@ export default function Shop() {
                     id="diamond"
                     value="diamond"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "MATERIAL",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Diamond
@@ -178,7 +223,10 @@ export default function Shop() {
                     id="platinum"
                     value="platinum"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "MATERIAL",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Platinum
@@ -191,7 +239,10 @@ export default function Shop() {
                     id="gold"
                     value="gold"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "MATERIAL",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Gold
@@ -204,7 +255,10 @@ export default function Shop() {
                     id="silver"
                     value="silver"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "MATERIAL", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "MATERIAL",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Silver
@@ -218,9 +272,12 @@ export default function Shop() {
                     name="rating"
                     id="onePlus"
                     value={1}
-                    checked={filtersUsed.rating==="1"}
+                    checked={filtersUsed.rating === "1"}
                     onClick={(e) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue: e.target.value  });
+                      setFiltersUsed({
+                        type: "RATINGS",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   1 ⭐ & above
@@ -230,10 +287,13 @@ export default function Shop() {
                     type="radio"
                     name="rating"
                     id="twoPlus"
-                    checked={filtersUsed.rating==="2"}
+                    checked={filtersUsed.rating === "2"}
                     value={2}
                     onClick={(e) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
+                      setFiltersUsed({
+                        type: "RATINGS",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   2 ⭐ & above
@@ -243,10 +303,13 @@ export default function Shop() {
                     type="radio"
                     name="rating"
                     id="threePlus"
-                    checked={filtersUsed.rating==="3"}
+                    checked={filtersUsed.rating === "3"}
                     value={3}
                     onClick={(e) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
+                      setFiltersUsed({
+                        type: "RATINGS",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   3 ⭐ & above
@@ -256,10 +319,13 @@ export default function Shop() {
                     type="radio"
                     name="rating"
                     id="fourPlus"
-                    checked={filtersUsed.rating==="4"}
+                    checked={filtersUsed.rating === "4"}
                     value={4}
                     onClick={(e) => {
-                      setFiltersUsed({ type: "RATINGS", inputValue:  e.target.value  });
+                      setFiltersUsed({
+                        type: "RATINGS",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   4 ⭐ & above
@@ -273,9 +339,12 @@ export default function Shop() {
                     name="sorting"
                     id="lowToHigh"
                     value="LOWTOHIGH"
-                    checked={filtersUsed.sort==="LOWTOHIGH"}
+                    checked={filtersUsed.sort === "LOWTOHIGH"}
                     onClick={(e) => {
-                      setFiltersUsed({ type: "SORT", inputValue:  e.target.value  });
+                      setFiltersUsed({
+                        type: "SORT",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   Low to High
@@ -285,26 +354,36 @@ export default function Shop() {
                     type="radio"
                     name="sorting"
                     id="highToLow"
-                    checked={filtersUsed.sort==="HIGHTOLOW"}
+                    checked={filtersUsed.sort === "HIGHTOLOW"}
                     value="HIGHTOLOW"
                     onClick={(e) => {
-                      setFiltersUsed({ type: "SORT", inputValue:  e.target.value  });
+                      setFiltersUsed({
+                        type: "SORT",
+                        inputValue: e.target.value,
+                      });
                     }}
                   />
                   High to Low
                 </label>
               </div>
               <div className="clearAll">
-                <button onClick={(e)=>{
-                  setFiltersUsed({type:"CLEARFILTER", inputValue: e.target.value })
-                }}>Clear All</button>
+                <button
+                  onClick={(e) => {
+                    setFiltersUsed({
+                      type: "CLEARFILTER",
+                      inputValue: e.target.value,
+                    });
+                  }}
+                >
+                  Clear All
+                </button>
               </div>
-            </aside>
-          
+            </aside>}
+          </div>
 
           <div className="displayProducts">
             {backendData?.loading ? (
-              <h3>Loading Data,please wait...</h3>
+              <h3><Loader /></h3>
             ) : backendData?.error ? (
               <h3>Something went wrong</h3>
             ) : (
@@ -321,13 +400,9 @@ export default function Shop() {
   );
 }
 
-
-
 /**
- * show number of products
+
  * handle noproducts
  * out of stock include
- * favorite botton 
- * trending on product 
  * 
  */

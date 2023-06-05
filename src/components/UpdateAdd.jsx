@@ -12,8 +12,8 @@ export default function UpdateAddress({
     let prop = e.target.id;
 
     if (e.target.type === "radio") {
-      setAddressState({ ...addressState, [prop]: e.target.checked });
-    } else setAddressState({ ...addressState, [prop]: input });
+      setAddressState(()=>({ ...addressState, [prop]: e.target.checked }));
+    } else setAddressState(()=>({ ...addressState, [prop]: input }));
   };
 
   return (
@@ -122,7 +122,7 @@ export default function UpdateAddress({
           </div>
 
           <div className="addTypeAdd">
-            Address Type
+            
             <label htmlFor="home">
               {" "}
               <input
@@ -144,6 +144,7 @@ export default function UpdateAddress({
               />
               Work{" "}
             </label>
+            Address Type
           </div>
 <div className="buttons">
 

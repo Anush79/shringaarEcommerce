@@ -3,8 +3,9 @@ import {
   createContext,
   useEffect,
   useState,
-  useReducer,
+  useReducer,  
 } from "react";
+import {useNavigate, useLocation} from 'react-router-dom'
 import { toast } from "react-toastify";
 import { useAuth } from "../";
 import {
@@ -22,7 +23,8 @@ export function CartProvider({ children }) {
     initialCartData
   );
   const { token } = useAuth();
-
+ const navigate = useNavigate()
+ const location = useLocation()
   const getAllCartItems = async (encodedToken) => {
     try {
       const response = await getCartList(encodedToken);
@@ -59,9 +61,11 @@ export function CartProvider({ children }) {
       toast.warn("Please Login in before you add to cart", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+      navigate('/login', {state:{from :location}})
+      
     }
   };
-  const deleteFromCartFunction = async (id, title, encodedToken) => {
+  const deleteFromCartFunction = async (id, title, encodedToken,showNotification) => {
     try {
       const response = await deleteFromCart(id, encodedToken);
       const {
@@ -71,13 +75,13 @@ export function CartProvider({ children }) {
 
       if (status === 200) {
         setCartManager({ type: "DELETEFROMCART", payload: cart });
-        toast.success(`${title} has been removed from cart`, {
+       if( showNotification)toast.success(`${title} has been removed from cart`, {
           position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        })
       }
     } catch (error) {
-      console.log(error);
-      toast.error("Error:Cannot remove this item from cart", {
+     
+      if( showNotification) toast.error("Error:Cannot remove this item from cart", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
     }
@@ -109,26 +113,32 @@ export function CartProvider({ children }) {
     }
   };
 
+const addItemstoOrdersPlaced = (orderDetailsObj)=>{
+  setCartManager({ type: "ORDERPLACED", payload: orderDetailsObj });
+}
+
+
+
 const isItemInCart = (prodId)=>{
   return cartManager?.cartData.find(item=> item._id === prodId)?true:false
 }
 
-  const totalPrevPrice = token
+  const totalPrevPrice = token && cartManager?.cartData
   ? Math.floor(cartManager?.cartData.reduce(
       (acc, curr) => curr.product_prevPrice * curr.qty + acc,
       0
     ))
   : 0;
 
-  const totalPrice = token
+  const totalPrice =  token && cartManager?.cartData
     ? Math.floor(cartManager?.cartData.reduce(
         (acc, curr) => curr.product_price * curr.qty + acc,
         0
       ))
     : 0;
-  const totalDiscount = Math.floor(
+  const totalDiscount = token && cartManager?.cartData? Math.floor(
     100 - ((totalPrice / totalPrevPrice) * 100)
-  ); 
+  ):0
 
 
   useEffect(() => {
@@ -145,7 +155,8 @@ const isItemInCart = (prodId)=>{
         totalPrice,
         totalPrevPrice,
         totalDiscount,
-        cartCount: cartManager.cartData.length,
+        cartCount:  cartManager?.cartData?cartManager?.cartData.length:0,
+        addItemstoOrdersPlaced,
       }}
     >
       {children}

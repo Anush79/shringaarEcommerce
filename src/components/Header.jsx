@@ -5,7 +5,7 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Badge from "@mui/material/Badge";
 import LocalGroceryStoreTwoToneIcon from "@mui/icons-material/LocalGroceryStoreTwoTone";
 import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 import PersonIcon from "@mui/icons-material/Person";
 
 import { useData,useCart, useWish, useAuth } from "../";
@@ -95,14 +95,14 @@ export default function Header() {
               />
             )}
           </span>
-          <span className="wishList">
+          <span className={token?"wishList":"hiddenElement"}>
             <Badge badgeContent={token ? wishlistCount:0} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/wishlist">
-                <FavoriteBorderIcon />
+                <FavoriteTwoToneIcon />
               </NavLink>
             </Badge>
           </span>
-          <span className="emptyCart">
+          <span className={token?"emptyCart":"hiddenElement"}>
             <Badge badgeContent={token ? cartCount:0} color="secondary" sx={{ color: "#5f3926" }}>
               <NavLink to="/cart">
                 <LocalGroceryStoreTwoToneIcon />
@@ -158,11 +158,11 @@ export default function Header() {
 
 
 const CategoryList = ({item, navigate, setFiltersUsed}) => {
-  // const value=item.categoryName
+
   return <li key= {item._id}
   value={item.categoryName}
     onClick={(e) => {
-      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName, isNav:true });
+      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName });
       navigate("/browse");
     }}
   >

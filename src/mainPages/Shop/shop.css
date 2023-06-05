@@ -4,16 +4,20 @@
 }
 
 .main {
-  display: flex;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  justify-items: center;
+  gap:15px;
 }
 
 aside {
   font-family: abel;
   position: fixed;
-  width: 20%;
-  height: 70vh;
+  min-width: 20%;
+  max-width: 90%;
+  height: 67vh;
   overflow-y: auto;
-
+  left: 0;
 }
 .priceFilter p {
   display: flex;
@@ -43,9 +47,8 @@ aside .filterHeader {
   justify-content: space-around;
   align-items: center;
 }
-
-.displayProducts {
-  margin-left: 20%;
+aside input{
+  accent-color:var(--primary-text-color)
 }
 
 .filterHeader button {
@@ -60,11 +63,16 @@ aside .filterHeader {
   padding: 20px;
   padding-left: 0px;
 }
-.hideFilter{
-  display: hidden;
-}
-@media (min-width:400px) {
 
+.showFiltersBtn {
+  display: none;
+}
+.hiddenElement{
+  display: none;
+}
+
+@media (min-width:400px) {
+  
   .allProductsContainer p:first-child {
     background-color: var(--primary-theme-color);
     position: sticky;
@@ -73,4 +81,45 @@ aside .filterHeader {
     margin: 0 2px;
   }
 
+}
+@media (max-width:768px) {
+ 
+    .showFiltersBtn {
+      display: flex;
+      display: hidden;
+      align-items: center;
+      justify-content: center;
+  }
+  aside{
+    position:relative;
+    min-width: 320px;
+    max-width: 100%;
+    justify-content: center;
+    margin: auto;
+  }
+  .main{
+    display: flex;
+    flex-direction: column;
+  
+  }
+
+.allFilters div, .displayProducts {
+  margin-left:auto;
+}
+.allFilters div{
+  padding-left:20px;
+}
+.productsContainer{
+display: grid;
+grid-template-columns: 1fr 1fr;
+
+}
+.cardTextContent p,.cardTextContent {
+  font-size: 0.8rem;
+  text-align: left;
+}
+.mobileViewFilter{
+  max-width: 50%;
+  
+}
 }

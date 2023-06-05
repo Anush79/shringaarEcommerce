@@ -1,22 +1,19 @@
-
 import "./productDetails.css";
-import { useNavigate  } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import InnerImageZoom from "react-inner-image-zoom";
 
 import { useParams } from "react-router-dom";
 import { useData, useWish, useCart, useAuth } from "../../";
 
 export default function ProductDetails() {
-  const { backendData, getSingleProduct } = useData();
-  const {addToCardFunction, isItemInCart, changeQuantity} = useCart();
-  const {token} = useAuth()
+  const { backendData } = useData();
+  const { addToCardFunction, isItemInCart } = useCart();
+  const { token } = useAuth();
   const todate = new Date().toString();
   const { prodID } = useParams();
   const { addWishListData } = useWish();
-  const navigate = useNavigate()
-  const product = backendData?.productsData.find(
-    (item) => item._id === prodID
-  );
+  const navigate = useNavigate();
+  const product = backendData?.productsData.find((item) => item._id === prodID);
   if (product) {
     const {
       product_brand,
@@ -46,9 +43,15 @@ export default function ProductDetails() {
             <InnerImageZoom src={product_image} zoomSrc={product_image} />
 
             <div className="buttons">
-              <button onClick={() => {
-isItemInCart(_id)?navigate('/cart'):  addToCardFunction(product, token)
-                }}>{isItemInCart(_id)?"Go to Cart" :"Add to Cart"}</button>
+              <button
+                onClick={() => {
+                  isItemInCart(_id)
+                    ? navigate("/cart")
+                    : addToCardFunction(product, token);
+                }}
+              >
+                {isItemInCart(_id) ? "Go to Cart" : "Add to Cart"}
+              </button>
               <button
                 onClick={() => {
                   addWishListData(product);

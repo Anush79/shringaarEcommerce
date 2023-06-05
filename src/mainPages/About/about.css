@@ -1,0 +1,53 @@
+.aboutPage .heading {
+  height: 66vh;
+  width: 100%;
+  background: url(/public/assets/bg.jpg);
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.aboutPage section{
+  margin-top: 0;
+}
+.aboutPage .heading .text{
+  
+  font-size: 2em;
+}
+.aboutPage .heading small{
+  font-family: abel;
+ 
+}
+
+.aboutPage .heading .text h1{
+  margin-top: 0;
+}
+
+.aboutFounder .textContent {
+  padding: 22px;
+  text-align: left;
+}
+.aboutFounder .textContent p{
+  font-family: abel;
+  font-size: 1.1rem;
+}
+.aboutFounder .textContent h4{
+  color:var(--primary-text-color);
+  font-size:1.3rem;
+
+}
+@media (min-width:768px) {
+  .aboutFounder{
+    display:flex;
+    flex-direction: row-reverse; 
+    text-align: left;
+    align-items: center;
+  }
+  
+.aboutFounder img{
+  width: 40%;
+  
+}
+}
