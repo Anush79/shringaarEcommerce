@@ -71,6 +71,8 @@ aside input{
   display: none;
 }
 
+
+
 @media (min-width:400px) {
   
   .allProductsContainer p:first-child {

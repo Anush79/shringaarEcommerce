@@ -61,6 +61,7 @@ tbody tr td::before {
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  gap:5px
 }
 
 .displayQty {
@@ -189,6 +190,12 @@ tbody tr td::before {
   font-weight: 700;
 
 }
+.product-add-to-fav{
+  display:flex;
+  justify-content: center;
+  align-items: center;
+}
+
 @media (min-width: 769px) {
   .shoppingCart {
     margin: auto 5%;

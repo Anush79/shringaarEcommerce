@@ -24,7 +24,6 @@ export default function ProductDetails() {
       product_description,
       _id,
       product_image,
-      product_isBadge,
       product_material,
       product_name,
       product_occasion,

@@ -11,3 +11,11 @@
   justify-content: center;
   align-items: center;
 }
+.wishLish .productsContainer{
+  display:flex;
+  max-width: 80%;
+  justify-content: center;  
+}
+.wishLish .productsContainer .ProductCard{
+  width: 30%;
+}
