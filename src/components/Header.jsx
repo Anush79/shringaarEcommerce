@@ -5,10 +5,10 @@ import HighlightOffIcon from "@mui/icons-material/HighlightOff";
 import Badge from "@mui/material/Badge";
 import LocalGroceryStoreTwoToneIcon from "@mui/icons-material/LocalGroceryStoreTwoTone";
 import LoginRoundedIcon from "@mui/icons-material/LoginRounded";
-import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 import PersonIcon from "@mui/icons-material/Person";
 
-import { useData,useCart, useWish, useAuth } from "../";
+import { useData, useCart, useWish, useAuth } from "../";
 
 export default function Header() {
   const [isMenuClicked, setIsMenuClicked] = useState(false);
@@ -19,25 +19,33 @@ export default function Header() {
 
   const { setFiltersUsed, categoriesData } = useData();
   const { token } = useAuth();
-  const { wishlistCount } = useWish()
-  const {cartCount} = useCart()
+  const { wishlistCount } = useWish();
+  const { cartCount } = useCart();
   const navigate = useNavigate();
 
   const handleMenu = () => {
     setIsMenuClicked(!isMenuClicked);
+   
+      window.scrollTo({top:0, left:0, behavior: "smooth"});
+    
   };
   const handleCategory = (e) => {
-    setCategory(e.target.value);
+    setCategory(() => e.target.value);
+    setFiltersUsed({ type: "CATEGORY", inputValue: e.target.value });
+    navigate("/browse");
   };
 
   return (
     <>
       <div className="headerContainer">
         <div className="categories">
-          {
-            categoriesData.map(item => <CategoryList item={item} navigate={navigate } setFiltersUsed={setFiltersUsed}/>)
-          }
-
+          {categoriesData.map((item) => (
+            <CategoryList
+              item={item}
+              navigate={navigate}
+              setFiltersUsed={setFiltersUsed}
+            />
+          ))}
         </div>
         <div className="headerLeft">
           <div
@@ -68,9 +76,14 @@ export default function Header() {
           <span className="search">
             {isSearchclicked ? (
               <div className="inputElement overlay">
-                <span className="closeSearch" onClick={() => {
-                  setIsSearchedClicked(!isSearchclicked);
-                }}><HighlightOffIcon /></span>
+                <span
+                  className="closeSearch"
+                  onClick={() => {
+                    setIsSearchedClicked(!isSearchclicked);
+                  }}
+                >
+                  <HighlightOffIcon />
+                </span>
                 <input
                   type="text"
                   value={inputValue}
@@ -83,7 +96,7 @@ export default function Header() {
                   onClick={() => {
                     setFiltersUsed({ type: "SEARCH", inputValue: inputValue });
                     setIsSearchedClicked(!isSearchclicked);
-                    if(inputValue.length>0)navigate("/browse");
+                    if (inputValue.length > 0) navigate("/browse");
                   }}
                 />
               </div>
@@ -95,15 +108,23 @@ export default function Header() {
               />
             )}
           </span>
-          <span className={token?"wishList":"hiddenElement"}>
-            <Badge badgeContent={token ? wishlistCount:0} color="secondary" sx={{ color: "#5f3926" }}>
+          <span className={token ? "wishList" : "hiddenElement"}>
+            <Badge
+              badgeContent={token ? wishlistCount : 0}
+              color="secondary"
+              sx={{ color: "#5f3926" }}
+            >
               <NavLink to="/wishlist">
                 <FavoriteTwoToneIcon />
               </NavLink>
             </Badge>
           </span>
-          <span className={token?"emptyCart":"hiddenElement"}>
-            <Badge badgeContent={token ? cartCount:0} color="secondary" sx={{ color: "#5f3926" }}>
+          <span className={token ? "emptyCart" : "hiddenElement"}>
+            <Badge
+              badgeContent={token ? cartCount : 0}
+              color="secondary"
+              sx={{ color: "#5f3926" }}
+            >
               <NavLink to="/cart">
                 <LocalGroceryStoreTwoToneIcon />
               </NavLink>
@@ -123,7 +144,7 @@ export default function Header() {
         </div>
       </div>
       {isMenuClicked && (
-        <div className="sideNav">
+        <div title="Menu bar" className="sideNav">
           <ul>
             <NavLink to="/">
               <li onClick={handleMenu}>HOME</li>
@@ -143,10 +164,10 @@ export default function Header() {
                 id="chooseCategory"
               >
                 <option value="SHOP">SHOP CATEGORY</option>
-                <option value="RINGS">RINGS</option>
-                <option value="BRACELETS">BRACELETS</option>
-                <option value="EARRINGS">EARRINGS</option>
-                <option value="NECKLACES">NECKLACES</option>
+                <option value="rings">RINGS</option>
+                <option value="bracelet">BRACELETS</option>
+                <option value="earring">EARRINGS</option>
+                <option value="necklace">NECKLACES</option>
               </select>
             </li>
           </ul>
@@ -156,16 +177,17 @@ export default function Header() {
   );
 }
 
-
-const CategoryList = ({item, navigate, setFiltersUsed}) => {
-
-  return <li key= {item._id}
-  value={item.categoryName}
-    onClick={(e) => {
-      setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName });
-      navigate("/browse");
-    }}
-  >
-   {item.categoryName}
-  </li>
-}
+const CategoryList = ({ item, navigate, setFiltersUsed }) => {
+  return (
+    <li
+      key={item._id}
+      value={item.categoryName}
+      onClick={(e) => {
+        setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName });
+        navigate("/browse");
+      }}
+    >
+      {item.categoryName}
+    </li>
+  );
+};

@@ -176,7 +176,15 @@ li {
   object-fit: cover;
   border-radius: 4px;
 }
-
+.ProductCard:hover{
+ 
+    transition: all 01s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
+  
+    outline: 1px solid #cccccc;
+    background-color: white;
+  
+}
 .ProductCard .cardTextContent {
   display: flex;
   flex-direction: column;

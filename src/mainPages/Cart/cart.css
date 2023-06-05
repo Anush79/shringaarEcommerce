@@ -183,6 +183,12 @@ tbody tr td::before {
   font-family: abel;
   text-align: left;
 }
+.applyCoupon:hover{
+  cursor: pointer;
+  text-decoration: underline;
+  font-weight: 700;
+
+}
 @media (min-width: 769px) {
   .shoppingCart {
     margin: auto 5%;

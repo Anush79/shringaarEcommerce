@@ -1,7 +1,8 @@
+import {toast } from 'react-toastify'
+
 import AddCircleOutlineIcon from "@mui/icons-material/AddCircleOutline";
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline";
 import HighlightOffIcon from "@mui/icons-material/HighlightOff";
-
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 
@@ -48,7 +49,7 @@ export default function ShoppingCart() {
               cartManager?.cartData.map((item) => {
                 const { _id, product_image, product_name, product_price, qty } =
                   item;
-                console.log(isAvailableInWishList(_id));
+              
                 const shortName = product_name.slice(0, 14);
 
                 return (
@@ -163,7 +164,7 @@ export default function ShoppingCart() {
             <span>Total</span>
             <span className="TotalPrice">${totalPrice}</span>
           </tr>
-          <div className="applyCoupon">Apply Coupon</div>
+          <div onClick={()=>{toast.info("Sorry, no coupons available right now")}} className="applyCoupon">Apply Coupon</div>
           <button onClick={()=>{navigate("/cart/checkout")}}>Proceed to Checkout</button>
         </tbody>
       </table>

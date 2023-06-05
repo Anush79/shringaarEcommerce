@@ -1,4 +1,13 @@
-.wishLish{
+.wishLish {
   margin-top: 95px;
-  min-height: calc( 100vh - 250px);
+  min-height: calc(100vh - 250px);
+}
+
+.empty_Wishlist{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin:20px;
+  justify-content: center;
+  align-items: center;
 }

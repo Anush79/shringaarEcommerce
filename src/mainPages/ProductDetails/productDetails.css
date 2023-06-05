@@ -61,7 +61,14 @@
 .head{
   width: 30px;
 }
-
+.removeWish{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.removeWish svg{
+  height: 0.9rem;
+}
 
 @media (min-width: 768px){
   .textContentContainer h2{

@@ -103,9 +103,7 @@ aside input{
   
   }
 
-.allFilters div, .displayProducts {
-  margin-left:auto;
-}
+
 .allFilters div{
   padding-left:20px;
 }
@@ -121,5 +119,9 @@ grid-template-columns: 1fr 1fr;
 .mobileViewFilter{
   max-width: 50%;
   
+}
+.showFiltersBtn{
+  position: sticky;
+  margin: 20px;
 }
 }

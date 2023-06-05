@@ -1,5 +1,6 @@
 import { createContext, useReducer, useEffect, useContext } from "react";
 import { toast } from "react-toastify";
+import {useNavigate, useLocation} from 'react-router-dom'
 import {
   initialWishList,
   wishReducerFunction,
@@ -18,6 +19,8 @@ export function WishProvider({ children }) {
     wishReducerFunction,
     initialWishList
   );
+  const navigate = useNavigate()
+  const location = useLocation()
   const { token } = useAuth();
 
   const getWishListData = async () => {
@@ -57,9 +60,10 @@ export function WishProvider({ children }) {
       }
     } catch (error) {
       console.log(error);
-      toast.error("Product could not be found", {
+      toast.error("You need to login first", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+      navigate('/login', {state:{from :location}})
     } 
   };
   const deleteWishListData = async (productId) => {
