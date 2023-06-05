@@ -1,6 +1,8 @@
 import "./productDetails.css";
 import { useNavigate } from "react-router-dom";
 import InnerImageZoom from "react-inner-image-zoom";
+import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
+import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
 
 import { useParams } from "react-router-dom";
 import { useData, useWish, useCart, useAuth } from "../../";
@@ -11,7 +13,7 @@ export default function ProductDetails() {
   const { token } = useAuth();
   const todate = new Date().toString();
   const { prodID } = useParams();
-  const { addWishListData } = useWish();
+  const { addWishListData ,isAvailableInWishList,deleteWishListData} = useWish();
   const navigate = useNavigate();
   const product = backendData?.productsData.find((item) => item._id === prodID);
   if (product) {
@@ -54,10 +56,12 @@ export default function ProductDetails() {
               </button>
               <button
                 onClick={() => {
-                  addWishListData(product);
+                 if(isAvailableInWishList(_id)>=0) 
+                  deleteWishListData(_id)
+                  else addWishListData(product)
                 }}
               >
-                Add to Wishlist
+             {  (isAvailableInWishList(_id)>=0)? <span class="removeWish">Remove <FavoriteRoundedIcon/> </span>:<span class="removeWish">Add to <FavoriteTwoToneIcon/> </span>}
               </button>
             </div>
           </div>

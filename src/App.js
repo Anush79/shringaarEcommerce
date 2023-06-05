@@ -25,6 +25,7 @@ import ShoppingCart from "./mainPages/Cart/cartComponents/ShoppingCart";
 import OrderComplete from "./mainPages/Cart/cartComponents/OrdersComplete";
 import Contact from "./mainPages/Contact/index";
 import { useAuth } from "./context/AuthContext";
+import ScrollToTop from "./components/ScrollUp";
 
 function App() {
   const { token } = useAuth();
@@ -32,7 +33,7 @@ function App() {
   return (
     <div className="App">
       <Header />
-      <ToastContainer />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mockman" element={<MockApi />} />
@@ -40,7 +41,12 @@ function App() {
 
         <Route
           path="/cart"
-          element={ <RequiresAuth token={token}> <Cart /></RequiresAuth>  }
+          element={
+            <RequiresAuth token={token}>
+              {" "}
+              <Cart />
+            </RequiresAuth>
+          }
         >
           <Route path="" element={<ShoppingCart />} />
           <Route path="completedorders" element={<OrderComplete />} />
@@ -56,7 +62,14 @@ function App() {
           }
         />
 
-        <Route path="/profile" element={ <RequiresAuth token={token}><Profile /></RequiresAuth>}>
+        <Route
+          path="/profile"
+          element={
+            <RequiresAuth token={token}>
+              <Profile />
+            </RequiresAuth>
+          }
+        >
           <Route path="" element={<User />} />
           <Route path="orders" element={<Orders />} />
           <Route path="address" element={<Address />} />
@@ -68,19 +81,19 @@ function App() {
         <Route path="/contact" element={<Contact />} />
         <Route path="*" element={<Error />} />
       </Routes>
+      <ToastContainer
+        position="bottom-right"
+        autoClose={1200}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <Footer />
-      {/* <ToastContainer
-position="bottom-right"
-autoClose={4000}
-hideProgressBar={false}
-newestOnTop={false}
-closeOnClick
-rtl={false}
-pauseOnFocusLoss
-draggable
-pauseOnHover
-theme="light"
-/> */}
     </div>
   );
 }

@@ -6,12 +6,15 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 96vh;
+  min-height: 100vh;
   min-width: 100%;
   background: url('../../../public/assets/stonesjewel.jpg') ;
   background-position: center;
 background-size: cover;
 margin-bottom: 0;
+}
+.signUpSection{
+  min-height: 130vh;
 }
 .formBox{
   position: absolute;
@@ -86,6 +89,7 @@ input:valid ~ label{
   font-weight: 600;
 }
 .forget span:hover, .signUp p a:hover, .formValue a:hover{
+  cursor: pointer;
   text-decoration: underline;
   font-weight: 700;
 
@@ -112,6 +116,9 @@ input:valid ~ label{
   text-shadow: #000 1px 0 10px;
 
 }
+.signUp p a{
+  text-shadow: none;
+} 
 .Toastify__toast{
   font-family: "abel", sans-serif;
   color: var(--primary-text-color);
@@ -120,9 +127,7 @@ input:valid ~ label{
 }
 @media  (max-width: 768px) {
   .formBox{
-    
-    margin: 128px auto 50px auto;
-    min-width:95%;
+
     font-size: 0.78em;
     height:auto;
     padding: 0 20px;
