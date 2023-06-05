@@ -5,13 +5,15 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 100px;
+  align-items: center;
+  display: flex;
+  justify-content: center;
 }
 .aboutPage section{
   margin-top: 0;
 }
 .aboutPage .heading .text{
-  margin-top: 200px;
+  
   font-size: 2em;
 }
 .aboutPage .heading small{
