@@ -8,7 +8,19 @@ import EmptyCart from "../../../components/EmptyCart";
 import Loader from "../../../components/Loader";
 export default function CheckoutDetails() {
   const { address } = useAddress();
-  const [selectedAddress, setSelectedAddress] = useState(address[0]);
+  const [selectedAddress, setSelectedAddress] = useState({
+    id: null,
+    fullName: "",
+    mobile: "",
+    building: "",
+    streetName: "",
+    town: "",
+    districtName: "",
+    pincode: "",
+    state: "",
+    home: "",
+    work: "",
+  });
   const [paymentSelected, setPaymentSelected] = useState(null);
   const {
     cartManager,
@@ -69,7 +81,7 @@ const FilledCart = ({
   } = selectedAddress;
 
   const handleOrderPlaced = (paymentSelected, token) => {
-    if (paymentSelected) {
+    if (paymentSelected && selectedAddress.id) {
       addItemstoOrdersPlaced({
         orderId: uuid(),
         orders: cartData,
@@ -83,10 +95,19 @@ const FilledCart = ({
       });
       console.log(cartData);
       navigate("/cart/completedorders");
-    } else
-      toast.warn("Please Select Payment Option", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
+    } else {
+      if (!selectedAddress.id) {
+        toast.warn("Please select an address to procced", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        }
+        )
+      }
+      else {
+        toast.warn("Please Select Payment Option", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        })
+      }
+    }
   };
   return (
     <div className="filledCart">
@@ -158,29 +179,36 @@ const FilledCart = ({
               <span>${totalPrice - 250 + 1}</span>
             </span>
           </div>
+
           <div className="addressShow">
             <h5>Will be delivered to</h5>
-            <div className="addressText">
-              <p className="addType">
-                <small>{home ? "Home" : work ? "Work" : null}</small>
-              </p>
-              <p>
-                <b>
-                  {fullName}
-                  <span style={{ width: "20px" }}> ... </span>
-                  {mobile}
-                </b>
-              </p>
-              <p>House Number: {building}</p>
-              <p>{streetName}</p>
-              <p>
-                {town},{districtName}
-              </p>
-              <p>
-                {state} - <b>{pincode}</b>
-              </p>
-            </div>
+            {selectedAddress.id ?
+              <div className="addressText">
+                <p className="addType">
+                  <small>{home ? "Home" : work ? "Work" : null}</small>
+                </p>
+                <p>
+                  <b>
+                    {fullName}
+                    <span style={{ width: "20px" }}> ... </span>
+                    {mobile}
+                  </b>
+                </p>
+                <p>House Number: {building}</p>
+                <p>{streetName}</p>
+                <p>
+                  {town},{districtName}
+                </p>
+                <p>
+                  {state} - <b>{pincode}</b>
+                </p>
+              </div>
+              :<p>Please select an address</p>
+
+            }
           </div>
+
+
           <div className="choosePayment">
             <h5> Choose Payment mode</h5>
             <label htmlFor="online">

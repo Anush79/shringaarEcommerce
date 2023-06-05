@@ -272,8 +272,8 @@ li {
 }
 .favorite {
   position: absolute;
-  top: 227px;
-  right: 10px;
+  top: 222px;
+  right: 13px;
 }
 .favorite svg {
   color: var(--secondary-theme-color);

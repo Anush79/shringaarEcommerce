@@ -7,7 +7,6 @@
   justify-content: center;
   align-items: center;
 }
-
 .profileContainer {
   max-width: 1000px;
 }
@@ -25,7 +24,6 @@
 }
 .userDetails {
   font-family: abel;
-
   padding: 10px;
 }
 .userDetails img {
@@ -37,6 +35,9 @@
   flex-direction: column;
   align-items: center;
   text-align: left;
+}
+.userDetails div p {
+  margin: 0.1rem;
 }
 .userDetails .info {
   font-weight: bold;
@@ -92,7 +93,6 @@
   border-radius: 20px;
   font-family: abel;
   letter-spacing: 1px;
-
   backdrop-filter: blur(4px);
 }
 
@@ -110,11 +110,12 @@
   text-align: left;
   padding: 0 10px;
 }
-.addressForm input[type='text'],.addressForm input[type='number']{
-font-size: 1rem;
-border-radius:5px;
-padding: 5px;
-border:none;
+.addressForm input[type="text"],
+.addressForm input[type="number"] {
+  font-size: 1rem;
+  border-radius: 5px;
+  padding: 5px;
+  border: none;
 }
 .addressForm div label {
   text-shadow: 0 0 10px white;
@@ -159,15 +160,15 @@ border:none;
     margin: auto;
   }
   .displayPages {
-    min-height: 80vh;
+    min-height: 50vh;
     border: 15px ridge var(--primary-text-color);
   }
   .addFormBox {
     max-width: 500px;
   }
-  .address .checkoutLabel{
+  .address .checkoutLabel {
     display: grid;
-    grid-template-columns: 1fr 16fr;
+    grid-template-columns: 1fr 20fr;
     justify-content: center;
     accent-color: var(--primary-theme-color);
   }

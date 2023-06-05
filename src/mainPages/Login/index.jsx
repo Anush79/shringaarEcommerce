@@ -12,7 +12,7 @@ import { useState } from "react";
 import { NavLink } from "react-router-dom";
 
 export default function Login() {
-  const [isSignedIn,setSignedIn] = useState(true);
+  const [isSignedIn, setSignedIn] = useState(true);
   const [userSignUpDetails, setUserSignUpDetails] = useState({
     email: "",
     password: "",
@@ -30,6 +30,7 @@ export default function Login() {
   const guestlogindetails = {
     loginEmail: "adarshbalika@gmail.com",
     loginPassword: "adarshbalika",
+    hideIcon: true,
   };
   const guestSignupDetails = {
     email: "guestuser@gmail.com",
@@ -38,6 +39,8 @@ export default function Login() {
     firstName: "Atithi",
     lastName: "Dev",
     isTCChecked: true,
+    hideIcon: { password: true, confirmPassword: true },
+
   };
   const { signUpHandler, loginHandler } = useAuth();
 

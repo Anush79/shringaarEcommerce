@@ -1,7 +1,8 @@
 import { createContext, useContext, useState, useReducer } from "react";
 
 import { v4 as uuid } from "uuid";
-import {initialAddressData, reducer} from '../allReducers/addressReducer'
+import {initialAddressData, reducer} from '../allReducers/addressReducer';
+import {toast} from 'react-toastify'
 
 export const AddressContext = createContext();
 
@@ -38,11 +39,18 @@ export const AddressProvider = ({ children }) => {
   const handleEdit = (id, isEditClicked) => {
 
     const addressToEdit = address.find((item) => item.id === id);
-     if(isEditClicked)
+     if(isEditClicked){
     setAddressState(addressToEdit);
+    toast.success("Address Edited Successfully", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    })
+  }
     else
-    setAddressState(initialAddressData);
-
+   { setAddressState(initialAddressData);
+    toast.success(" Address Added Successfully", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    })
+}
      
   };
 

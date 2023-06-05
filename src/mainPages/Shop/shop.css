@@ -116,10 +116,10 @@ grid-template-columns: 1fr 1fr;
   font-size: 0.8rem;
   text-align: left;
 }
-.mobileViewFilter{
+/* .mobileViewFilter{
   max-width: 50%;
   
-}
+} */
 .showFiltersBtn{
   position: sticky;
   margin: 20px;
