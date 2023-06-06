@@ -76,6 +76,7 @@ export function AuthProvider({ children }) {
       toast.success("Sign Up Successful", {
         position: toast.POSITION.BOTTOM_RIGHT,
       });
+      navigate("/", { replace: true });
     } catch (error) {
       console.log(error);
       if(error.response.status === 422){
