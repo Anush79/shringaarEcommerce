@@ -1,5 +1,5 @@
 .mainCartContainerPage {
-  margin-top: 100px;
+
   min-height: 90vh;
 
   display: flex;
@@ -25,7 +25,12 @@
   border: none;
   clip-path: circle(45%);
 }
+.displayPages{
+  display: flex;
+  flex-direction: column;
+  ;
 
+}
 .emptyCart p {
   text-transform: capitalize;
   font-family: abel;

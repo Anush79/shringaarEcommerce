@@ -9,7 +9,7 @@ import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
 export default function ProductCard({ item, inWishlist }) {
   const { deleteWishListData, addWishListData ,isAvailableInWishList} = useWish();
   const { getSingleProduct } = useData();
-  const { addToCardFunction, isItemInCart } = useCart();
+  const { addToCardFunction, isItemInCart,changeQuantity } = useCart();
   const { token } = useAuth();
   const {
     _id,
@@ -18,6 +18,7 @@ export default function ProductCard({ item, inWishlist }) {
     product_prevPrice,
     product_image,
     product_isBadge,
+    
     
   } = item;
   const discount = Math.floor(
@@ -38,7 +39,7 @@ export default function ProductCard({ item, inWishlist }) {
               {product_prevPrice && (
                 <span className="stikeThrough">$ {product_prevPrice}</span>
               )}
-              <b> $ {product_price}</b> ({discount} % off)
+              <b> $ {product_price} </b> ({discount} % off)
             </p>
             
           </div>
@@ -85,14 +86,14 @@ export default function ProductCard({ item, inWishlist }) {
               )}
             </div>
 
-            {inWishlist ? (
+            {isItemInCart(_id)&& inWishlist ? (
               <button
                 onClick={(e) => {
                   e.preventDefault();
-                  deleteWishListData(_id);
+                  changeQuantity(_id, token, "increment");
                 }}
               >
-                Remove from wishList
+                + 1 in Cart
               </button>
             ) : null}
           </div>

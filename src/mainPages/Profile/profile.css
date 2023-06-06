@@ -1,10 +1,8 @@
 .profile {
-  margin-top: 100px;
   min-height: 90vh;
-
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
 }
 .profileContainer {
@@ -21,19 +19,20 @@
   min-height: 80vh;
   border: 1px solid var(--primary-text-color);
   min-width: 100%;
+
 }
 .userDetails {
   font-family: abel;
   padding: 10px;
 }
 .userDetails img {
-  max-width: 50%;
+  max-height:20rem;
   border-radius: 10px;
 }
 .userDetails div {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-start;
   text-align: left;
 }
 .userDetails div p {
@@ -133,6 +132,15 @@
 .css-o4b71y-MuiAccordionSummary-content {
   justify-content: center;
 }
+.logOutBtn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.8rem;
+}
+.logOutBtn svg{
+  height: 1rem;
+}
 @media (min-width: 768px) {
   .profileContainer {
     min-width: 50%;
@@ -141,6 +149,15 @@
     align-items: flex-start;
     justify-content: center;
   }
+  .userDetails{
+    display: flex;
+    gap: 2rem;
+    
+  }
+  .userDetails img {
+  max-width: 50%;
+  border-radius: 10px;
+}
   .profileContainer nav {
     display: flex;
     flex-direction: column;
@@ -156,11 +173,13 @@
   }
 
   .userDetails {
-    max-width: 300px;
+
     margin: auto;
   }
   .displayPages {
-    min-height: 50vh;
+    min-height: 60vh;
+    min-width: 65vw;
+    display: flex;
     border: 15px ridge var(--primary-text-color);
   }
   .addFormBox {

@@ -13,6 +13,12 @@
 section {
   margin-bottom: 5%;
 }
+.mainApp{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin-top:95px;
+}
 
 .headerContainer {
   display: flex;
@@ -191,7 +197,12 @@ li {
   justify-content: space-between;
 }
 .cardTextContent .price {
+  font-family: abel;
   font-size: 1rem;
+  display:flex;
+  justify-content: center;
+  align-items: flex-start;
+  flex-wrap: wrap;
 }
 .trendingIcon {
   display: relative;
@@ -288,7 +299,7 @@ li {
 .navbarIcons {
   display: flex;
   flex-direction: row;
-  gap: 13px;
+  gap: 9px;
 }
 
 a {
@@ -308,13 +319,16 @@ button {
   color: var(--primary-text-color);
   padding: 0.7em 1em;
   border-radius: 5px;
-  font-family: "Cinzel decorative";
+  font-family: "abel";
   font-weight: bold;
   background: linear-gradient(
     var(--primary-theme-color),
     white,
     var(--primary-theme-color)
   );
+}
+button:hover {
+  background: linear-gradient(white, var(--primary-theme-color));
 }
 
 footer {
@@ -397,6 +411,9 @@ input[type="range"]::-webkit-slider-thumb {
   background: var(--primary-text-color);
 }
 
+.MuiBadge-badge{
+  background-color: var(--primary-text-color);
+}
 /**
 CSS Loader
 */

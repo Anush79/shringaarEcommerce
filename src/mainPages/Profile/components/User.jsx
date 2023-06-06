@@ -1,5 +1,6 @@
 
 import {useAuth, useCart, useWish} from '../../../'
+import LogoutRoundedIcon from '@mui/icons-material/LogoutRounded';
 
 export default function User() {
 
@@ -7,8 +8,10 @@ export default function User() {
   const {cartCount} = useCart()
   const {wishlistCount} = useWish()
 
-  return (
-    <div className="userDetails">
+  return (<>
+      <h3>{currentUser.firstName  } Profile</h3>
+   <div className="userDetails">
+  
       <img src="\assets\model5.jpg" alt="" srcset="" />
       <div>
           <p className="info">
@@ -25,7 +28,7 @@ export default function User() {
       <p className="info">
         {" "}
         <span className="heading">Mobile : </span>
-        +91 9833322992
+        +91 9000000009
       </p>
       <p className="info">
       <span className="heading">Total Items in Cart: </span>
@@ -35,10 +38,12 @@ export default function User() {
       <span className="heading">Total Items in WishList: </span>
        { wishlistCount}
       </p>
-      
+      <button class="logOutBtn"onClick={logOutHandler}><LogoutRoundedIcon/> Log Out </button>
       </div>
       
-    <button onClick={logOutHandler}>log out</button>
+    
     </div>
+  </>
+   
   );
 }

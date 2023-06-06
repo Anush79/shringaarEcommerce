@@ -7,6 +7,7 @@ import './cart.css'
 export default function Cart(){
 const {cartCount} = useCart()
   return <div className="mainCartContainerPage">
+         <h3>Your Cart</h3>
         <nav>
         <NavLink to=''> Shopping Cart </NavLink> ------{`>`}
         <NavLink to={cartCount?'/cart/checkout':""}> Checkout Detail </NavLink>------{`>`}

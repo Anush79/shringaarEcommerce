@@ -7,7 +7,7 @@ export default function WishList() {
   const { wishList } = useWish();
   return (
     <div className="wishLish">
-      <h1>Your Wish List</h1>
+      <h3>Your Wish List</h3>
 
       {wishList?.backendWishList.length === 0 ? (
         <p className="empty_Wishlist ">

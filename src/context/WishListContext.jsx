@@ -93,6 +93,7 @@ export function WishProvider({ children }) {
   }
 
   useEffect(() => {
+    if(token)
     getWishListData();
   }, [token]);
   return (

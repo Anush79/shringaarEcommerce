@@ -1,28 +1,30 @@
 import "./productDetails.css";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import InnerImageZoom from "react-inner-image-zoom";
-import FavoriteRoundedIcon from '@mui/icons-material/FavoriteRounded';
-import FavoriteTwoToneIcon from '@mui/icons-material/FavoriteTwoTone';
+import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
+import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 
-import { useParams } from "react-router-dom";
 import { useData, useWish, useCart, useAuth } from "../../";
+import ChangeQty from "../../components/ChangeQty";
 
 export default function ProductDetails() {
   const { backendData } = useData();
-  const { addToCardFunction, isItemInCart } = useCart();
+  const { addToCardFunction, isItemInCart, changeQuantity } = useCart();
   const { token } = useAuth();
   const todate = new Date().toString();
   const { prodID } = useParams();
-  const { addWishListData ,isAvailableInWishList,deleteWishListData} = useWish();
+  const { addWishListData, isAvailableInWishList, deleteWishListData } =
+    useWish();
   const navigate = useNavigate();
   const product = backendData?.productsData.find((item) => item._id === prodID);
   if (product) {
     const {
+      _id,
       product_brand,
       product_category,
       product_color,
       product_description,
-      _id,
+
       product_image,
       product_material,
       product_name,
@@ -31,6 +33,7 @@ export default function ProductDetails() {
       product_price,
       product_rating,
       product_reviews,
+      qty,
     } = product;
 
     const discount = Math.floor(
@@ -55,12 +58,19 @@ export default function ProductDetails() {
               </button>
               <button
                 onClick={() => {
-                 if(isAvailableInWishList(_id)>=0) 
-                  deleteWishListData(_id)
-                  else addWishListData(product)
+                  if (isAvailableInWishList(_id) >= 0) deleteWishListData(_id);
+                  else addWishListData(product);
                 }}
               >
-             {  (isAvailableInWishList(_id)>=0)? <span class="removeWish">Remove <FavoriteRoundedIcon/> </span>:<span class="removeWish">Add to <FavoriteTwoToneIcon/> </span>}
+                {isAvailableInWishList(_id) >= 0 ? (
+                  <span class="removeWish">
+                    Remove <FavoriteRoundedIcon />{" "}
+                  </span>
+                ) : (
+                  <span class="removeWish">
+                    Add to <FavoriteTwoToneIcon />{" "}
+                  </span>
+                )}
               </button>
             </div>
           </div>

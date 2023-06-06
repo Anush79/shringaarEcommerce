@@ -34,6 +34,7 @@ function App() {
     <div className="App">
       <Header />
       <ScrollToTop />
+      <div className="mainApp">
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/mockman" element={<MockApi />} />
@@ -93,6 +94,7 @@ function App() {
         pauseOnHover
         theme="light"
       />
+      </div>
       <Footer />
     </div>
   );

@@ -21,7 +21,7 @@ h4 {
 
 .home p {
   font-family: abel;
-  width: 60%;
+  width: 100%;
   font-size: 1rem;
 }
 
@@ -52,6 +52,7 @@ h4 {
 .mainbutton {
   display: flex;
   justify-content: center;
+  font-size: 1rem;
 }
 
 .productsContainer {
@@ -128,6 +129,9 @@ h4 {
   .home {
     height: 80vh;
     font-size: 2rem;
+    padding-right:2.5rem;
+    align-items: flex-end;
+    text-align: right;
   }
 
   .home button {
@@ -166,6 +170,9 @@ h4 {
     width: 50%;
     padding-left: 100px;
     z-index: 3;
+  }
+  .mainbutton button{
+    font-size: 1.1rem;
   }
 
   .categoryBox {
@@ -209,6 +216,7 @@ h4 {
 
   .whyusContent {
     display: flex;
+    gap:3rem
   }
 
   .whyUsDescription {

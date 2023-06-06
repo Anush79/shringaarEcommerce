@@ -4,14 +4,14 @@ import "./home.css";
 import ProductCard from "../../components/ProductCard";
 
 
-import {useData} from '../../'
+import { useData } from '../../'
 
 
 export default function Home() {
-  const {backendData, categoriesData, setFiltersUsed} = useData()
-const navigate = useNavigate()
+  const { backendData, categoriesData, setFiltersUsed } = useData()
+  const navigate = useNavigate()
 
-  const trendingArray= backendData?.productsData.filter((item) => item.product_isBadge==="Trending")
+  const trendingArray = backendData?.productsData.filter((item) => item.product_isBadge === "Trending")
   return (
     <>
       <section className="home">
@@ -27,9 +27,9 @@ const navigate = useNavigate()
           finest materials to ensure both quality and beauty. Explore our collection, and find the perfect piece that speaks to you
         </p>
         <div className="mainbutton">
-         <NavLink to='/browse'>
-          <button>Shop Now</button>
-          </NavLink> 
+          <NavLink to='/browse'>
+            <button>Shop Now</button>
+          </NavLink>
 
         </div>
       </section>
@@ -38,7 +38,7 @@ const navigate = useNavigate()
         <p>Popular Products</p>
         <h3>TRENDING NOW</h3>
         <div className="productsContainer">
-          {trendingArray.slice(0, 6).map((item)=><ProductCard item={item} />)}
+          {trendingArray.slice(0, 6).map((item) => <ProductCard item={item} />)}
         </div>
 
       </section>
@@ -48,10 +48,10 @@ const navigate = useNavigate()
           <h3>BE ALWAYS ON TREND</h3>
           <p >We take immense pride in offering jewelry pieces that are crafted with the utmost care and attention to detail. Each item in our collection undergoes rigorous quality checks to ensure it meets our high standards</p>
           <div className="mainbutton">
-         <NavLink to='/browse'>
-          <button>Shop Now</button>
-          </NavLink> 
-        </div>
+            <NavLink to='/browse'>
+              <button>Shop Now</button>
+            </NavLink>
+          </div>
         </div>
         <div className="imageContent">
           <img className="bigImage" src='\assets\model2.jpg' width="400px" />
@@ -62,11 +62,11 @@ const navigate = useNavigate()
       <section className="ShopByCategory">
 
         <h3>SHOP BY CATEGORY</h3>
-        <p>Browse through your favorite categories. we have got them all!</p> 
-          <div className="categoryBox">
-            { 
-              categoriesData.map(({_id,categoryName, thumbnail })=> <div key={_id} className={categoryName} 
-              onClick= {()=>{
+        <p>Browse through your favorite categories. we have got them all!</p>
+        <div className="categoryBox">
+          {
+            categoriesData.map(({ _id, categoryName, thumbnail }) => <div key={_id} className={categoryName}
+              onClick={() => {
                 setFiltersUsed({
                   type: "CLEARFILTER",
                   inputValue: "",
@@ -77,12 +77,12 @@ const navigate = useNavigate()
               }}>
               <img src={thumbnail} alt={` random image of ${categoryName}`} />
               <p>{categoryName}</p>
-                </div>
-                )
-            }
-            
-          </div>
-     
+            </div>
+            )
+          }
+
+        </div>
+
 
       </section>
       <section className="whyUs">
