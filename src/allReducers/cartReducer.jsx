@@ -18,7 +18,6 @@ export const cartReducer = (state, action) => {
     case "DECREASEQUANT":
       return { ...state, loading: false, cartData: payload };
     case "ORDERPLACED":
-      console.log(payload)
       return {loading:false, orderPlaced: [...state.orderPlaced, payload]};
     default:
       console.log("something is wrong in cart reducer");

@@ -1,5 +1,5 @@
 .allProductsContainer {
-  margin-top: 98px;
+ 
   min-height:100vh
 }
 
@@ -28,11 +28,36 @@ aside {
 .priceFilter h3 {
   margin:0;
 }
+
 .priceFilter input {
+  -webkit-appearance: none;
+  appearance: none; 
   width: 90%;
+  cursor: pointer;
+  outline: none;
+  border-radius: 15px;
+  height: 9px;
+  background: #ccc;
 }
 
-
+.priceFilter input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none; 
+  height: 15px;
+  width: 15px;
+  background-color: var(--primary-text-color);
+  border-radius: 50%;
+  border: none;
+  transition: .2s ease-in-out;
+}
+input[type="range"]::-webkit-slider-runnable-track {
+  background-color: var(--primary-theme-color);
+  border-radius: 5px;
+  height: 15px;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  box-shadow: 0 0 0 10px rgba(255,85,0, .1)
+}
 aside div {
   display: flex;
   justify-content: flex-start;
@@ -118,10 +143,7 @@ grid-template-columns: 1fr 1fr;
   font-size: 0.8rem;
   text-align: left;
 }
-/* .mobileViewFilter{
-  max-width: 50%;
-  
-} */
+
 .showFiltersBtn{
   position: sticky;
   margin: 20px;

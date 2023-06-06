@@ -1,6 +1,6 @@
 .productDetailsContainer {
   margin:auto;
-  margin-top: 98px;
+ 
   max-width: 900px;
  
 }
@@ -92,8 +92,8 @@ gap: 20px;
     justify-content: space-between;
   }
   .buttons button{
-    padding: 0.8em;
-    font-size: 0.7em;
+    padding: 0.5rem;
+    font-size: 1rem;
     width: 50%;
   }
   .imgcontainer img{

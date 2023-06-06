@@ -24,14 +24,14 @@ export const AddressProvider = ({ children }) => {
   };
   const [addressState, setAddressState] = useState({
     id: uuid(),
-    fullName: "",
-    mobile: "",
-    building: "",
-    streetName: "",
-    town: "",
-    districtName: "",
-    pincode: "",
-    state: "",
+    fullName: null,
+    mobile: null,
+    building: null,
+    streetName: null,
+    town: null,
+    districtName: null,
+    pincode: null,
+    state: null,
     home: false,
     work: false,
   });

@@ -1,11 +1,12 @@
 .mainCartContainerPage {
 
   min-height: 90vh;
-
+  min-width: 95vw;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
+  padding:10px
 }
 
 .emptyCart {
@@ -25,10 +26,10 @@
   border: none;
   clip-path: circle(45%);
 }
-.displayPages{
+.displayCart{
   display: flex;
   flex-direction: column;
-  ;
+  justify-content: space-around;
 
 }
 .emptyCart p {
@@ -166,10 +167,12 @@ tbody tr td::before {
   font-family: "Cinzel Decorative";
   margin: 10px auto;
   background: var(--primary-theme-color);
-  width: 100%;
+  width: 96%;
   padding: 5px;
 }
-
+.cartProductBox h5{
+  width: 100%;
+}
 .totals > span,
 .cartProductBox .header {
   display: flex;
@@ -200,7 +203,12 @@ tbody tr td::before {
   justify-content: center;
   align-items: center;
 }
-
+.cartNav .active{
+  background-color: var(--primary-theme-color);
+  border-radius: 5px;
+padding: 5px;
+margin-bottom: 4px;
+}
 @media (min-width: 769px) {
   .shoppingCart {
     margin: auto 5%;
@@ -262,6 +270,9 @@ tbody tr td::before {
     padding: 10px;
   }
   .shoppingCart {
+    width: 100%;
+    margin:0;
+    justify-items: center;
     display: grid;
     grid-template-columns: 3fr 1fr;
     gap: 10px;
@@ -275,7 +286,7 @@ tbody tr td::before {
     min-height: 1.5rem;
   }
   .filledCart {
-    max-width: 80%;
+    
     display: grid;
     grid-template-columns: 2fr 1fr;
     justify-content: center;

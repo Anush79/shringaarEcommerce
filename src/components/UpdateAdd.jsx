@@ -16,10 +16,37 @@ export default function UpdateAddress({
     } else setAddressState(()=>({ ...addressState, [prop]: input }));
   };
 
+  function addressFormValidation(obj) {
+    for (let prop in obj) {
+      console.log(prop, obj, "ggggggg")
+      if (obj.hasOwnProperty(prop)) {
+        if (obj[prop] === null) {
+          return true; // Found a null property
+        }
+      }
+    }
+    return false; // No null properties found
+  }
+ 
+  
+
+  const handleAddressFormSubmit = (e) => {
+              
+    e.preventDefault();
+
+    if(!isEditClicked && !addressFormValidation(addressState))
+    addressDispatch({ type: "ADDRESSADD", payload: addressState });
+    else if(isEditClicked )
+    addressDispatch({ type: "EDITADD", payload: addressState });
+
+    clickF(false);
+    if (isEditClicked) setIsEditClicked(false);
+  }
+
   return (
     <>
       <div className="addFormBox">
-        <form className="addressForm" action="">
+        <form className="addressForm" action="#">
           <div
             className="closeAdd"
             onClick={() => {
@@ -35,21 +62,23 @@ export default function UpdateAddress({
               name="fullName"
               id="fullName"
               required
+              placeholder="Full Name"
               value={addressState.fullName}
               onChange={handleAddressInput}
             />
-            <label htmlFor="fullName"> Full Name</label>
+           
           </div>
           <div className="buildingAdd">
             <input
               type="text"
               name="building"
               id="building"
+              required
+              placeholder="Building"
               value={addressState.building}
               onChange={handleAddressInput}
             />
 
-            <label htmlFor="building">Building </label>
           </div>
           <div className="streetAdd">
             <input
@@ -57,10 +86,10 @@ export default function UpdateAddress({
               name="streetName"
               id="streetName"
               required
+              placeholder="Street Name"
               value={addressState.streetName}
               onChange={handleAddressInput}
             />
-            <label htmlFor="streetName">Street Name</label>
           </div>
           <div className="cityAdd">
             <input
@@ -68,10 +97,10 @@ export default function UpdateAddress({
               name="town"
               id="town"
               required
+              placeholder="City Name"
               value={addressState.town}
               onChange={handleAddressInput}
             />
-            <label htmlFor="town">City Name</label>
           </div>
           <div className="cityAdd">
             <input
@@ -80,9 +109,9 @@ export default function UpdateAddress({
               id="districtName"
               required
               value={addressState.districtName}
+              placeholder="District Name"
               onChange={handleAddressInput}
             />
-            <label htmlFor="districtName">District Name</label>
           </div>
           <div className="stateAdd">
             <input
@@ -91,9 +120,10 @@ export default function UpdateAddress({
               id="state"
               required
               value={addressState.state}
+              placeholder="State"
               onChange={handleAddressInput}
             />
-            <label htmlFor="state">State </label>
+           
           </div>
           <div className="pinCodeAdd">
             <input
@@ -104,10 +134,10 @@ export default function UpdateAddress({
               name="pincode"
               id="pincode"
               required
+              placeholder="Pincode"
               value={addressState.pincode}
               onChange={handleAddressInput}
             />
-            <label htmlFor="pincode">Pincode </label>
           </div>
           <div className="mobileAdd">
             <input
@@ -116,19 +146,19 @@ export default function UpdateAddress({
               id="mobile"
               value={addressState.mobile}
               required
+              placeholder="Mobile"
               onChange={handleAddressInput}
             />
-            <label htmlFor="mobile">Mobile </label>
           </div>
 
           <div className="addTypeAdd">
-            
+          Address Type
             <label htmlFor="home">
               {" "}
               <input
                 type="radio"
                 name="addType"
-                id=""
+                id="home"
                 checked={addressState.home}
                 onChange={handleAddressInput}
               />
@@ -138,29 +168,20 @@ export default function UpdateAddress({
               <input
                 type="radio"
                 name="addType"
-                id="home"
+                id="work"
                 checked={addressState.work}
                 onChange={handleAddressInput}
               />
               Work{" "}
             </label>
-            Address Type
+          
           </div>
 <div className="buttons">
 
 
           <button
             type="submit"
-            onClick={(e) => {
-              e.preventDefault();
-              if(!isEditClicked)
-              addressDispatch({ type: "ADDRESSADD", payload: addressState });
-              else if(isEditClicked)
-              addressDispatch({ type: "EDITADD", payload: addressState });
-
-              clickF(false);
-              if (isEditClicked) setIsEditClicked(false);
-            }}
+            onClick={handleAddressFormSubmit}
           >
             Submit
           </button>

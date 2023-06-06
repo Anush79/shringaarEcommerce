@@ -17,7 +17,7 @@ section {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
-  margin-top:95px;
+  margin-top:90px;
 }
 
 .headerContainer {
@@ -402,14 +402,7 @@ footer h6 {
   left: 45%;
   font-weight: 800;
 }
-input[type="range"]::-webkit-slider-runnable-track {
-  background-color: var(--primary-theme-color);
-  border-radius: 5px;
-  height: 10px;
-}
-input[type="range"]::-webkit-slider-thumb {
-  background: var(--primary-text-color);
-}
+
 
 .MuiBadge-badge{
   background-color: var(--primary-text-color);
