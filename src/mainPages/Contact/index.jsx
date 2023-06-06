@@ -30,7 +30,7 @@ export default function Contact() {
               <span>
                 <EmailTwoToneIcon />
               </span>{" "}
-              ShringaarContact@gmail.com
+              shringaarcontact@gmail.com
             </p>
             <p>
               <span>
@@ -51,9 +51,9 @@ export default function Contact() {
               value="http://localhost:3000/contact"
             />
             <div className="name">
-              <input type="text" name="first_name" placeholder="First Name" />
+              <input type="text" name="first_name" placeholder="First Name" required/>
 
-              <input type="text" name="last_name" placeholder="Last Name" />
+              <input type="text" name="last_name" placeholder="Last Name" required/>
             </div>
 
             <input

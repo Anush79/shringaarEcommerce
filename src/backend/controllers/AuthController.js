@@ -52,11 +52,6 @@ export const signupHandler = function (schema, request) {
   }
 };
 
-/**
- * This handler handles user login.
- * send POST Request at /api/auth/login
- * body contains {email, password}
- * */
 
 export const loginHandler = function (schema, request) {
   const { email, password } = JSON.parse(request.requestBody);

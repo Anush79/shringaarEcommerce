@@ -276,7 +276,7 @@ li {
   right: 13px;
 }
 .favorite svg {
-  color: var(--secondary-theme-color);
+  color:var(--primary-text-color);
 }
 .favorite svg[data-testid="FavoriteTwoToneIcon"] {
   color: var(--primary-text-color);

@@ -84,7 +84,8 @@
     grid-template-columns: 1fr 1fr;
     align-items: center;
     align-content: center;
-    padding: 50px
+    padding: 50px;
+    gap:5rem;
   }
 
 

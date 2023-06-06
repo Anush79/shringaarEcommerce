@@ -25,16 +25,24 @@ export function AuthProvider({ children }) {
         status,
         data: { encodedToken, foundUser },
       } = response;
-      console.log(status, encodedToken, foundUser);
+ 
       if (status === 200) {
         setToken(encodedToken);
         setCurrentUser(foundUser);
         navigate(location?.state?.from?.pathname);
+
+        localStorage.setItem(
+          "loginDetails",
+          JSON.stringify({
+            user: foundUser,
+            token: encodedToken,
+          })
+        )
       }
-      toast.success("successfully logged in", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-        className:"loginToast"
+      toast.success(`Welcome back, ${foundUser.firstName}!`, {
+        icon: "😍👋",
       });
+      navigate("/", { replace: true });
     } catch (error) {
       toast.error("Login unsuccessful, Email or Password is wrong", {
         position: toast.POSITION.BOTTOM_RIGHT,
