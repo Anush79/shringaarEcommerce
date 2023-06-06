@@ -203,12 +203,6 @@ tbody tr td::before {
   justify-content: center;
   align-items: center;
 }
-.cartNav .active{
-  background-color: var(--primary-theme-color);
-  border-radius: 5px;
-padding: 5px;
-margin-bottom: 4px;
-}
 @media (min-width: 769px) {
   .shoppingCart {
     margin: auto 5%;
