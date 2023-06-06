@@ -1,8 +1,6 @@
-import { NavLink,Outlet, Routes, Route } from "react-router-dom";
+import { NavLink,Outlet, } from "react-router-dom";
 import './profile.css'
-import Address from "./components/Address";
-import Orders from "./components/Orders";
-import User from "./components/User";
+
 
 export default function Profile() {
   return (

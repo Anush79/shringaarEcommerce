@@ -191,6 +191,7 @@ tbody tr td::before {
   padding:10px;
   font-family: abel;
   text-align: left;
+  border-radius: 5px;
 }
 .applyCoupon:hover{
   cursor: pointer;
@@ -204,11 +205,25 @@ tbody tr td::before {
   align-items: center;
 }
 @media (min-width: 769px) {
+  .orderComplete{
+    border:3px double var(--primary-theme-color);
+    border-radius:10px;
+    padding: 10px;
+  }
+  .placedOrderSummary{
+    border: 1px solid var(--primary-theme-color);
+    margin: 5px 20px;
+    padding:10px;
+    font-family: abel;
+    text-align: left;
+    border-radius: 5px;
+    min-width: 70%;
+  }
   .shoppingCart {
     margin: auto 5%;
   }
   .emptyCart img {
-    width: 50%;
+    width: 30%;
   }
   td {
     min-height: 4em;

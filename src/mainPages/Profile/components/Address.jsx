@@ -26,7 +26,6 @@ export default function Address({ isPresentinCheckout, setSelectedAddress ,id}) 
             <input
               type="radio"
               name="setAddress"
-              // checked={item.id===id?true:false}
               onChange={() => {
                 setSelectedAddress(item);
               }}

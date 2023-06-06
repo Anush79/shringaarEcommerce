@@ -151,6 +151,10 @@
     justify-content: center;
 
   }
+  .userProfileDetails{
+    display: flex;
+    flex-direction: column;
+  }
   .userDetails{
     display: flex;
     gap: 2rem;
@@ -185,6 +189,7 @@
     min-height: 60vh;
     min-width: 65vw;
     display: flex;
+    justify-content: center;
   }
   .addFormBox {
     max-width: 500px;
@@ -200,5 +205,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    gap:2rem;
   }
 }

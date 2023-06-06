@@ -203,7 +203,7 @@ const FilledCart = ({
                   {state} - <b>{pincode}</b>
                 </p>
               </div>
-              :<p>Please select an address</p>
+              :<p>Please select an Address</p>
 
             }
           </div>
