@@ -66,14 +66,14 @@ export default function Header() {
           </div>
         </div>
         <div className="navbarIcons">
-          <NavLink to="/about">
-            <li>About</li>
+          <NavLink to="/about" >
+            <li className="NavItem">About</li>
           </NavLink>
           <NavLink to="contact">
-            <li>Contact</li>
+            <li className="NavItem">Contact</li>
           </NavLink>
 
-          <span className="search">
+          <span className="search" >
             {isSearchclicked ? (
               <div className="inputElement overlay">
                 <span
@@ -179,7 +179,7 @@ export default function Header() {
 
 const CategoryList = ({ item, navigate, setFiltersUsed }) => {
   return (
-    <li
+    <li className="NavItem"
       key={item._id}
       value={item.categoryName}
       onClick={(e) => {

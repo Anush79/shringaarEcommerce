@@ -949,7 +949,12 @@ CSS Loader
   .headerContainer {
     justify-content: space-between;
   }
-
+.NavItem:hover{
+text-decoration:  overline var(--primary-theme-color);
+}
+.headerContainer .active{
+  text-decoration:  overline var(--primary-theme-color);
+}
   .navbarIcons li {
     display: flex;
   }

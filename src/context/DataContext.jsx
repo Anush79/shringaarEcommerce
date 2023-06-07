@@ -69,7 +69,7 @@ export function DataProvider({ children }) {
   }, []);
 
   const [filtersUsed, setFiltersUsed] = useReducer(reducerFilterFunction, {
-    priceRange: "",
+    priceRange: 1500,
     search: "",
     sort: "",
     rating: "",
