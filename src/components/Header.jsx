@@ -183,6 +183,10 @@ const CategoryList = ({ item, navigate, setFiltersUsed }) => {
       key={item._id}
       value={item.categoryName}
       onClick={(e) => {
+        setFiltersUsed({
+          type: "CLEARFILTER",
+          inputValue: "",
+        });
         setFiltersUsed({ type: "CATEGORY", inputValue: item.categoryName });
         navigate("/browse");
       }}

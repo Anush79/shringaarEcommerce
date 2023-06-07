@@ -35,7 +35,7 @@ export const reducerFilterFunction = (state, action) => {
       };
     case "CLEARFILTER":
       return {
-        priceRange: "",
+        priceRange: 1500,
         search: "",
         sort: "",
         rating: "",
