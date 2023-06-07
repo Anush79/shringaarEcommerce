@@ -58,11 +58,11 @@ export default function Header() {
               <div className="bar3"></div>
             </span>
           </div>
-          <div className="logoContatiner">
-            <NavLink to="/">
+          <div className="logoContatiner" onClick={()=>{navigate('/')}}>
+            
               <h2>ShringaaR</h2>
               <p>Your Jewelry House</p>
-            </NavLink>
+            
           </div>
         </div>
         <div className="navbarIcons">

@@ -38,6 +38,7 @@ section {
   font-size: 1em;
   line-height: 10px;
   padding: 8px;
+  cursor:pointer;
 }
 
 .logoContatiner h2 {
