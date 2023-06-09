@@ -1,5 +1,5 @@
 import "./productDetails.css";
-import { useNavigate} from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import InnerImageZoom from "react-inner-image-zoom";
 import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
@@ -9,14 +9,14 @@ import Loader from "../../components/Loader";
 
 export default function ProductDetails() {
   const { singleProduct } = useData();
-  const { addToCardFunction, isItemInCart} = useCart();
+  const { addToCardFunction, isItemInCart } = useCart();
   const { token } = useAuth();
   const todate = new Date().toString();
   const { addWishListData, isAvailableInWishList, deleteWishListData } =
     useWish();
   const navigate = useNavigate();
 
-  const product= singleProduct?.product;
+  const product = singleProduct?.product;
 
   if (product) {
     const {
@@ -41,10 +41,10 @@ export default function ProductDetails() {
       100 - (product_price / product_prevPrice) * 100
     );
 
-    if(singleProduct.loading)
-    return <Loader/>
+    if (singleProduct.loading)
+      return <Loader />
     return (
-      
+
       <div className="productDetailsContainer" key={_id}>
         <div className="detailsContainer">
           <div className="imgcontainer">
@@ -58,7 +58,7 @@ export default function ProductDetails() {
                     : addToCardFunction(product, token);
                 }}
               >
-                { token && isItemInCart(_id) ? "Go to Cart" : "Add to Cart"}
+                {token && isItemInCart(_id) ? "Go to Cart" : "Add to Cart"}
               </button>
               <button
                 onClick={() => {
@@ -66,7 +66,7 @@ export default function ProductDetails() {
                   else addWishListData(product);
                 }}
               >
-                {toke && isAvailableInWishList(_id) >= 0 ? (
+                {token && isAvailableInWishList(_id) >= 0 ? (
                   <span class="removeWish">
                     Remove <FavoriteRoundedIcon />{" "}
                   </span>
