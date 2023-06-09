@@ -71,11 +71,15 @@ aside .filterHeader {
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
+  
 }
 aside input{
-  accent-color:var(--primary-text-color)
+  accent-color:var(--primary-text-color);
+  cursor:pointer;
 }
-
+aside label{
+  cursor: pointer;
+}
 .filterHeader button {
   padding: 0.5em;
 }
