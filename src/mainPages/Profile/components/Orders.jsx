@@ -4,14 +4,16 @@ import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-import { useCart } from "../../../";
+import { useCart , useData} from "../../../";
 import Loader from "../../../components/Loader";
+
 
 export default function Orders() {
   const navigate = useNavigate();
   const {
     cartManager: { orderPlaced, loading },
   } = useCart();
+const {getSingleProduct} = useData()
 
   return (
     <div className="ordersContainer">
@@ -89,6 +91,7 @@ export default function Orders() {
                           style={{ cursor: "pointer" }}
                           key={item.id}
                           onClick={() => {
+                            getSingleProduct(item._id)
                             navigate(`/products/${item._id}`);
                           }}
                         >

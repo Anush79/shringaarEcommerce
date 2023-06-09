@@ -31,5 +31,5 @@ export const reducer = (state, action) => {
       console.log("something is wrong in reducer");
       break;
   }
-  console.log(state)
+ 
 };
