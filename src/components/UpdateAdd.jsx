@@ -1,4 +1,6 @@
+import {toast} from 'react-toastify'
 import { useAddress } from "../context/AddressContext";
+
 export default function UpdateAddress({
   clickF,
   isEditClicked,
@@ -16,29 +18,22 @@ export default function UpdateAddress({
     } else setAddressState(()=>({ ...addressState, [prop]: input }));
   };
 
-  function addressFormValidation(obj) {
-    for (let prop in obj) {
-      console.log(prop, obj, "ggggggg")
-      if (obj.hasOwnProperty(prop)) {
-        if (obj[prop] === null) {
-          return true; // Found a null property
-        }
-      }
-    }
-    return false; // No null properties found
-  }
- 
-  
-
   const handleAddressFormSubmit = (e) => {
               
     e.preventDefault();
 
-    if(!isEditClicked && !addressFormValidation(addressState))
+    if(!isEditClicked){
     addressDispatch({ type: "ADDRESSADD", payload: addressState });
-    else if(isEditClicked )
+    toast.success("New Address added successfully", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    })
+  }
+    else if(isEditClicked ){
     addressDispatch({ type: "EDITADD", payload: addressState });
-
+    toast.success("Address Edited Successfully", {
+      position: toast.POSITION.BOTTOM_RIGHT,
+    })
+}
     clickF(false);
     if (isEditClicked) setIsEditClicked(false);
   }

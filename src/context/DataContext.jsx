@@ -162,6 +162,7 @@ export function DataProvider({ children }) {
         getSingleProduct,
         singleProduct,
         filtersUsed,
+        setBackendData,
       }}
     >
       {children}
