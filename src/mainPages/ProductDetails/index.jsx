@@ -5,18 +5,19 @@ import FavoriteRoundedIcon from "@mui/icons-material/FavoriteRounded";
 import FavoriteTwoToneIcon from "@mui/icons-material/FavoriteTwoTone";
 
 import { useData, useWish, useCart, useAuth } from "../../";
-import ChangeQty from "../../components/ChangeQty";
+import Loader from "../../components/Loader";
 
 export default function ProductDetails() {
-  const { backendData } = useData();
+  const { singleProduct } = useData();
   const { addToCardFunction, isItemInCart, changeQuantity } = useCart();
   const { token } = useAuth();
   const todate = new Date().toString();
-  const { prodID } = useParams();
   const { addWishListData, isAvailableInWishList, deleteWishListData } =
     useWish();
   const navigate = useNavigate();
-  const product = backendData?.productsData.find((item) => item._id === prodID);
+
+  const product= singleProduct?.product;
+
   if (product) {
     const {
       _id,
@@ -33,14 +34,17 @@ export default function ProductDetails() {
       product_price,
       product_rating,
       product_reviews,
-      qty,
+
     } = product;
 
     const discount = Math.floor(
       100 - (product_price / product_prevPrice) * 100
     );
 
+    if(singleProduct.loading)
+    return <Loader/>
     return (
+      
       <div className="productDetailsContainer" key={_id}>
         <div className="detailsContainer">
           <div className="imgcontainer">
