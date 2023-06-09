@@ -44,10 +44,10 @@ export default function ProductCard({ item, inWishlist }) {
             
           </div>
           <span className="favorite" title= "Add to WishList" onClick={(e)=>{e.preventDefault();
-           isAvailableInWishList(_id)>=0 ?deleteWishListData(_id):addWishListData(item)
+          token && isAvailableInWishList(_id)>=0 ?deleteWishListData(_id):addWishListData(item)
           }}>
            {
-           isAvailableInWishList(_id)>=0 ?<FavoriteRoundedIcon/>:
+           token&&isAvailableInWishList(_id)>=0 ?<FavoriteRoundedIcon/>:
             <FavoriteTwoToneIcon/>
           
             
@@ -66,7 +66,7 @@ export default function ProductCard({ item, inWishlist }) {
 
           <div className="buttons">
             <div className="addToCartButton" title= "Add to Cart">
-              {isItemInCart(_id) ? (
+              {token && isItemInCart(_id) ? (
                 <span
                   title="Move to Cart"
                   className="moveToCart"
