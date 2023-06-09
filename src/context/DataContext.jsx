@@ -5,6 +5,7 @@ import {
   useState,
   useEffect,
 } from "react";
+import { toast } from "react-toastify";
 import { reducerFilterFunction } from "../allReducers/filtersReducer";
 import {
   getProduct,
@@ -39,12 +40,23 @@ export function DataProvider({ children }) {
   };
 
   const getSingleProduct = async (id) => {
+    setSingleProduct({
+      ...singleProduct,
+      loading: true,
+    });
     try {
       const response = await getProduct(id);
-      // const {status,data:{categories}}= response;
-      // if(status === 200)
-      // setCategories(categories)
+      const {
+        status,
+        data: { product: productDB },
+      } = response;
+      if (status === 200)
+        setSingleProduct({
+          product: productDB,
+          loading: false,
+        });
     } catch (error) {
+      toast.error(error.message);
       console.log(error);
     }
   };
@@ -57,7 +69,6 @@ export function DataProvider({ children }) {
         data: { categories },
       } = response;
       if (status === 200) setCategoriesData(categories);
- 
     } catch (error) {
       console.log(error);
     }
@@ -76,8 +87,6 @@ export function DataProvider({ children }) {
     ocassionFilters: [],
     categoryFilters: [],
     materialFilter: [],
-    
-
   });
 
   const lowercaseSearch = filtersUsed.search.toLowerCase();
@@ -151,7 +160,8 @@ export function DataProvider({ children }) {
         setFiltersUsed,
         categoriesData,
         getSingleProduct,
-        filtersUsed
+        singleProduct,
+        filtersUsed,
       }}
     >
       {children}
