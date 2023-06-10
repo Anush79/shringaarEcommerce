@@ -97,6 +97,7 @@ export function AuthProvider({ children }) {
     toast.success("logged out successfully", {
       position: toast.POSITION.BOTTOM_RIGHT,
     });
+    localStorage.removeItem("loginDetails")
     navigate("/");
   };
   return (

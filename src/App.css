@@ -167,6 +167,8 @@ li {
   justify-content: space-between;
   align-items: center;
   object-fit: cover;
+  font-family:cinzel;
+  font-weight: 400;
 }
 
 .ProductCard a {
@@ -176,6 +178,7 @@ li {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
 }
 .ProductCard img {
   width: 100%;
