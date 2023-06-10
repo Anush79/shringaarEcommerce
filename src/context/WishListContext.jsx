@@ -40,10 +40,11 @@ export function WishProvider({ children }) {
   };
   const addWishListData = async (product) => {
     try {
-      if (!token)
+      if (!token){
+        navigate('/login', {state:{from :location}})
         toast.warn("You need to login first", {
           position: toast.POSITION.BOTTOM_RIGHT,
-        });
+        });}
       else {
         const response = await addToWishList(product, token);
         const {

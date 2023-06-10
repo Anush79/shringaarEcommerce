@@ -37,6 +37,7 @@ export default function Address({ isPresentinCheckout, setSelectedAddress ,id}) 
               isEditClicked={isEditClicked}
               setIsEditClicked={setIsEditClicked}
               handleEdit={handleEdit}
+              isPresentinCheckout
             />
             </div>
             

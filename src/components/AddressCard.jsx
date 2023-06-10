@@ -6,6 +6,7 @@ export default function AddressCard({
   handleEdit,
   setIsEditClicked,
   addressDispatch,
+  isPresentinCheckout
 }) {
   const {
     id,
@@ -43,23 +44,27 @@ export default function AddressCard({
         </p>
       </div>
       <div className="buttons">
-        <button
-          onClick={() => {
-            handleEdit(id, true);
-            setIsEditClicked(() => true);
-          }}
-        >
-          Edit
-          <EditIcon />
-        </button>
-        <button
-          onClick={() => {
-            addressDispatch({ type: "DELETEADD", payload: id });
-          }}
-        >
-          Delete
-          <DeleteForeverIcon />
-        </button>
+        {isPresentinCheckout ? null : (
+          <button
+            onClick={() => {
+              handleEdit(id, true);
+              setIsEditClicked(() => true);
+            }}
+          >
+            Edit
+            <EditIcon />
+          </button>
+        )}
+        {isPresentinCheckout ? null : (
+          <button
+            onClick={() => {
+              addressDispatch({ type: "DELETEADD", payload: id });
+            }}
+          >
+            Delete
+            <DeleteForeverIcon />
+          </button>
+        )}
       </div>
     </div>
   );
