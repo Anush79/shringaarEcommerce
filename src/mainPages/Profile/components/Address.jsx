@@ -20,7 +20,8 @@ export default function Address({ isPresentinCheckout, setSelectedAddress ,id}) 
         <span className="plus">+</span>
         Add New Address
       </div>
-      {address.map((item) => {
+      {address.length<1? <h6>Please Add atleast one Address</h6>:
+      address.map((item) => {
         return isPresentinCheckout ? (
           <label htmlFor="" class="checkoutLabel">
             <input
@@ -37,6 +38,7 @@ export default function Address({ isPresentinCheckout, setSelectedAddress ,id}) 
               isEditClicked={isEditClicked}
               setIsEditClicked={setIsEditClicked}
               handleEdit={handleEdit}
+              isPresentinCheckout
             />
             </div>
             
