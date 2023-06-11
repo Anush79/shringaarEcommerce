@@ -25,11 +25,13 @@ export function AuthProvider({ children }) {
         status,
         data: { encodedToken, foundUser },
       } = response;
- 
+
       if (status === 200) {
         setToken(encodedToken);
         setCurrentUser(foundUser);
-        navigate(location?.state?.from?.pathname);
+        if (location?.state?.from?.pathname)
+          navigate(location?.state?.from?.pathname);
+        else navigate("/", { replace: true });
 
         localStorage.setItem(
           "loginDetails",
@@ -37,12 +39,11 @@ export function AuthProvider({ children }) {
             user: foundUser,
             token: encodedToken,
           })
-        )
+        );
       }
       toast.success(`Welcome back, ${foundUser.firstName}!`, {
         icon: "😍👋",
       });
-      navigate("/", { replace: true });
     } catch (error) {
       toast.error("Login unsuccessful, Email or Password is wrong", {
         position: toast.POSITION.BOTTOM_RIGHT,
@@ -72,37 +73,39 @@ export function AuthProvider({ children }) {
         );
         setToken(encodedToken);
         setCurrentUser(createdUser);
+        toast.success("Sign Up Successful", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
       }
-      toast.success("Sign Up Successful", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
-      navigate("/browse", { replace: true });
+      if (location?.state?.from?.pathname)
+        navigate(location?.state?.from?.pathname);
+      else navigate("/browse", { replace: true });
     } catch (error) {
       console.log(error);
-      if(error.response.status === 422){
+      if (error.response.status === 422) {
         toast.error("User Already exists", {
           position: toast.POSITION.BOTTOM_RIGHT,
         });
-      }else
-      toast.error("Sign up unsuccessful", {
-        position: toast.POSITION.BOTTOM_RIGHT,
-      });
+      } else
+        toast.error("Sign up unsuccessful", {
+          position: toast.POSITION.BOTTOM_RIGHT,
+        });
     }
   };
 
   const logOutHandler = async () => {
-    setToken(()=>null);
-    setCurrentUser(()=>null);
+    setToken(() => null);
+    setCurrentUser(() => null);
     console.log("logout success");
     toast.success("logged out successfully", {
       position: toast.POSITION.BOTTOM_RIGHT,
     });
-    localStorage.removeItem("loginDetails")
+    localStorage.removeItem("loginDetails");
     navigate("/");
   };
   return (
     <AuthContext.Provider
-      value={{ signUpHandler, loginHandler, logOutHandler, token,currentUser }}
+      value={{ signUpHandler, loginHandler, logOutHandler, token, currentUser }}
     >
       {children}
     </AuthContext.Provider>
