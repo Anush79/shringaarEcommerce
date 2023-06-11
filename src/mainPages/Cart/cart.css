@@ -83,10 +83,13 @@ tbody tr td::before {
   display: flex;
   justify-content: center;
 }
-
+th.product-remove:hover{
+  color:var(--primary-text-color)
+}
 .product-remove:hover {
   border-radius: 50%;
   color: red;
+  cursor: pointer;
 }
 
 .cartTotal {
@@ -204,6 +207,13 @@ tbody tr td::before {
   display:flex;
   justify-content: center;
   align-items: center;
+}
+.product-add-to-fav:hover{
+  cursor: pointer;
+  color: var(--primary-theme-color);
+}
+.counter svg:hover{
+ cursor:pointer;
 }
 @media (min-width: 769px) {
   .orderComplete{

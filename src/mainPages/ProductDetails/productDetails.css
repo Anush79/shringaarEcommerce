@@ -95,6 +95,9 @@ gap: 20px;
     padding: 0.5rem;
     font-size: 1rem;
     width: 50%;
+    align-items: center;
+    display: flex;
+    justify-content: center;
   }
   .imgcontainer img{
     height:30%;

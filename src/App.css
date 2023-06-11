@@ -160,7 +160,6 @@ li {
 .ProductCard {
   padding: 5px;
   position: relative;
-  background: linear-gradient(white, var(--primary-theme-color));
   box-shadow: 0 3px 4px rgba(128, 128, 128, 0.592);
   display: flex;
   flex-direction: column;
@@ -169,6 +168,8 @@ li {
   object-fit: cover;
   font-family:cinzel;
   font-weight: 400;
+  background: var(--primary-theme-color);
+  border-radius: 5px;
 }
 
 .ProductCard a {
@@ -188,12 +189,10 @@ li {
 }
 .ProductCard:hover{
  
-    transition: all 01s ease-in-out;
-    box-shadow: 0px 4px 8px rgba(38, 38, 38, 0.2);
-  
-    outline: 1px solid #cccccc;
-    background-color: white;
-  
+    transition: all 1s ease-in-out;
+    box-shadow: 0px 4px 8px rgba(80, 62, 62, 0.622);
+    outline: 1px solid #5f3926;
+    background-color:var(--primary-theme-color);
 }
 .ProductCard .cardTextContent {
   display: flex;
@@ -330,6 +329,7 @@ button {
     white,
     var(--primary-theme-color)
   );
+  font-size:0.9rem
 }
 button:hover {
   background: linear-gradient(white, var(--primary-theme-color));

@@ -86,7 +86,9 @@ export default function ProductCard({ item, inWishlist }) {
               )}
             </div>
 
-            {isItemInCart(_id)&& inWishlist ? (
+            
+        </div>
+        {isItemInCart(_id)&& inWishlist ? (
               <button
                 onClick={(e) => {
                   e.preventDefault();
@@ -97,7 +99,6 @@ export default function ProductCard({ item, inWishlist }) {
               </button>
             ) : null}
           </div>
-        </div>
       </NavLink>
     </div>
   );
