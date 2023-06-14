@@ -35,10 +35,10 @@ Ecommerce Application based on React Js. We are selling jewellary items of diffe
 
 #### Install and Run Locally
 `
-$ git clone https://github.com/Anush79/shringaarEcommerce.git
-$ cd shringaarEcommerce
-$ npm install
-$ npm start
+* $ git clone https://github.com/Anush79/shringaarEcommerce.git
+* $ cd shringaarEcommerce
+* $ npm install
+* $ npm start
 `
 
 ### ScreenShots
