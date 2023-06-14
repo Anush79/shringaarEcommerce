@@ -48,7 +48,7 @@ export default function Contact() {
             <input
               type="hidden"
               name="_next"
-              value="http://localhost:3000/contact"
+              value="http://shringaar.netlify.app/contact"
             />
             <div className="name">
               <input type="text" name="first_name" placeholder="First Name" required/>
