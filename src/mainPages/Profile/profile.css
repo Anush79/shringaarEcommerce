@@ -34,6 +34,7 @@
   flex-direction: column;
   align-items: flex-start;
   text-align: left;
+  gap:8px;
 }
 .userDetails div p {
   margin: 0.1rem;
@@ -142,6 +143,18 @@
 .logOutBtn svg{
   height: 1rem;
 }
+.userProfileDetails .formBox .formValue{
+  display: flex;
+  flex-direction: column;
+  justify-content: conter;
+  align-items: flex-start;
+  gap:10px;
+  padding:20px;
+}
+
+.profileButtons .logOutBtn:hover{
+  color: red
+}
 @media (min-width: 768px) {
   .profileContainer {
     min-width: 50%;
@@ -158,7 +171,8 @@
   .userDetails{
     display: flex;
     gap: 2rem;
-    
+    align-items: center;
+    justify-content: center;
   }
   .userDetails img {
   max-width: 50%;
@@ -207,4 +221,31 @@
     align-items: center;
     gap:2rem;
   }
+  .userProfileDetails .formBox{
+    max-width: 30%;
+    text-align: center;
+    margin: auto;
+  }
+   .userProfileDetails .formBox .formValue{
+    max-width: 80%;
+    }
+   
+    .userProfileDetails .formValue input{
+      padding: 0.3rem
+    }
+    .closeForm{
+      position: relative;
+      top: 1%;
+      margin-left: 50%;
+    }
+    .profileButtons {
+     
+      margin-bottom:0;
+display: flex;
+flex-direction: row;
+width: 100%;
+    }
+    .profileButtons button{
+      margin:0;
+    }
 }

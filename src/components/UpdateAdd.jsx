@@ -1,4 +1,4 @@
-import {toast} from 'react-toastify'
+import { toast } from "react-toastify";
 import { useAddress } from "../context/AddressContext";
 
 export default function UpdateAddress({
@@ -14,34 +14,32 @@ export default function UpdateAddress({
     let prop = e.target.id;
 
     if (e.target.type === "radio") {
-      setAddressState(()=>({ ...addressState, [prop]: e.target.checked }));
-    } else setAddressState(()=>({ ...addressState, [prop]: input }));
+      setAddressState(() => ({ ...addressState, [prop]: e.target.checked }));
+    } else setAddressState(() => ({ ...addressState, [prop]: input }));
   };
 
   const handleAddressFormSubmit = (e) => {
-              
     e.preventDefault();
 
-    if(!isEditClicked){
-    addressDispatch({ type: "ADDRESSADD", payload: addressState });
-    toast.success("New Address added successfully", {
-      position: toast.POSITION.BOTTOM_RIGHT,
-    })
-  }
-    else if(isEditClicked ){
-    addressDispatch({ type: "EDITADD", payload: addressState });
-    toast.success("Address Edited Successfully", {
-      position: toast.POSITION.BOTTOM_RIGHT,
-    })
-}
+    if (!isEditClicked) {
+      addressDispatch({ type: "ADDRESSADD", payload: addressState });
+      toast.success("New Address added successfully", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    } else if (isEditClicked) {
+      addressDispatch({ type: "EDITADD", payload: addressState });
+      toast.success("Address Edited Successfully", {
+        position: toast.POSITION.BOTTOM_RIGHT,
+      });
+    }
     clickF(false);
     if (isEditClicked) setIsEditClicked(false);
-  }
+  };
 
   return (
     <>
       <div className="addFormBox">
-        <form className="addressForm" action="#">
+        <form className="addressForm" onSubmit={handleAddressFormSubmit}>
           <div
             className="closeAdd"
             onClick={() => {
@@ -61,7 +59,6 @@ export default function UpdateAddress({
               value={addressState.fullName}
               onChange={handleAddressInput}
             />
-           
           </div>
           <div className="buildingAdd">
             <input
@@ -73,7 +70,6 @@ export default function UpdateAddress({
               value={addressState.building}
               onChange={handleAddressInput}
             />
-
           </div>
           <div className="streetAdd">
             <input
@@ -118,7 +114,6 @@ export default function UpdateAddress({
               placeholder="State"
               onChange={handleAddressInput}
             />
-           
           </div>
           <div className="pinCodeAdd">
             <input
@@ -147,7 +142,7 @@ export default function UpdateAddress({
           </div>
 
           <div className="addTypeAdd">
-          Address Type
+            Address Type
             <label htmlFor="home">
               {" "}
               <input
@@ -169,25 +164,17 @@ export default function UpdateAddress({
               />
               Work{" "}
             </label>
-          
           </div>
-<div className="buttons">
-
-
-          <button
-            type="submit"
-            onClick={handleAddressFormSubmit}
-          >
-            Submit
-          </button>
-          <button
-            onClick={(e) => {
-              e.preventDefault();
-              setAddressState(dummyAddress);
-            }}
-          >
-            Dummy Address
-          </button>
+          <div className="buttons">
+            <button type="submit">Submit</button>
+            <button
+              onClick={(e) => {
+                e.preventDefault();
+                setAddressState(dummyAddress);
+              }}
+            >
+              Dummy Address
+            </button>
           </div>
         </form>
       </div>

@@ -2,7 +2,7 @@ h4 {
   font-size: small;
   font-family: abel;
   color: #575757;
-  margin-top: 0px;
+
 }
 
 .home {
@@ -16,7 +16,7 @@ h4 {
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  padding-top: 100px;
+  min-height: 90vh;
 }
 
 .home p {

@@ -51,7 +51,7 @@
   gap:10px;
   margin:10px;
   justify-content: space-between;
-
+align-items: center;
 }
 
 .highlights div{
