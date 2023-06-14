@@ -63,7 +63,7 @@ export function AuthProvider({ children }) {
         status,
         data: { createdUser, encodedToken },
       } = response;
-      if (status === 201) {
+      if (status === 200 || status === 201) {
         localStorage.setItem(
           "loginDetails",
           JSON.stringify({
@@ -105,7 +105,7 @@ export function AuthProvider({ children }) {
   };
   return (
     <AuthContext.Provider
-      value={{ signUpHandler, loginHandler, logOutHandler, token, currentUser }}
+      value={{ signUpHandler, loginHandler, logOutHandler, token,setCurrentUser, currentUser }}
     >
       {children}
     </AuthContext.Provider>
